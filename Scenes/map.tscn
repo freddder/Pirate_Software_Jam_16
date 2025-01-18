@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://c5fo8j4mcgu63"]
+[gd_scene load_steps=16 format=4 uid="uid://c5fo8j4mcgu63"]
 
 [ext_resource type="Texture2D" uid="uid://dxh43a7gejphf" path="res://Spirites/Tilesets/Tileset-Animated Terrains-8 frames- transparency.png" id="1_aukrr"]
 [ext_resource type="Texture2D" uid="uid://m65v2nd15652" path="res://Spirites/Tilesets/Tileset-Animated Terrains-8 frames-.png" id="2_7121s"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cyu0kjt3js1io" path="res://Spirites/Tilesets/wall-8 - 2 tiles tall.png" id="5_u6fa2"]
 [ext_resource type="Texture2D" uid="uid://bhtyx1qsar4q4" path="res://Spirites/Tilesets/demonstration.png" id="6_mynjy"]
 [ext_resource type="PackedScene" uid="uid://bd74mkhe1hxkk" path="res://Scenes/golem.tscn" id="7_52wch"]
+[ext_resource type="PackedScene" uid="uid://bj1uthfk37t1e" path="res://Scenes/base_animal.tscn" id="8_oyncl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jkgia"]
 texture = ExtResource("1_aukrr")
@@ -7975,3 +7976,6 @@ tile_set = SubResource("TileSet_1e1un")
 
 [node name="Golem" parent="." instance=ExtResource("7_52wch")]
 position = Vector2(-27, -120)
+
+[node name="BaseAnimal" parent="." instance=ExtResource("8_oyncl")]
+position = Vector2(-86, -111)

@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://bj1uthfk37t1e"]
+
+[ext_resource type="Texture2D" uid="uid://bklgrqi23xfae" path="res://icon.svg" id="1_msn1o"]
+[ext_resource type="Script" path="res://Scenes/base_animal.gd" id="1_x85lv"]
+[ext_resource type="Script" path="res://Scripts/state_machine.gd" id="2_617yx"]
+[ext_resource type="Script" path="res://Scripts/animal_idle.gd" id="3_jnpmu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wq7iq"]
+radius = 19.0263
+
+[node name="BaseAnimal" type="CharacterBody2D"]
+script = ExtResource("1_x85lv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_msn1o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_wq7iq")
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("2_617yx")
+initial_state = NodePath("AnimalIdle")
+
+[node name="AnimalIdle" type="Node" parent="StateMachine" node_paths=PackedStringArray("animal")]
+script = ExtResource("3_jnpmu")
+animal = NodePath("../..")
