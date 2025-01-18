@@ -3,10 +3,6 @@
 [ext_resource type="Script" path="res://Scripts/golem.gd" id="1_o5vha"]
 [ext_resource type="Texture2D" uid="uid://d4er0u8pt4qae" path="res://Spirites/Golem/NPC Merchant-idle.png" id="2_mlc4t"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0octc"]
-radius = 17.0
-height = 48.0
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_j6tsg"]
 atlas = ExtResource("2_mlc4t")
 region = Rect2(0, 0, 110, 100)
@@ -86,16 +82,23 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0octc"]
+radius = 23.0
+height = 70.0
+
 [node name="Golem" type="CharacterBody2D"]
 script = ExtResource("1_o5vha")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_0octc")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-2, -7)
 sprite_frames = SubResource("SpriteFrames_2ggrn")
 animation = &"g_idle"
-frame_progress = 0.494368
+frame_progress = 0.640777
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 2
+y_sort_enabled = true
+position = Vector2(0, -12)
+shape = SubResource("CapsuleShape2D_0octc")
 
 [node name="Camera2D" type="Camera2D" parent="."]
