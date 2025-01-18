@@ -1,0 +1,101 @@
+[gd_scene load_steps=13 format=3 uid="uid://bd74mkhe1hxkk"]
+
+[ext_resource type="Script" path="res://Scripts/golem.gd" id="1_o5vha"]
+[ext_resource type="Texture2D" uid="uid://d4er0u8pt4qae" path="res://Spirites/Golem/NPC Merchant-idle.png" id="2_mlc4t"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0octc"]
+radius = 22.0
+height = 56.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j6tsg"]
+atlas = ExtResource("2_mlc4t")
+region = Rect2(0, 0, 110, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o8uvh"]
+atlas = ExtResource("2_mlc4t")
+region = Rect2(110, 0, 110, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ywvfm"]
+atlas = ExtResource("2_mlc4t")
+region = Rect2(220, 0, 110, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_830ll"]
+atlas = ExtResource("2_mlc4t")
+region = Rect2(330, 0, 110, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4gym7"]
+atlas = ExtResource("2_mlc4t")
+region = Rect2(440, 0, 110, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e38nc"]
+atlas = ExtResource("2_mlc4t")
+region = Rect2(550, 0, 110, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hx7yv"]
+atlas = ExtResource("2_mlc4t")
+region = Rect2(660, 0, 110, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ljb31"]
+atlas = ExtResource("2_mlc4t")
+region = Rect2(770, 0, 110, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2ggrn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j6tsg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o8uvh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ywvfm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_830ll")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4gym7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e38nc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hx7yv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ljb31")
+}],
+"loop": true,
+"name": &"g_idle",
+"speed": 6.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"g_walk_down",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"g_walk_side",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"g_walk_up",
+"speed": 5.0
+}]
+
+[node name="Golem" type="CharacterBody2D"]
+script = ExtResource("1_o5vha")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_0octc")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-2, -7)
+sprite_frames = SubResource("SpriteFrames_2ggrn")
+animation = &"g_idle"
+frame_progress = 0.0301322
+
+[node name="Camera2D" type="Camera2D" parent="."]
