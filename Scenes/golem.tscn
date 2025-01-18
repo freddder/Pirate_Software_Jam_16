@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://d4er0u8pt4qae" path="res://Spirites/Golem/NPC Merchant-idle.png" id="2_mlc4t"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0octc"]
-radius = 22.0
-height = 56.0
+radius = 17.0
+height = 48.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j6tsg"]
 atlas = ExtResource("2_mlc4t")
@@ -96,6 +96,6 @@ shape = SubResource("CapsuleShape2D_0octc")
 position = Vector2(-2, -7)
 sprite_frames = SubResource("SpriteFrames_2ggrn")
 animation = &"g_idle"
-frame_progress = 0.0301322
+frame_progress = 0.494368
 
 [node name="Camera2D" type="Camera2D" parent="."]
