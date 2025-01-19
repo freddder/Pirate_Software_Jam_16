@@ -58,13 +58,11 @@ func play_anim(movement):
 		elif movement == 0:
 			anim.play("g_idle")
 	if dir == "down":
-		anim.flip_h = true
 		if movement == 1:
 			anim.play("g_walk_up")
 		elif movement == 0:
 			anim.play("g_idle")
 	if dir == "up":
-		anim.flip_h = true
 		if movement == 1:
 			anim.play("g_walk_down")
 		elif movement == 0:
