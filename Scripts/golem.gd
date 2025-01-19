@@ -15,8 +15,10 @@ func get_input():
 		animation.play("g_idle")
 	else:
 		if input_direction.x > 0: # moving right
+			animation.flip_h = false
 			animation.play("g_walk_side")
 		elif input_direction.x < 0: # moving left
+			animation.flip_h = true
 			animation.play("g_walk_side")
 		else:
 			if input_direction.y > 0: # moving straight up
