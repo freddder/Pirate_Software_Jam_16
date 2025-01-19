@@ -5,10 +5,19 @@ class_name AnimalWander
 @onready var navigation_agent : NavigationAgent2D = $"../../NavigationAgent2D"
 
 @export var wander_speed : float = 100.0
+var timer : float = 0
 
 func enter():
 	navigation_agent.target_position = Vector2(randf_range(-100, 100), randf_range(-100, 100)) + animal.global_position
 	#print(navigation_agent.target_position)
+
+func exit():
+	timer = 0.0
+
+func update(delta : float):
+	timer += delta
+	if timer > 5.0:
+		ChangeState.emit(self, "Idle")
 
 func physic_update(delta : float):
 	if navigation_agent.is_navigation_finished():
