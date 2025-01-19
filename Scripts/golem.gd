@@ -1,15 +1,13 @@
 extends CharacterBody2D
 
 @export var speed = 150
-@export var sprite : AnimatedSprite2D
-@onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 
 var current_dir = "none"
  
 var tiles = []
 
 func _ready():
-	sprite.play("g_idle")
+	$Sprite2D.play("g_idle")
 func player():
 	pass
 
@@ -42,7 +40,7 @@ func _physics_process(_delta):
 	move_and_slide()
 
 func play_anim(movement):
-	var anim = sprite
+	var anim = $Sprite2D
 	var dir = current_dir
 
 	if dir == "right":
@@ -57,17 +55,16 @@ func play_anim(movement):
 			anim.play("g_walk_side")
 		elif movement == 0:
 			anim.play("g_idle")
+
 	if dir == "down":
+		anim.flip_h = true
 		if movement == 1:
 			anim.play("g_walk_up")
 		elif movement == 0:
 			anim.play("g_idle")
 	if dir == "up":
+		anim.flip_h = true
 		if movement == 1:
 			anim.play("g_walk_down")
 		elif movement == 0:
 			anim.play("g_idle")
-	if anim.flip_h:
-		collision_shape_2d.position = Vector2(4,collision_shape_2d.position.y)
-	else:
-		collision_shape_2d.position = Vector2(0,collision_shape_2d.position.y)

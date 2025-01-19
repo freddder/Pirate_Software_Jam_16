@@ -1,18 +1,67 @@
-[gd_scene load_steps=6 format=3 uid="uid://bd74mkhe1hxkk"]
+[gd_scene load_steps=14 format=3 uid="uid://bd74mkhe1hxkk"]
 
 [ext_resource type="Script" path="res://Scripts/golem.gd" id="1_o5vha"]
-[ext_resource type="Texture2D" uid="uid://cda7h6o81mo25" path="res://Spirites/Golem/golem_neutral_test.png" id="2_vxn7v"]
-665da986684768656ec0a3b6f7c1ddd40bfd5c36
+[ext_resource type="Texture2D" uid="uid://d4er0u8pt4qae" path="res://Spirites/Golem/NPC Merchant-idle.png" id="2_mlc4t"]
+[ext_resource type="PackedScene" uid="uid://dhvluwrl4rjwm" path="res://Scenes/laser.tscn" id="3_pqdjg"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vg8vu"]
-atlas = ExtResource("2_vxn7v")
-region = Rect2(0, 0, 96, 96)
+[sub_resource type="AtlasTexture" id="AtlasTexture_j6tsg"]
+atlas = ExtResource("2_mlc4t")
+region = Rect2(0, 0, 110, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o8uvh"]
+atlas = ExtResource("2_mlc4t")
+region = Rect2(110, 0, 110, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ywvfm"]
+atlas = ExtResource("2_mlc4t")
+region = Rect2(220, 0, 110, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_830ll"]
+atlas = ExtResource("2_mlc4t")
+region = Rect2(330, 0, 110, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4gym7"]
+atlas = ExtResource("2_mlc4t")
+region = Rect2(440, 0, 110, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e38nc"]
+atlas = ExtResource("2_mlc4t")
+region = Rect2(550, 0, 110, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hx7yv"]
+atlas = ExtResource("2_mlc4t")
+region = Rect2(660, 0, 110, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ljb31"]
+atlas = ExtResource("2_mlc4t")
+region = Rect2(770, 0, 110, 100)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2ggrn"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_vg8vu")
+"texture": SubResource("AtlasTexture_j6tsg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o8uvh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ywvfm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_830ll")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4gym7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e38nc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hx7yv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ljb31")
 }],
 "loop": true,
 "name": &"g_idle",
@@ -35,23 +84,21 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0octc"]
-radius = 12.0
-height = 70.0
+height = 28.0
 
-[node name="Golem" type="CharacterBody2D" node_paths=PackedStringArray("sprite")]
+[node name="Golem" type="CharacterBody2D"]
 y_sort_enabled = true
 script = ExtResource("1_o5vha")
-sprite = NodePath("AnimatedSprite2D")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(2, -15)
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-2, -7)
 sprite_frames = SubResource("SpriteFrames_2ggrn")
 animation = &"g_idle"
+frame = 5
 frame_progress = 0.656456
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 4)
-rotation = 1.5708
+position = Vector2(2, 3)
 shape = SubResource("CapsuleShape2D_0octc")
 
 [node name="Camera2D" type="Camera2D" parent="."]
