@@ -27,3 +27,4 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Line2D/DamageArea"]
 scale = Vector2(5, 5)
 shape = SubResource("SegmentShape2D_hfrtc")
+disabled = true
