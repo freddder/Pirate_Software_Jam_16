@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://bd74mkhe1hxkk"]
+[gd_scene load_steps=14 format=3 uid="uid://bd74mkhe1hxkk"]
 
 [ext_resource type="Script" path="res://Scripts/golem.gd" id="1_o5vha"]
 [ext_resource type="Texture2D" uid="uid://d4er0u8pt4qae" path="res://Spirites/Golem/NPC Merchant-idle.png" id="2_mlc4t"]
+[ext_resource type="PackedScene" uid="uid://dhvluwrl4rjwm" path="res://Scenes/laser.tscn" id="3_pqdjg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j6tsg"]
 atlas = ExtResource("2_mlc4t")
@@ -101,3 +102,6 @@ position = Vector2(2, 3)
 shape = SubResource("CapsuleShape2D_0octc")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="laser" parent="." instance=ExtResource("3_pqdjg")]
+position = Vector2(-1, -1)
