@@ -7992,6 +7992,7 @@ sources/5 = SubResource("TileSetAtlasSource_ip3xi")
 
 [node name="Map" type="Node2D"]
 y_sort_enabled = true
+scale = Vector2(2, 2)
 
 [node name="TileMap" type="TileMap" parent="."]
 y_sort_enabled = true
