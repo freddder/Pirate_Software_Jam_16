@@ -83,22 +83,20 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0octc"]
-radius = 23.0
-height = 70.0
+height = 28.0
 
 [node name="Golem" type="CharacterBody2D"]
+y_sort_enabled = true
 script = ExtResource("1_o5vha")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-2, -7)
 sprite_frames = SubResource("SpriteFrames_2ggrn")
 animation = &"g_idle"
-frame_progress = 0.640777
+frame_progress = 0.0379091
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-light_mask = 2
-y_sort_enabled = true
-position = Vector2(0, -12)
+position = Vector2(2, 3)
 shape = SubResource("CapsuleShape2D_0octc")
 
 [node name="Camera2D" type="Camera2D" parent="."]
