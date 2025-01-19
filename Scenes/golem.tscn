@@ -90,12 +90,10 @@ height = 28.0
 y_sort_enabled = true
 script = ExtResource("1_o5vha")
 
-[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-2, -7)
 sprite_frames = SubResource("SpriteFrames_2ggrn")
 animation = &"g_idle"
-frame = 5
-frame_progress = 0.656456
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2, 3)
