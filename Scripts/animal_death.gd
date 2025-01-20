@@ -10,9 +10,9 @@ var timer : float = 0.0
 
 func enter():
 	animated_sprite.play("f_dead")
-	collision.set_disabled(true)
-	area.monitorable = false
-	area.monitoring = false
+	collision.set_deferred("disabled", true)
+	area.set_deferred("monitorable", false)
+	area.set_deferred("monitoring", false)
 
 func update(delta : float):
 	timer += delta
