@@ -2,18 +2,15 @@ extends Node
 class_name State
 
 signal ChangeState
-var is_active = true
 
 func update(delta : float):
-	if !is_active:
-		return
+	pass
 
 func physic_update(delta : float):
-	if !is_active:
-		return
+	pass
 
 func enter():
-	is_active = true
+	pass
 
 func exit():
-	is_active = false
+	pass
