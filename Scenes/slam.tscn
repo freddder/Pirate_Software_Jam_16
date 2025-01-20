@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://q5012uar2ndx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gee24"]
+radius = 225.504
+
+[node name="slam" type="Node2D"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="DamageArea" type="Area2D" parent="AnimationPlayer" groups=["die"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimationPlayer/DamageArea"]
+position = Vector2(1, 0)
+shape = SubResource("CircleShape2D_gee24")
