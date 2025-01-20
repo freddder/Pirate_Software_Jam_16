@@ -9,5 +9,4 @@ func _physics_process(delta):
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("die"):
 		print("AHHHHH, IT HURTS, PLEASE STOOOOOP!!!!!")
-		animation.play("f_dead")
 		state_machine.on_state_change(state_machine.current_state, "Death")

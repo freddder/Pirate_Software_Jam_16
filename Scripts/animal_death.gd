@@ -9,6 +9,7 @@ class_name Death
 var timer : float = 0.0
 
 func enter():
+	animal.velocity = Vector2.ZERO
 	animated_sprite.play("f_dead")
 	collision.set_deferred("disabled", true)
 	area.set_deferred("monitorable", false)
