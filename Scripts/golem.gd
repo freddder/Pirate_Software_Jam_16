@@ -4,6 +4,7 @@ extends CharacterBody2D
 
 @onready var animation : AnimatedSprite2D = $AnimatedSprite2D
 var desired_direction : Vector2 = Vector2.ZERO
+var is_last_move_left : bool = false
 
 @onready var laser_target : Node2D = $Laser/Explosion
 @onready var laser_preview : Sprite2D = $Laser/Explosion/Preview
@@ -22,18 +23,13 @@ func get_input():
 	if input_direction == Vector2.ZERO: # not moving
 		animation.play("g_idle")
 	else:
-		if input_direction.x > 0: # moving right
-			animation.flip_h = false
-			animation.play("g_walk_side")
-		elif input_direction.x < 0: # moving left
-			animation.flip_h = true
-			animation.play("g_walk_side")
-		else:
-			if input_direction.y > 0: # moving straight up
-				animation.play("g_walk_up")
-			elif input_direction.y < 0: # moving straight down
-				animation.play("g_walk_down")
+		animation.play("g_walk_side")
+		if input_direction.x < 0: # left
+			is_last_move_left = true
+		elif input_direction.x > 0: # right
+			is_last_move_left = false
 	
+	animation.flip_h = is_last_move_left
 	velocity = input_direction * walk_speed
 	
 	if is_aiming_laser and !Input.is_action_pressed("laser"):
@@ -55,6 +51,7 @@ func _process(delta):
 		laser_target.global_position = laser_raycast.get_collision_point()
 
 	laser_preview.visible = is_aiming_laser
+	laser_preview.rotate(delta * deg_to_rad(30))
 
 func _physics_process(_delta):
 	get_input()
