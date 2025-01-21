@@ -10,7 +10,6 @@ class_name AnimalIdle
 var timer: float
 
 func enter():
-	#print("idle")
 	collision.set_deferred("disabled", false)
 	animal.velocity = Vector2.ZERO
 	timer = randf_range(min_idle_time, max_idle_time)

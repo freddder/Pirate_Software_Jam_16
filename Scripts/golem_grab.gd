@@ -3,38 +3,27 @@ class_name GolemGrab
 
 @onready var golem : CharacterBody2D = $"../.."
 @onready var grab_hitbox : Area2D = $"../../Grab/Hitbox"
-@export var grab_detection_speed : float = 10.0
+@export var grab_hitbox_speed : float = 400.0
 @export var grab_max_range : float = 200.0
-@export var grab_follow_speed : float = 10.0
-var grabbed_body_relaive_position : Vector2
+@export var grab_follow_speed : float = 200.0
+var grab_hitbox_direction : Vector2
 var grabbed_body : CharacterBody2D
 var is_grabbing : bool = false
 var is_attempting_grab : bool = false
 
 func enter():
-	golem.velocity = Vector2.ZERO
-	grab_hitbox.set_deferred("monitoring", true)
-	grab_hitbox.position = Vector2.ZERO
-	is_attempting_grab = true
+	if not is_grabbing:
+		golem.velocity = Vector2.ZERO
+		grab_hitbox.set_deferred("monitoring", true)
+		grab_hitbox.position = Vector2.ZERO
+		is_attempting_grab = true
+		grab_hitbox_direction = (golem.get_global_mouse_position() - golem.global_position).normalized()
+	else:
+		is_grabbing = false
 
 func exit():
+	golem.grab_cooldown = 0.5
 	grab_hitbox.set_deferred("monitoring", false)
-
-func grab_action():
-	#for body in grab_hitbox.get_overlapping_bodies():
-	#	if body.is_in_group("grabbed"):
-	#		body.grab()
-	#		grabbed_body = body
-	#		is_grabbing = true
-	#		grabbed_body_relaive_position = body.global_position - self.global_position
-	#		return
-	pass
-
-func release_action():
-	if grabbed_body and grabbed_body.is_in_group("grabbed"):
-		grabbed_body.release()
-		is_grabbing = false
-		grabbed_body = null
 
 func _process(delta):
 	if grabbed_body:
@@ -47,11 +36,25 @@ func _process(delta):
 		
 		var move_direction = (body_global_destination - grabbed_body.global_position).normalized()
 		grabbed_body.global_position += move_direction * grab_follow_speed * delta
-	
+
+func update(delta : float):
+	if is_attempting_grab:
+		# Move grab hitbox until it finds something grabbable or it reaches max range
+		grab_hitbox.global_position += grab_hitbox_direction * grab_hitbox_speed * delta
+		if (grab_hitbox.global_position - golem.global_position).length() >= grab_max_range:
+			ChangeState.emit(self, "free")
+	elif !is_grabbing:
+		grabbed_body.release()
+		grabbed_body = null
+		ChangeState.emit(self, "free")
 
 func physic_update(delta : float):
 	pass
-	#if !is_grabbing and Input.is_action_just_pressed("grab"):
-	#	grab_action()
-	#elif is_grabbing and Input.is_action_just_pressed("grab"):
-	#	release_action()
+
+func _on_grab_hitbox_body_entered(body):
+	if body.is_in_group("grabbed"):
+		body.grab()
+		grabbed_body = body
+		is_grabbing = true
+		is_attempting_grab = false
+		ChangeState.emit(self, "free")
