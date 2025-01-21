@@ -1,0 +1,71 @@
+[gd_scene load_steps=12 format=3 uid="uid://bcpop7daniqvu"]
+
+[ext_resource type="Texture2D" uid="uid://dndp1pcqdnh1a" path="res://Spirites/Enemies/SwordEnemy.png" id="1_8ncyf"]
+[ext_resource type="Script" path="res://Scenes/base_enemy.gd" id="1_qubom"]
+[ext_resource type="Script" path="res://Scripts/state_machine.gd" id="2_4lp0a"]
+[ext_resource type="Script" path="res://Scenes/enemy_idle.gd" id="3_vgbrg"]
+[ext_resource type="Script" path="res://Scenes/enemy_wander.gd" id="4_g728i"]
+[ext_resource type="Script" path="res://Scenes/enemy_dead.gd" id="5_u6o6r"]
+[ext_resource type="Script" path="res://Scenes/enemy_attack.gd" id="6_t8bkm"]
+[ext_resource type="Script" path="res://Scenes/enemy_grabbed.gd" id="7_d7cp8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u7wep"]
+atlas = ExtResource("1_8ncyf")
+region = Rect2(15, 13, 50, 55)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pxy8f"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"e_dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u7wep")
+}],
+"loop": true,
+"name": &"e_idle",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"e_walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6g4wp"]
+
+[node name="Enemy" type="CharacterBody2D" groups=["die", "grabbed"]]
+y_sort_enabled = true
+script = ExtResource("1_qubom")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_pxy8f")
+animation = &"e_idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("CapsuleShape2D_6g4wp")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+debug_enabled = true
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("2_4lp0a")
+initial_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource("3_vgbrg")
+
+[node name="Wander" type="Node" parent="StateMachine"]
+script = ExtResource("4_g728i")
+
+[node name="Dead" type="Node" parent="StateMachine"]
+script = ExtResource("5_u6o6r")
+
+[node name="Attack" type="Node" parent="StateMachine"]
+script = ExtResource("6_t8bkm")
+
+[node name="Grabbed" type="Node" parent="StateMachine"]
+script = ExtResource("7_d7cp8")

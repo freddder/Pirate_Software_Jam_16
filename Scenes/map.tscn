@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=4 uid="uid://c5fo8j4mcgu63"]
+[gd_scene load_steps=8 format=4 uid="uid://c5fo8j4mcgu63"]
 
+[ext_resource type="PackedScene" uid="uid://bcpop7daniqvu" path="res://Scenes/enemy.tscn" id="4_o4jli"]
 [ext_resource type="Texture2D" uid="uid://cyu0kjt3js1io" path="res://Spirites/Tilesets/wall-8 - 2 tiles tall.png" id="5_u6fa2"]
 [ext_resource type="PackedScene" uid="uid://bd74mkhe1hxkk" path="res://Scenes/golem.tscn" id="7_52wch"]
 [ext_resource type="PackedScene" uid="uid://bj1uthfk37t1e" path="res://Scenes/base_animal.tscn" id="8_5mkln"]
@@ -121,3 +122,6 @@ position = Vector2(92.5, -115)
 
 [node name="BaseAnimal2" parent="." instance=ExtResource("8_5mkln")]
 position = Vector2(93, -47)
+
+[node name="Enemy" parent="." instance=ExtResource("4_o4jli")]
+position = Vector2(-234.5, -144)

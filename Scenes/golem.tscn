@@ -175,7 +175,6 @@ monitorable = false
 shape = SubResource("CircleShape2D_gh83m")
 
 [node name="Slam" type="Node2D" parent="."]
-visible = false
 position = Vector2(0, 1)
 
 [node name="PunchZone" type="Area2D" parent="Slam"]
