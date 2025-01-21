@@ -15,6 +15,7 @@ var is_last_move_left : bool = false
 var is_aiming_laser : bool = false
 
 @onready var slam_hitbox : Area2D = $Slam/PunchZone
+@onready var grab_hitbox : Area2D = $Grab/GrabZone
 
 func _ready():
 	animation.play("g_idle")
@@ -34,10 +35,20 @@ func get_input():
 	animation.flip_h = is_last_move_left
 	velocity = input_direction * walk_speed
 	
+	var click_counter = 0
+	
+	if click_counter == 0 and Input.is_action_pressed("grab"):
+		grab_action()
+		click_counter = 1
+		
+	if click_counter == 1 and Input.is_action_pressed("grab"):
+		release_action()
+		click_counter = 0
+	
 	if Input.is_action_pressed("slam"):
 		slam_attack()
 
-	if is_aiming_laser and !Input.is_action_pressed("laser"):
+	if is_aiming_laser and Input.is_action_just_released("laser"):
 		fire_laser()
 	
 	is_aiming_laser = Input.is_action_pressed("laser")
@@ -67,8 +78,17 @@ func fire_laser():
 		if body.is_in_group("die"):
 			body.die()
 
-
 func slam_attack():
 	for body in slam_hitbox.get_overlapping_bodies():
 		if body.is_in_group("die"):
 			body.die()
+
+func grab_action():
+	for body in grab_hitbox.get_overlapping_bodies():
+		if body.is_in_group("grabbed"):
+			body.grab()
+
+func release_action():
+	for body in grab_hitbox.get_overlapping_bodies():
+		if body.is_in_group("grabbed"):
+			body.release()

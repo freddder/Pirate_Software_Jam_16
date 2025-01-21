@@ -9,3 +9,10 @@ func _physics_process(delta):
 func die():
 	print("AHHHHH, IT HURTS, PLEASE STOOOOOP!!!!!")
 	state_machine.on_state_change(state_machine.current_state, "Death")
+
+func grab():
+	state_machine.on_state_change(state_machine.current_state, "grabbed")
+
+func release():
+	print("I have been freed")
+	state_machine.on_state_change(state_machine.current_state, "AnimalIdle")
