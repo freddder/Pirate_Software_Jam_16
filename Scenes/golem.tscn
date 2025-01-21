@@ -158,7 +158,6 @@ shape = SubResource("CapsuleShape2D_0octc")
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Laser" type="Node2D" parent="."]
-visible = false
 scale = Vector2(0.225, 0.225)
 
 [node name="RayCast2D" type="RayCast2D" parent="Laser"]
@@ -176,7 +175,6 @@ monitorable = false
 shape = SubResource("CircleShape2D_gh83m")
 
 [node name="Slam" type="Node2D" parent="."]
-visible = false
 position = Vector2(0, 1)
 
 [node name="PunchZone" type="Area2D" parent="Slam"]
