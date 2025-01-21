@@ -26,6 +26,9 @@ func _physics_process(delta):
 	if current_state:
 		current_state.physic_update(delta)
 
+func get_current_state_name() -> String:
+	return states.find_key(current_state)
+
 func on_state_change(state, new_state_name : String):
 	if state != current_state:
 		return

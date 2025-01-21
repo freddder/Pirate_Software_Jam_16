@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://db2nw2q4dpa8x" path="res://Spirites/Animals/animal_1_walking_3.4-Sheet.png" id="4_isuop"]
 [ext_resource type="Script" path="res://Scripts/animal_wander.gd" id="5_s07up"]
 [ext_resource type="Script" path="res://Scripts/animal_death.gd" id="8_k8eml"]
-[ext_resource type="Script" path="res://Scenes/grabbed.gd" id="9_kenfg"]
+[ext_resource type="Script" path="res://Scripts/animal_grabbed.gd" id="9_kenfg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rqpvj"]
 atlas = ExtResource("2_0df87")

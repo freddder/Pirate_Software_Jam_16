@@ -1,105 +1,26 @@
 extends CharacterBody2D
 
-@export var walk_speed = 150
-
-@onready var animation : AnimatedSprite2D = $AnimatedSprite2D
-var desired_direction : Vector2 = Vector2.ZERO
-var is_last_move_left : bool = false
-
-@onready var laser_target : Node2D = $Laser/Explosion
-@onready var laser_preview : Sprite2D = $Laser/Explosion/Preview
-@onready var laser_raycast : RayCast2D = $Laser/RayCast2D
-@onready var laser_hitbox : Area2D = $Laser/Explosion/Hitbox
-#@export var laser_explosion_radius : float = 10.0
-@export var laser_max_range : float = 300.0
-var is_aiming_laser : bool = false
-
 @onready var slam_hitbox : Area2D = $Slam/PunchZone
-
-@onready var grab_hitbox : Area2D = $Grab/GrabZone
-var grabbed_body_relaive : Vector2
-var grabbed_body : CharacterBody2D
-var is_grabbed : bool = false
-
-func _ready():
-	animation.play("g_idle")
+@onready var state_machine : StateMachine = $StateMachine
+@onready var free_state : GolemFree = $StateMachine/Free
 
 func get_input():
-	var input_direction := Input.get_vector("move_left", "move_right", "move_up", "move_down").normalized()
+	if Input.is_action_pressed("laser") and state_machine.get_current_state_name() == "free":
+		state_machine.on_state_change(free_state, "laser")
 	
-	if input_direction == Vector2.ZERO: # not moving
-		animation.play("g_idle")
-	else:
-		animation.play("g_walk_side")
-		if input_direction.x < 0: # left
-			is_last_move_left = true
-		elif input_direction.x > 0: # right
-			is_last_move_left = false
+	#if Input.is_action_pressed("grab") and state_machine.get_current_state_name() == "free":
+	#	state_machine.on_state_change(free_state, "grab")
 	
-	animation.flip_h = is_last_move_left
-	velocity = input_direction * walk_speed
-	
-	if !is_grabbed and Input.is_action_just_pressed("grab"):
-		grab_action()
-		
-	elif is_grabbed and Input.is_action_just_pressed("grab"):
-		release_action()
-	
-	if Input.is_action_pressed("slam"):
-		slam_attack()
+	#if Input.is_action_pressed("slam"):
+	#	slam_attack()
 
-	if is_aiming_laser and Input.is_action_just_released("laser"):
-		fire_laser()
-	
-	is_aiming_laser = Input.is_action_pressed("laser")
-	
 func _process(delta):
-	if is_aiming_laser:
-		var distance = get_global_mouse_position() - self.global_position
-		if distance.length() >= laser_max_range:
-			laser_target.global_position = self.global_position + distance.normalized() * laser_max_range
-		else:
-			laser_target.global_position = get_global_mouse_position()
-	
-	laser_raycast.target_position = laser_target.position
-	
-	if laser_raycast.is_colliding():
-		laser_target.global_position = laser_raycast.get_collision_point()
+	pass
 
-	laser_preview.visible = is_aiming_laser
-	laser_preview.rotate(delta * deg_to_rad(30))
-	
-	if grabbed_body:
-		grabbed_body.global_position = self.global_position + grabbed_body_relaive
-	
-func _physics_process(_delta):
+func _physics_process(delta):
 	get_input()
-	move_and_slide()
-
-func fire_laser():
-	for body in laser_hitbox.get_overlapping_bodies():
-		var distance_to_center = (laser_target.global_position - body.global_position).length()
-		if distance_to_center < 129 and body.is_in_group("die"): # half the area radius
-			body.die()
-		elif body.is_in_group("scared"):
-			body.scare(Vector2.ZERO)
 
 func slam_attack():
 	for body in slam_hitbox.get_overlapping_bodies():
 		if body.is_in_group("die"):
 			body.die()
-
-func grab_action():
-	for body in grab_hitbox.get_overlapping_bodies():
-		if body.is_in_group("grabbed"):
-			body.grab()
-			grabbed_body = body
-			is_grabbed = true
-			grabbed_body_relaive = body.global_position - self.global_position
-			return
-
-func release_action():
-	if grabbed_body and grabbed_body.is_in_group("grabbed"):
-		grabbed_body.release()
-		is_grabbed = false
-		grabbed_body = null
