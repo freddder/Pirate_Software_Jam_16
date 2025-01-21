@@ -52,7 +52,6 @@ func get_input():
 		fire_laser()
 	
 	is_aiming_laser = Input.is_action_pressed("laser")
-	is_aiming_laser = Input.is_action_pressed("grab")
 	
 func _process(delta):
 	if is_aiming_laser:
@@ -79,8 +78,11 @@ func _physics_process(_delta):
 
 func fire_laser():
 	for body in laser_hitbox.get_overlapping_bodies():
-		if body.is_in_group("die"):
+		var distance_to_center = (laser_target.global_position - body.global_position).length()
+		if distance_to_center < 129 and body.is_in_group("die"): # half the area radius
 			body.die()
+		elif body.is_in_group("scared"):
+			body.scare(Vector2.ZERO)
 
 func slam_attack():
 	for body in slam_hitbox.get_overlapping_bodies():

@@ -118,3 +118,6 @@ position = Vector2(-27, -120)
 
 [node name="BaseAnimal" parent="." instance=ExtResource("8_5mkln")]
 position = Vector2(92.5, -115)
+
+[node name="BaseAnimal2" parent="." instance=ExtResource("8_5mkln")]
+position = Vector2(93, -47)

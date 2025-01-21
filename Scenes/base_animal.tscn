@@ -172,7 +172,7 @@ animations = [{
 radius = 9.0
 height = 28.0
 
-[node name="BaseAnimal" type="CharacterBody2D" groups=["die", "grabbed"]]
+[node name="BaseAnimal" type="CharacterBody2D" groups=["die", "grabbed", "scared"]]
 script = ExtResource("1_x85lv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

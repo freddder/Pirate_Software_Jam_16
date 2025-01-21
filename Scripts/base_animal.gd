@@ -10,6 +10,9 @@ func die():
 	print("AHHHHH, IT HURTS, PLEASE STOOOOOP!!!!!")
 	state_machine.on_state_change(state_machine.current_state, "Death")
 
+func scare(source: Vector2):
+	print("holy shit what was that")
+
 func grab():
 	state_machine.on_state_change(state_machine.current_state, "Grabbed")
 
