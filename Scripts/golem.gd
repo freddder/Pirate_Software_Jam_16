@@ -14,6 +14,8 @@ var is_last_move_left : bool = false
 @export var laser_max_range : float = 300.0
 var is_aiming_laser : bool = false
 
+@onready var slam_hitbox : Area2D = $Slam/PunchZone
+
 func _ready():
 	animation.play("g_idle")
 
@@ -32,6 +34,9 @@ func get_input():
 	animation.flip_h = is_last_move_left
 	velocity = input_direction * walk_speed
 	
+	if Input.is_action_pressed("slam"):
+		slam_attack()
+
 	if is_aiming_laser and !Input.is_action_pressed("laser"):
 		fire_laser()
 	
@@ -59,5 +64,11 @@ func _physics_process(_delta):
 
 func fire_laser():
 	for body in laser_hitbox.get_overlapping_bodies():
+		if body.is_in_group("die"):
+			body.die()
+
+
+func slam_attack():
+	for body in slam_hitbox.get_overlapping_bodies():
 		if body.is_in_group("die"):
 			body.die()
