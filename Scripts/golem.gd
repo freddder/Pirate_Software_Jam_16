@@ -52,7 +52,8 @@ func get_input():
 		fire_laser()
 	
 	is_aiming_laser = Input.is_action_pressed("laser")
-
+	is_aiming_laser = Input.is_action_pressed("grab")
+	
 func _process(delta):
 	if is_aiming_laser:
 		var distance = get_global_mouse_position() - self.global_position
