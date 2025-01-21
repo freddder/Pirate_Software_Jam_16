@@ -11,8 +11,9 @@ func die():
 	state_machine.on_state_change(state_machine.current_state, "Death")
 
 func grab():
-	state_machine.on_state_change(state_machine.current_state, "grabbed")
+	state_machine.on_state_change(state_machine.current_state, "Grabbed")
 
 func release():
 	print("I have been freed")
-	state_machine.on_state_change(state_machine.current_state, "AnimalIdle")
+	state_machine.on_state_change(state_machine.current_state, "Idle")
+	#print (state_machine.current_state)

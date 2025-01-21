@@ -3,6 +3,7 @@ class_name AnimalIdle
 
 @onready var animal : CharacterBody2D = $"../.."
 @onready var animated_sprite : AnimatedSprite2D = $"../../AnimatedSprite2D"
+@onready var collision : CollisionShape2D = $"../../CollisionShape2D"
 
 @export var min_idle_time : float = 1.0
 @export var max_idle_time : float = 3.0
@@ -10,6 +11,7 @@ var timer: float
 
 func enter():
 	#print("idle")
+	collision.set_deferred("disabled", false)
 	animal.velocity = Vector2.ZERO
 	timer = randf_range(min_idle_time, max_idle_time)
 	animated_sprite.play("f_idle")
