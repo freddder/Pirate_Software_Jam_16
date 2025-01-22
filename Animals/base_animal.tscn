@@ -170,9 +170,8 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oiejx"]
 radius = 9.0
-height = 28.0
 
-[node name="BaseAnimal" type="CharacterBody2D" groups=["die", "grabbed", "scared"]]
+[node name="BaseAnimal" type="CharacterBody2D" groups=["grabbable", "hittable", "scared"]]
 y_sort_enabled = true
 script = ExtResource("1_x85lv")
 

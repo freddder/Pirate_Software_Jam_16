@@ -19,4 +19,4 @@ func enter():
 func update(delta : float):
 	timer -= delta
 	if timer <= 0:
-		ChangeState.emit(self, "Wander")
+		ChangeState.emit(self, "follow")

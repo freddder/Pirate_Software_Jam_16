@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="Pirate Software Jam 16"
-run/main_scene="res://Scenes/map.tscn"
+run/main_scene="res://map.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Level="*res://level.gd"
 
 [display]
 
@@ -21,9 +25,9 @@ window/stretch/mode="viewport"
 
 [global_group]
 
-die=""
 scared=""
-grabbed=""
+hittable=""
+grabbable=""
 
 [input]
 

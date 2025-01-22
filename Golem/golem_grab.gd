@@ -52,8 +52,8 @@ func physic_update(delta : float):
 	pass
 
 func _on_grab_hitbox_body_entered(body):
-	if body.is_in_group("grabbed"):
-		body.grab()
+	if body.is_in_group("grabbable"):
+		body.get_grabbed()
 		grabbed_body = body
 		is_grabbing = true
 		is_attempting_grab = false

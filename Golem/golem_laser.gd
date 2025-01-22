@@ -21,7 +21,7 @@ func exit():
 func fire_laser():
 	for body in laser_hitbox.get_overlapping_bodies():
 		var distance_to_center = (laser_target.global_position - body.global_position).length()
-		if distance_to_center < 129 and body.is_in_group("die"): # half the area radius
+		if distance_to_center < 129 and body.is_in_group("hittable"): # half the area radius
 			body.die()
 		elif body.is_in_group("scared"):
 			body.scare(Vector2.ZERO)

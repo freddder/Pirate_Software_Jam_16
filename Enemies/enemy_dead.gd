@@ -11,8 +11,6 @@ func enter():
 	enemy.velocity = Vector2.ZERO
 	animated_sprite.play("e_dead")
 	collision.set_deferred("disabled", true)
-	#area.set_deferred("monitorable", false)
-	#area.set_deferred("monitoring", false)
 
 func update(delta : float):
 	timer += delta

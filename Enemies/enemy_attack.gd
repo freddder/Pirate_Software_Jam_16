@@ -1,9 +1,16 @@
 extends State
 class_name EnemyAttack
 
-@onready var kill_zone : Area2D = $Threat_Range
+func enter():
+	pass
 
-func melee_attack():
-	for body in kill_zone.get_overlapping_bodies():
-		if body.is_in_group("die"):
-			body.die()
+func exit():
+	pass
+
+func update(delta : float):
+	pass
+
+#func melee_attack():
+#	for body in kill_zone.get_overlapping_bodies():
+#		if body.is_in_group("die"):
+#			body.die()

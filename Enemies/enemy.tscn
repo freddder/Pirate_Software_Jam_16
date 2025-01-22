@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Enemies/base_enemy.gd" id="1_qubom"]
 [ext_resource type="Script" path="res://state_machine.gd" id="2_4lp0a"]
 [ext_resource type="Script" path="res://Enemies/enemy_idle.gd" id="3_vgbrg"]
-[ext_resource type="Script" path="res://Enemies/enemy_wander.gd" id="4_g728i"]
+[ext_resource type="Script" path="res://Enemies/enemy_follow.gd" id="4_g728i"]
 [ext_resource type="Script" path="res://Enemies/enemy_dead.gd" id="5_u6o6r"]
 [ext_resource type="Script" path="res://Enemies/enemy_attack.gd" id="6_t8bkm"]
 [ext_resource type="Script" path="res://Enemies/enemy_grabbed.gd" id="7_d7cp8"]
@@ -36,7 +36,7 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6g4wp"]
 
-[node name="Enemy" type="CharacterBody2D" groups=["die", "grabbed"]]
+[node name="Enemy" type="CharacterBody2D" groups=["grabbable", "hittable"]]
 y_sort_enabled = true
 script = ExtResource("1_qubom")
 
@@ -45,20 +45,20 @@ sprite_frames = SubResource("SpriteFrames_pxy8f")
 animation = &"e_idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_6g4wp")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+target_desired_distance = 40.0
 debug_enabled = true
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("2_4lp0a")
-initial_state = NodePath("Idle")
+initial_state = NodePath("Follow")
 
 [node name="Idle" type="Node" parent="StateMachine"]
 script = ExtResource("3_vgbrg")
 
-[node name="Wander" type="Node" parent="StateMachine"]
+[node name="Follow" type="Node" parent="StateMachine"]
 script = ExtResource("4_g728i")
 
 [node name="Dead" type="Node" parent="StateMachine"]
