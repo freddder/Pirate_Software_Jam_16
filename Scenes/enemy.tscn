@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dn4jp0xnnrrq0"]
+[gd_scene load_steps=14 format=3 uid="uid://dn4jp0xnnrrq0"]
 
 [ext_resource type="Texture2D" uid="uid://dndp1pcqdnh1a" path="res://Enemies/SwordEnemy.png" id="1_8ncyf"]
 [ext_resource type="Script" path="res://Enemies/base_enemy.gd" id="1_qubom"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://Enemies/enemy_dead.gd" id="5_u6o6r"]
 [ext_resource type="Script" path="res://Enemies/enemy_attack.gd" id="6_t8bkm"]
 [ext_resource type="Script" path="res://Enemies/enemy_grabbed.gd" id="7_d7cp8"]
+[ext_resource type="Script" path="res://Scenes/chop_tree.gd" id="9_jei07"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u7wep"]
 atlas = ExtResource("1_8ncyf")
@@ -15,6 +16,11 @@ region = Rect2(15, 13, 50, 55)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_pxy8f"]
 animations = [{
+"frames": [],
+"loop": true,
+"name": &"e_chop",
+"speed": 5.0
+}, {
 "frames": [],
 "loop": true,
 "name": &"e_dead",
@@ -45,7 +51,7 @@ script = ExtResource("1_qubom")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_pxy8f")
-animation = &"e_idle"
+animation = &"e_chop"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)
@@ -77,3 +83,6 @@ shape = SubResource("CircleShape2D_meovi")
 
 [node name="Grabbed" type="Node" parent="StateMachine"]
 script = ExtResource("7_d7cp8")
+
+[node name="Chop" type="Node" parent="StateMachine"]
+script = ExtResource("9_jei07")
