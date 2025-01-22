@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://e57bjmfbqtvu"]
+
+[ext_resource type="Texture2D" uid="uid://nat6cssg4o55" path="res://Placeholders/Props/Atlas-Props.png" id="1_jqe6q"]
+[ext_resource type="Script" path="res://Scenes/gold_tree.gd" id="1_ydy3i"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iq0rc"]
+atlas = ExtResource("1_jqe6q")
+region = Rect2(118, 0, 118, 175)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ivutg"]
+atlas = ExtResource("1_jqe6q")
+region = Rect2(0, 0, 118, 175)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8hg4d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iq0rc")
+}],
+"loop": true,
+"name": &"tree_chopped",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ivutg")
+}],
+"loop": true,
+"name": &"tree_idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nt5t2"]
+radius = 9.0
+height = 42.0
+
+[node name="Gold_Tree" type="Node2D" groups=["chopped"]]
+y_sort_enabled = true
+script = ExtResource("1_ydy3i")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_8hg4d")
+animation = &"tree_idle"
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-7, 62)
+shape = SubResource("CapsuleShape2D_nt5t2")
