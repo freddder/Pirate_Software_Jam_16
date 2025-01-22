@@ -1,12 +1,9 @@
 extends State
 class_name EnemyAttack
 
+@onready var kill_zone : Area2D = $Threat_Range
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func melee_attack():
+	for body in kill_zone.get_overlapping_bodies():
+		if body.is_in_group("die"):
+			body.die()
