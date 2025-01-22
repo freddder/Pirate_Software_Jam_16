@@ -10,7 +10,7 @@ func _ready():
 func _physics_process(delta):
 	move_and_slide()
 
-func get_hit():
+func die():
 	print("AHHHHH, IT HURTS, PLEASE STOOOOOP!!!!!")
 	state_machine.on_state_change(state_machine.current_state, "Death")
 

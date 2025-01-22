@@ -1,5 +1,8 @@
 extends State
 class_name EnemyFollow
+enum target_types {ANIMALS, TREES, STONES}
+
+const target_type = target_types.TREES
 
 @onready var enemy : BaseEnemy = $"../.."
 @onready var navigation_agent : NavigationAgent2D = $"../../NavigationAgent2D"
@@ -9,14 +12,17 @@ class_name EnemyFollow
 var timer : float = 0.0
 
 func update_target_location():
-	enemy.target = Level.find_closest_animal(enemy.global_position)
+	if target_type == target_types.ANIMALS:
+		enemy.target = Level.find_closest_animal(enemy.global_position)
+	elif target_type == target_types.TREES:
+		enemy.target = Level.find_closest_tree(enemy.global_position)
 	if enemy.target:
 		navigation_agent.target_position = enemy.target.global_position
 
 func enter():
 	update_target_location()
 	sprite_animation.play("e_walk")
-
+	
 func exit():
 	timer = 0.0
 	enemy.velocity = Vector2.ZERO

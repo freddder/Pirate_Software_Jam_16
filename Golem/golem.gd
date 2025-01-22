@@ -12,8 +12,8 @@ func get_input():
 	if Input.is_action_pressed("grab") and grab_cooldown <= 0.0 and state_machine.get_current_state_name() == "free":
 		state_machine.on_state_change(free_state, "grab")
 	
-	#if Input.is_action_pressed("slam"):
-	#	slam_attack()
+	if Input.is_action_pressed("slam"):
+		slam_attack()
 
 func _process(delta):
 	grab_cooldown -= delta
@@ -24,5 +24,5 @@ func _physics_process(delta):
 
 func slam_attack():
 	for body in slam_hitbox.get_overlapping_bodies():
-		if body.is_in_group("die"):
+		if body.is_in_group("hittable"):
 			body.die()

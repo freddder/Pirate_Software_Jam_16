@@ -1,6 +1,16 @@
-extends Node2D
+extends CharacterBody2D
+class_name GoldenTree
 
 @onready var tree_animation : AnimatedSprite2D = $AnimatedSprite2D
+var timer : float = 0.0
 
-func enter():
-	pass
+func _ready():
+	Level.golden_trees.push_back(self)
+
+func choped():
+	tree_animation.play("tree_chopped")
+	
+func update(delta : float):
+	timer += delta
+	#if timer > 5.0:
+		#tree.queue_free()

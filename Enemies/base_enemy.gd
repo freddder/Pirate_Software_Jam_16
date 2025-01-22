@@ -7,7 +7,7 @@ var target : CollisionObject2D
 func _physics_process(delta):
 	move_and_slide()
 
-func get_hit():
+func die():
 	print("AHHHHH, IT HURTS, PLEASE STOOOOOP!!!!!")
 	state_machine.on_state_change(state_machine.current_state, "Dead")
 
@@ -17,3 +17,7 @@ func get_grabbed():
 func release():
 	print("I have been freed")
 	state_machine.on_state_change(state_machine.current_state, "Idle")
+
+func chop_tree():
+	print("I have chopped da tree")
+	state_machine.on_state_change(state_machine.current_state, "")
