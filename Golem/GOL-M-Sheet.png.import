@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bj3avbvuu7pjn"
-path="res://.godot/imported/GOL-M-Sheet(walk and idle).png-ce02185729ecf93d7eb765ec0bfa43b0.ctex"
+uid="uid://50dbavytp63q"
+path="res://.godot/imported/GOL-M-Sheet.png-c9ce6cc7a619675cb2b27beb43310a6d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Golem/GOL-M-Sheet(walk and idle).png"
-dest_files=["res://.godot/imported/GOL-M-Sheet(walk and idle).png-ce02185729ecf93d7eb765ec0bfa43b0.ctex"]
+source_file="res://Golem/GOL-M-Sheet.png"
+dest_files=["res://.godot/imported/GOL-M-Sheet.png-c9ce6cc7a619675cb2b27beb43310a6d.ctex"]
 
 [params]
 
