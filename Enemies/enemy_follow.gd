@@ -2,7 +2,7 @@ extends State
 class_name EnemyFollow
 enum target_types {ANIMALS, TREES, STONES}
 
-const target_type = target_types.TREES
+const target_type = target_types.ANIMALS
 
 @onready var enemy : BaseEnemy = $"../.."
 @onready var navigation_agent : NavigationAgent2D = $"../../NavigationAgent2D"
@@ -35,6 +35,10 @@ func update(delta : float):
 		timer = 0.0
 
 func physic_update(delta : float):
+	if !enemy.target:
+		enemy.velocity = Vector2.ZERO
+		return
+	
 	if enemy.global_position.distance_to(enemy.target.global_position) < navigation_agent.target_desired_distance:
 		ChangeState.emit(self, "attack")
 		print("gotcha")

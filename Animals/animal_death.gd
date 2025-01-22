@@ -12,6 +12,7 @@ func enter():
 	animal.velocity = Vector2.ZERO
 	animated_sprite.play("f_dead")
 	collision.set_deferred("disabled", true)
+	Level.animals.erase(animal)
 	#area.set_deferred("monitorable", false)
 	#area.set_deferred("monitoring", false)
 

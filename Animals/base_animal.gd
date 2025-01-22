@@ -10,9 +10,10 @@ func _ready():
 func _physics_process(delta):
 	move_and_slide()
 
-func die():
+func get_hit(source: Vector2) -> bool: # Return if it is still alive
 	print("AHHHHH, IT HURTS, PLEASE STOOOOOP!!!!!")
 	state_machine.on_state_change(state_machine.current_state, "Death")
+	return false
 
 func scare(source: Vector2):
 	print("holy shit what was that")
