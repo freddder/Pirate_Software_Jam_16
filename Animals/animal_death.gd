@@ -1,5 +1,5 @@
 extends State
-class_name Death
+class_name AnimalDeath
 
 @onready var animal : CharacterBody2D = $"../.."
 @onready var animated_sprite : AnimatedSprite2D = $"../../AnimatedSprite2D"

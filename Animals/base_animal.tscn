@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://bj1uthfk37t1e"]
+[gd_scene load_steps=33 format=3 uid="uid://bj1uthfk37t1e"]
 
 [ext_resource type="Script" path="res://Animals/base_animal.gd" id="1_x85lv"]
 [ext_resource type="Texture2D" uid="uid://o2mimsa221ac" path="res://Animals/Sprites/animal_1_dead_newcolorSheet.png" id="2_0df87"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://Animals/animal_wander.gd" id="5_s07up"]
 [ext_resource type="Script" path="res://Animals/animal_death.gd" id="8_k8eml"]
 [ext_resource type="Script" path="res://Animals/animal_grabbed.gd" id="9_kenfg"]
+[ext_resource type="Script" path="res://Animals/animal_scared.gd" id="10_likky"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rqpvj"]
 atlas = ExtResource("2_0df87")
@@ -204,3 +205,6 @@ script = ExtResource("8_k8eml")
 
 [node name="Grabbed" type="Node" parent="StateMachine"]
 script = ExtResource("9_kenfg")
+
+[node name="Scared" type="Node" parent="StateMachine"]
+script = ExtResource("10_likky")
