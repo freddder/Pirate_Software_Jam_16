@@ -42,7 +42,7 @@ script = ExtResource("1_ydy3i")
 position = Vector2(-1, -1)
 shape = SubResource("CapsuleShape2D_nt5t2")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CollisionShape2D"]
-position = Vector2(8, -59)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(7, -60)
 sprite_frames = SubResource("SpriteFrames_8hg4d")
 animation = &"tree_idle"

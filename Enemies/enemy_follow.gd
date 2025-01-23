@@ -2,7 +2,7 @@ extends State
 class_name EnemyFollow
 enum target_types {ANIMALS, TREES, STONES}
 
-const target_type = target_types.ANIMALS
+const target_type = target_types.TREES
 
 @onready var enemy : BaseEnemy = $"../.."
 @onready var navigation_agent : NavigationAgent2D = $"../../NavigationAgent2D"
