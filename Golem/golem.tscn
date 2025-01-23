@@ -170,6 +170,8 @@ target_position = Vector2(50, 0)
 texture = ExtResource("3_j5pyv")
 
 [node name="Hitbox" type="Area2D" parent="Laser/Explosion"]
+collision_layer = 0
+collision_mask = 3
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Laser/Explosion/Hitbox"]

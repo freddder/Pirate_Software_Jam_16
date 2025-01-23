@@ -7,8 +7,9 @@ var timer : float = 0.0
 func _ready():
 	Level.golden_trees.push_back(self)
 
-func choped():
+func get_hit(source : Vector2) -> bool:
 	tree_animation.play("tree_chopped")
+	return false
 	
 func update(delta : float):
 	timer += delta
