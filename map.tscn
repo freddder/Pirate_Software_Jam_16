@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=4 uid="uid://c5fo8j4mcgu63"]
+[gd_scene load_steps=12 format=4 uid="uid://c5fo8j4mcgu63"]
 
 [ext_resource type="Texture2D" uid="uid://cyu0kjt3js1io" path="res://Placeholders/Tilesets/wall-8 - 2 tiles tall.png" id="1_wfyp0"]
 [ext_resource type="Texture2D" uid="uid://nat6cssg4o55" path="res://Placeholders/Props/Atlas-Props.png" id="2_atjqy"]
 [ext_resource type="PackedScene" uid="uid://bd74mkhe1hxkk" path="res://Golem/golem.tscn" id="2_bx855"]
 [ext_resource type="PackedScene" uid="uid://bj1uthfk37t1e" path="res://Animals/base_animal.tscn" id="3_blmo1"]
+[ext_resource type="PackedScene" uid="uid://b33b2asfwk761" path="res://Props/Crystal/crystal.tscn" id="3_jva4u"]
 [ext_resource type="PackedScene" uid="uid://bcpop7daniqvu" path="res://Enemies/enemy.tscn" id="4_gb3ft"]
 [ext_resource type="PackedScene" uid="uid://e57bjmfbqtvu" path="res://Props/GoldenTree/gold_tree.tscn" id="5_bu6ve"]
 
@@ -126,6 +127,9 @@ tile_set = SubResource("TileSet_duy8b")
 
 [node name="Golem" parent="." instance=ExtResource("2_bx855")]
 position = Vector2(-27, -120)
+
+[node name="Crystal" parent="." instance=ExtResource("3_jva4u")]
+position = Vector2(116, -262.5)
 
 [node name="Gold_Tree" parent="." instance=ExtResource("5_bu6ve")]
 position = Vector2(-192.5, -235.5)

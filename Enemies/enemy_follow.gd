@@ -1,21 +1,21 @@
 extends State
 class_name EnemyFollow
-enum target_types {ANIMALS, TREES, STONES}
-
-const target_type = target_types.ANIMALS
 
 @onready var enemy : BaseEnemy = $"../.."
 @onready var navigation_agent : NavigationAgent2D = $"../../NavigationAgent2D"
-@onready var sprite_animation : AnimatedSprite2D = $"../../AnimatedSprite2D"
+@onready var sprite_animation : AnimatedSprite2D = $"../../CollisionShape2D/AnimatedSprite2D"
 
 @export var move_speed : float = 100.0
 var timer : float = 0.0
 
 func update_target_location():
-	if target_type == target_types.ANIMALS:
+	if enemy.target_type == enemy.target_types.ANIMALS:
 		enemy.target = Level.find_closest_animal(enemy.global_position)
-	elif target_type == target_types.TREES:
+	elif enemy.target_type == enemy.target_types.TREES:
 		enemy.target = Level.find_closest_tree(enemy.global_position)
+	elif enemy.target_type == enemy.target_types.CRYSTAL:
+		enemy.target = Level.find_closest_crystal(enemy.global_position)
+	
 	if enemy.target:
 		navigation_agent.target_position = enemy.target.global_position
 
@@ -37,6 +37,7 @@ func update(delta : float):
 func physic_update(delta : float):
 	if !enemy.target:
 		enemy.velocity = Vector2.ZERO
+		ChangeState.emit(self, "idle")
 		return
 	
 	if enemy.global_position.distance_to(enemy.target.global_position) < navigation_agent.target_desired_distance:

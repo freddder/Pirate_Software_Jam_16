@@ -1,6 +1,10 @@
 extends CharacterBody2D
 class_name BaseEnemy
 
+enum target_types {ANIMALS, TREES, CRYSTAL}
+
+const target_type = target_types.ANIMALS
+
 @onready var state_machine : StateMachine = $StateMachine
 var target : CollisionObject2D = null
 

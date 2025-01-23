@@ -9,6 +9,10 @@
 [ext_resource type="Script" path="res://Enemies/enemy_attack.gd" id="6_t8bkm"]
 [ext_resource type="Script" path="res://Enemies/enemy_grabbed.gd" id="7_d7cp8"]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6g4wp"]
+radius = 12.0
+height = 24.0
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_u7wep"]
 atlas = ExtResource("1_8ncyf")
 region = Rect2(15, 13, 50, 55)
@@ -34,19 +38,18 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6g4wp"]
-
 [node name="Enemy" type="CharacterBody2D" groups=["grabbable", "hittable"]]
 y_sort_enabled = true
 collision_layer = 2
 script = ExtResource("1_qubom")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_pxy8f")
-animation = &"e_idle"
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_6g4wp")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CollisionShape2D"]
+position = Vector2(0, -11)
+sprite_frames = SubResource("SpriteFrames_pxy8f")
+animation = &"e_idle"
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 target_desired_distance = 55.0

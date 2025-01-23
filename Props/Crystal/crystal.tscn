@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://b33b2asfwk761"]
+
+[ext_resource type="Script" path="res://Props/Crystal/crystal.gd" id="1_b4wt1"]
+[ext_resource type="Texture2D" uid="uid://c7rekm4g6wulu" path="res://Placeholders/Props/column.png" id="1_hi7yq"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_87w82"]
+height = 42.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hcqro"]
+atlas = ExtResource("1_hi7yq")
+region = Rect2(0, 0, 43, 74)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cdr7x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hcqro")
+}],
+"loop": true,
+"name": &"c_idle",
+"speed": 5.0
+}]
+
+[node name="Crystal" type="StaticBody2D" groups=["hittable"]]
+script = ExtResource("1_b4wt1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_87w82")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CollisionShape2D"]
+y_sort_enabled = true
+position = Vector2(-19, -2)
+rotation = -1.5708
+sprite_frames = SubResource("SpriteFrames_cdr7x")
+animation = &"c_idle"
+autoplay = "c_idle"
