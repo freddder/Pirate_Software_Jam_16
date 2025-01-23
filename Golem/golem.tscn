@@ -181,6 +181,8 @@ shape = SubResource("CircleShape2D_gh83m")
 position = Vector2(0, 1)
 
 [node name="PunchZone" type="Area2D" parent="Slam"]
+collision_layer = 0
+collision_mask = 3
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Slam/PunchZone"]
@@ -190,6 +192,8 @@ shape = SubResource("CircleShape2D_6qy3o")
 [node name="Grab" type="Node2D" parent="."]
 
 [node name="Hitbox" type="Area2D" parent="Grab"]
+collision_layer = 0
+collision_mask = 3
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Grab/Hitbox"]
