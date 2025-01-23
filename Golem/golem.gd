@@ -25,4 +25,4 @@ func _physics_process(delta):
 func slam_attack():
 	for body in slam_hitbox.get_overlapping_bodies():
 		if body.is_in_group("hittable"):
-			body.die()
+			body.get_hit(slam_hitbox.global_position)
