@@ -2,7 +2,7 @@ extends State
 class_name ChopTree
 
 @onready var chop_range : Area2D = $"../Attack/Threat_Range"
-@onready var chop_animation : AnimatedSprite2D = $"../../AnimatedSprite2D"
+@onready var chop_animation : AnimatedSprite2D = $CollisionShape2D/AnimatedSprite2D
 var chop_counter = 0
 
 func enter():

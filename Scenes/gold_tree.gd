@@ -1,8 +1,8 @@
-extends Area2D
+extends StaticBody2D
 class_name GoldenTree
 
-@onready var tree : Area2D = $"."
-@onready var tree_animation : AnimatedSprite2D = $AnimatedSprite2D
+@onready var tree : StaticBody2D = $"."
+@onready var tree_animation : AnimatedSprite2D = $CollisionShape2D/AnimatedSprite2D
 var timer : float = 0.0
 
 func _ready():

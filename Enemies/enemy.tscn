@@ -49,7 +49,7 @@ animation = &"e_idle"
 shape = SubResource("CapsuleShape2D_6g4wp")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-target_desired_distance = 40.0
+target_desired_distance = 55.0
 debug_enabled = true
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
