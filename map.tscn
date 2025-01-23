@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bd74mkhe1hxkk" path="res://Golem/golem.tscn" id="2_bx855"]
 [ext_resource type="PackedScene" uid="uid://bj1uthfk37t1e" path="res://Animals/base_animal.tscn" id="3_blmo1"]
 [ext_resource type="PackedScene" uid="uid://bcpop7daniqvu" path="res://Enemies/enemy.tscn" id="4_gb3ft"]
-[ext_resource type="PackedScene" uid="uid://e57bjmfbqtvu" path="res://Scenes/gold_tree.tscn" id="5_bu6ve"]
+[ext_resource type="PackedScene" uid="uid://e57bjmfbqtvu" path="res://Props/GoldenTree/gold_tree.tscn" id="5_bu6ve"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_fx76c"]
 vertices = PackedVector2Array(244, 52, 424.109, 137.461, -491.5, 136.031, -276, 52, 426.883, -361.031, 244, -180, -491.5, -362.461, -276, -20, 76, -108, 172, -108, 172, -20, -12, -20, -12, -244, 76, -180, -84, -244, -84, -20)

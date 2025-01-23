@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://e57bjmfbqtvu"]
 
 [ext_resource type="Texture2D" uid="uid://nat6cssg4o55" path="res://Placeholders/Props/Atlas-Props.png" id="1_jqe6q"]
-[ext_resource type="Script" path="res://Scenes/gold_tree.gd" id="1_ydy3i"]
+[ext_resource type="Script" path="res://Props/GoldenTree/gold_tree.gd" id="1_ydy3i"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nt5t2"]
 radius = 9.0
