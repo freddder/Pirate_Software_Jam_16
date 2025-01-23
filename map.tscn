@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=4 uid="uid://c5fo8j4mcgu63"]
+[gd_scene load_steps=11 format=4 uid="uid://c5fo8j4mcgu63"]
 
 [ext_resource type="Texture2D" uid="uid://cyu0kjt3js1io" path="res://Placeholders/Tilesets/wall-8 - 2 tiles tall.png" id="1_wfyp0"]
+[ext_resource type="Texture2D" uid="uid://nat6cssg4o55" path="res://Placeholders/Props/Atlas-Props.png" id="2_atjqy"]
 [ext_resource type="PackedScene" uid="uid://bd74mkhe1hxkk" path="res://Golem/golem.tscn" id="2_bx855"]
 [ext_resource type="PackedScene" uid="uid://bj1uthfk37t1e" path="res://Animals/base_animal.tscn" id="3_blmo1"]
 [ext_resource type="PackedScene" uid="uid://bcpop7daniqvu" path="res://Enemies/enemy.tscn" id="4_gb3ft"]
@@ -90,6 +91,13 @@ texture_region_size = Vector2i(32, 32)
 2:2/1/terrains_peering_bit/top_side = 0
 2:2/1/terrains_peering_bit/top_right_corner = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r8p0n"]
+texture = ExtResource("2_atjqy")
+texture_region_size = Vector2i(32, 32)
+0:0/size_in_atlas = Vector2i(4, 6)
+0:0/0 = 0
+0:0/0/y_sort_origin = 50
+
 [sub_resource type="TileSet" id="TileSet_duy8b"]
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
@@ -101,6 +109,7 @@ terrain_set_1/mode = 0
 terrain_set_1/terrain_0/name = "Block"
 terrain_set_1/terrain_0/color = Color(0.566985, 0.31045, 3.85046e-07, 1)
 sources/0 = SubResource("TileSetAtlasSource_mrswh")
+sources/3 = SubResource("TileSetAtlasSource_r8p0n")
 
 [node name="Map" type="Node2D"]
 y_sort_enabled = true

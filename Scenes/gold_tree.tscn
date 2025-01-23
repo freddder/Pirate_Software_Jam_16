@@ -3,6 +3,10 @@
 [ext_resource type="Texture2D" uid="uid://nat6cssg4o55" path="res://Placeholders/Props/Atlas-Props.png" id="1_jqe6q"]
 [ext_resource type="Script" path="res://Scenes/gold_tree.gd" id="1_ydy3i"]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nt5t2"]
+radius = 9.0
+height = 42.0
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_iq0rc"]
 atlas = ExtResource("1_jqe6q")
 region = Rect2(118, 0, 118, 175)
@@ -30,18 +34,15 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nt5t2"]
-radius = 9.0
-height = 42.0
-
-[node name="Gold_Tree" type="CharacterBody2D" groups=["hittable"]]
+[node name="Gold_Tree" type="Area2D" groups=["hittable"]]
 y_sort_enabled = true
 script = ExtResource("1_ydy3i")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -1)
+shape = SubResource("CapsuleShape2D_nt5t2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CollisionShape2D"]
+position = Vector2(8, -59)
 sprite_frames = SubResource("SpriteFrames_8hg4d")
 animation = &"tree_idle"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-7, 62)
-shape = SubResource("CapsuleShape2D_nt5t2")
