@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://bd74mkhe1hxkk"]
+[gd_scene load_steps=26 format=3 uid="uid://bd74mkhe1hxkk"]
 
 [ext_resource type="Script" path="res://Golem/golem.gd" id="1_o5vha"]
 [ext_resource type="Texture2D" uid="uid://50dbavytp63q" path="res://Golem/GOL-M-Sheet.png" id="2_r1gqv"]
@@ -133,9 +133,6 @@ animations = [{
 radius = 20.0
 height = 40.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_gh83m"]
-radius = 516.0
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_6qy3o"]
 radius = 58.2151
 
@@ -163,20 +160,10 @@ scale = Vector2(0.225, 0.225)
 
 [node name="RayCast2D" type="RayCast2D" parent="Laser"]
 target_position = Vector2(50, 0)
-
-[node name="Explosion" type="Node2D" parent="Laser"]
-
-[node name="Preview" type="Sprite2D" parent="Laser/Explosion"]
-visible = false
-texture = ExtResource("3_j5pyv")
-
-[node name="Hitbox" type="Area2D" parent="Laser/Explosion"]
-collision_layer = 0
 collision_mask = 3
-monitorable = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Laser/Explosion/Hitbox"]
-shape = SubResource("CircleShape2D_gh83m")
+[node name="ExplosionPreview" type="Sprite2D" parent="Laser"]
+texture = ExtResource("3_j5pyv")
 
 [node name="Slam" type="Node2D" parent="."]
 position = Vector2(0, 1)
@@ -195,6 +182,7 @@ shape = SubResource("CircleShape2D_6qy3o")
 [node name="Hitbox" type="Area2D" parent="Grab"]
 collision_layer = 0
 collision_mask = 3
+monitoring = false
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Grab/Hitbox"]

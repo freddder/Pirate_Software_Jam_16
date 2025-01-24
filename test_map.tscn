@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://c5fo8j4mcgu63"]
+[gd_scene load_steps=13 format=4 uid="uid://dhhv76sckeqeu"]
 
 [ext_resource type="Texture2D" uid="uid://cyu0kjt3js1io" path="res://Placeholders/Tilesets/wall-8 - 2 tiles tall.png" id="1_revvw"]
 [ext_resource type="Texture2D" uid="uid://nat6cssg4o55" path="res://Placeholders/Props/Atlas-Props.png" id="2_8haj7"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://e57bjmfbqtvu" path="res://Props/GoldenTree/gold_tree.tscn" id="5_nnwot"]
 [ext_resource type="PackedScene" uid="uid://bj1uthfk37t1e" path="res://Animals/base_animal.tscn" id="6_pob2e"]
 [ext_resource type="PackedScene" uid="uid://bcpop7daniqvu" path="res://Enemies/enemy.tscn" id="7_3j0ay"]
+[ext_resource type="PackedScene" uid="uid://be3iy2gmeh5ne" path="res://Props/ExplosiveBarrel/explosive_barrel.tscn" id="8_eplt6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mrswh"]
 texture = ExtResource("1_revvw")
@@ -143,3 +144,6 @@ position = Vector2(93, -47)
 
 [node name="Enemy" parent="." instance=ExtResource("7_3j0ay")]
 position = Vector2(-234.5, -144)
+
+[node name="ExplosiveBarrel" parent="." instance=ExtResource("8_eplt6")]
+position = Vector2(-155.5, -143)

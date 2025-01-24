@@ -1,5 +1,7 @@
 extends Node
 
+var explosion = load("res://Props/Explosion/explosion.tscn")
+
 var animals : Array[BaseAnimal] = []
 var golden_trees : Array[GoldenTree] = []
 var crystals : Array[Crystal] = []
@@ -33,6 +35,11 @@ func find_closest_crystal(global_position : Vector2) -> Crystal:
 			smallest_distance = curr_distance
 			closest_crystal = crystal
 	return closest_crystal
+
+func create_explosion(global_position : Vector2):
+	var instance = explosion.instantiate()
+	instance.global_position = global_position
+	add_child(instance)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
