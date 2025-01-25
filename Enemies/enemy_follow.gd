@@ -14,14 +14,20 @@ func update_target_location():
 	elif enemy.target_type == enemy.target_types.TREES:
 		enemy.target = Level.find_closest_tree(enemy.global_position)
 	elif enemy.target_type == enemy.target_types.CRYSTAL:
-		enemy.target = Level.find_closest_crystal(enemy.global_position)
+		if enemy.has_barrel:
+			enemy.target = Level.find_closest_crystal(enemy.global_position)
+		else:
+			enemy.target = null
+			navigation_agent.target_position = enemy.spawn_position
 	
 	if enemy.target:
 		navigation_agent.target_position = enemy.target.global_position
+	else:
+		navigation_agent.target_position = enemy.spawn_position
 
 func enter():
 	update_target_location()
-	sprite_animation.play("e_walk")
+	sprite_animation.play("e_walk") 
 	
 func exit():
 	timer = 0.0
@@ -35,14 +41,16 @@ func update(delta : float):
 		timer = 0.0
 
 func physic_update(delta : float):
-	if !enemy.target:
-		enemy.velocity = Vector2.ZERO
-		ChangeState.emit(self, "idle")
-		return
-	
-	if enemy.global_position.distance_to(enemy.target.global_position) < navigation_agent.target_desired_distance:
-		ChangeState.emit(self, "attack")
-		print("gotcha")
+	# Reached destination
+	if enemy.global_position.distance_to(navigation_agent.target_position) < navigation_agent.target_desired_distance:
+		if !enemy.target:
+			enemy.queue_free()
+		else:
+			if enemy.target_type == enemy.target_types.CRYSTAL:
+				Level.create_barrel(enemy.global_position)
+				enemy.has_barrel = false
+			else:
+				ChangeState.emit(self, "attack")
 		return
 	
 	var direction = navigation_agent.get_next_path_position() - enemy.global_position

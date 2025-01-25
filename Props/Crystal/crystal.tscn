@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c7rekm4g6wulu" path="res://Placeholders/Props/column.png" id="1_hi7yq"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_87w82"]
-height = 42.0
+height = 34.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hcqro"]
 atlas = ExtResource("1_hi7yq")
