@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c3l0rrk0phs50"]
+[gd_scene load_steps=8 format=3 uid="uid://5gcq0eh2qcbl"]
 
 [ext_resource type="Script" path="res://Props/GoldenTree/tree.gd" id="1_82nn2"]
 [ext_resource type="Texture2D" uid="uid://nat6cssg4o55" path="res://Placeholders/Props/Atlas-Props.png" id="2_bmakl"]
@@ -35,7 +35,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Tree" type="CharacterBody2D" groups=["hittable"]]
+[node name="Tree_A" type="CharacterBody2D" groups=["hittable"]]
 y_sort_enabled = true
 script = ExtResource("1_82nn2")
 
