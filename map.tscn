@@ -7,9 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://bklgrqi23xfae" path="res://Spirites/icon.svg" id="2_lfko0"]
 [ext_resource type="Texture2D" uid="uid://ds1cfenolpk1n" path="res://Spirites/Tilesets/rocks_and_trees_tiles.png" id="3_362hq"]
 [ext_resource type="PackedScene" uid="uid://bj1uthfk37t1e" path="res://Animals/base_animal.tscn" id="7_qldvw"]
-[ext_resource type="PackedScene" uid="uid://5gcq0eh2qcbl" path="res://Props/GoldenTree/tree_a.tscn" id="8_cs113"]
+[ext_resource type="PackedScene" path="res://Props/GoldenTree/tree_a.tscn" id="8_cs113"]
 [ext_resource type="PackedScene" uid="uid://e57bjmfbqtvu" path="res://Props/GoldenTree/gold_tree.tscn" id="9_iup0x"]
-[ext_resource type="PackedScene" uid="uid://xawkvbshotcm" path="res://Props/GoldenTree/tree_b.tscn" id="10_2set2"]
+[ext_resource type="PackedScene" path="res://Props/GoldenTree/tree_b.tscn" id="10_2set2"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_axsfg"]
 vertices = PackedVector2Array(1135.21, -110, 1493.19, -142.961, 1522.56, -139.906, 1526.6, -77.3203, 1101.15, -44.1094, -58.1875, -609, -85, -606.117, -85, -698.703, 341, -749.344, 1032.85, -848.633, 1621.25, -1104.25, 1650.96, -1096.32, 1649.05, -702.117, 1621.2, -705.109, 1005.31, -782.297, 330.844, 532.68, 362.367, 404.648, 394.688, 371, 502.953, 339.703, 530.648, 340.617, 527.602, 364.109, 326.672, 901.281, 299.039, 897.328, 1651.05, 117.227, 1653.93, 644.102, 1618.96, 641.102, 1626.5, 115.273, -152.156, -1021, -180.133, -1021, -178.797, -1036.84, -120.508, -1035.85, 1521.86, -313.453, 1522.81, -256.648, 1490.78, -258.656, 1130.78, -319.367, -309, -1184.37, -309, -1229.35, -278.438, -1227.45, -278.563, -1182.41, 300.938, 530.68, 332.828, 402.68, 2.5625, -511, -20.4922, -511, -17.5078, -571.703, -246.82, -1259.26, -78.6563, -1181.89, -76.6484, -1150.83, -202.688, -1148.85, -273.461, -1261.31, 487.148, 1184.68, 459, 1185.65, 459, 1094.44, 1064.01, -446.688, 1037.56, -444.727, 1033.62, -539.359, 1004, 19.6719, 1004, -14.6797, 1066.53, -12.6875, 998.523, -670.367, 972.844, -669.383, 971.141, -781.289, -213.82, -1324.32, -210.93, -1356.93, -183.461, -1353.88, 37.9219, -1183.09, 1587.1, 898, 1586.1, 995.68, 1555.11, 994.68, 971.359, 50.8906, 467.891, -653.594, 502.25, -623.563, 264.242, -351, 233.156, -351, 234.156, -416.328, 375.75, -685.211, 1100.15, -110, 1589.31, -541, 1558.37, -477, 1103.68, -318.359, 1100.7, -413.711, 660, -492.594, 689.508, -427, 390.82, -224.32, 363.656, -223.344, 362.688, -253.688, 630.742, -526.297, 1619.96, 898, 851.313, -333.297, 882.68, -332.313, 879.703, -237.57, 488.109, 130.922, 999.633, -1242.64, 1237.17, -1452, 1364, -1452, 1364, -1388.16, 1037.15, -1109.81, 1004.65, -1113.86, 422.844, -187.109, 757, -427, 757, -397.313, 455.82, -160.359, 426.672, -159.313, 390.43, 1057, 362, 1057, 362, 1030.64, 651.242, 362.898, 328.023, -1613, 528.688, -1343.96, 529.688, -1310.68, 433.563, -1307.68, 203.703, -1581.1, 204.703, -1613, 373.047, -1236.4, 372.047, -1051, 341, -1051, 47.3125, -1099.93, 692.539, -490.609, 790.297, -362.844, 850.32, -363.828, 460.844, 127.992, 7.97656, -1067, 11.8828, -1103.14, 436.57, -1240.36, 1618.18, -541, 648.758, 257.672, 618.367, 258.68, 616.391, 227, 788, 53.1172, 1522.66, 1093.33, 1523.67, 1122.64, 1494.17, 1124.55, 398.703, 243, 436.438, 243, 439.43, 309.844, 1587.3, -477, -203.68, -1118, -274.602, -1118, 660, -525.328, 1003.3, -846.656, 106.688, -1546.76, 107.703, -1580.1, 1554.09, 1092.31, 1555.15, -76.3281, 1556.16, -12.6797, -150.07, -1451.29, -146.172, -1484.38, -115.633, -1482.35, 915, -235.547, 915, -156.789, 884.578, -152.867, 551.594, 192.711, 522.102, 193.688, 519.188, 161.633, 1067.97, -43.7266, 364.406, 371, 1587.91, -13.7031, 1590.7, 15.9297, 789.281, -396.289, -118.313, -699.711, -120.289, -761.023, -115.492, -1067, 1555.21, -1320.28, 1585.32, -1319.31, 1588.29, -1230.25, 561, -619.641, 561, -590.156, 1142.65, -1482.9, 973.719, -1243.63, 971.703, -1313.38, 1049.36, -1546.28, 1138.62, -1543.31, -113.578, -1516.1, -23.8828, -1517.09, -179.391, -1450.31, 1488.58, -1386.14, 1490.56, -1353.46, 294.297, -288, 269.242, -288, 625.742, -589.141, 1389.2, 1220.99, 490.172, 1220.01, 1404.2, 1183, 764.883, -1609.88, 916.094, -1612.82, 920.094, -1577.93, 835.5, -1345.03, 973.367, 20.6797, 195.313, -449.453, 138.477, -446.461, 133.57, -477.93, 370.727, -748.313, 392.453, 1091.41, 331.633, 1028.61, 1461.98, 1156.62, 1459.05, 1183, 1233.18, -1483.9, -241.727, -1323.32, 1004.57, -541.359, 499.961, 310.852, -148.133, -763.992, 841.453, -1308.33, 1044.4, -1578.93, 464.922, -683.188, 1067.1, -414.727, 880.609, -94.3672, 823.688, -90.4531, 201.344, -415.258, -54.0391, -572.75, 556.633, 227, 7.5625, -478.93, 1617.28, -1226.24, 491.078, 159.617, 788, -61, 1551.19, -1350.42, -16.9375, -1549.79, 817.797, -61, 1552.32, -318.523, 1490.16, 1154.6, 498.242, -651.563, 334.008, -1639.96, 750.797, -1638.02, 300.352, -255.719, 394.969, -190.094, 1621.42, 23.8516)
@@ -143,14 +143,16 @@ sources/1 = SubResource("TileSetAtlasSource_hevhh")
 pattern_0 = SubResource("TileMapPattern_sbk7d")
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_tevsu"]
-frequency = 0.0691
+frequency = 0.0997
 fractal_weighted_strength = 1.0
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_nl6w2"]
 seamless = true
+seamless_blend_skirt = 0.5
 noise = SubResource("FastNoiseLite_tevsu")
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_l6em6"]
+frequency = 0.0126
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_iogxd"]
 seamless = true
@@ -158,16 +160,17 @@ noise = SubResource("FastNoiseLite_l6em6")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dipyw"]
 shader = ExtResource("1_apntg")
-shader_parameter/speed = Vector2(0.01, 0.05)
-shader_parameter/speedSecondNoise = Vector2(-0.014, -0.05)
-shader_parameter/distortionStrength = 0.023
+shader_parameter/speed = Vector2(0.01, 0.01)
+shader_parameter/speedSecondNoise = Vector2(-0.01, -0.01)
+shader_parameter/distortionStrength = 0.03
 shader_parameter/noise = SubResource("NoiseTexture2D_nl6w2")
 shader_parameter/secNoise = SubResource("NoiseTexture2D_iogxd")
-shader_parameter/toneColor = Color(0.173318, 0.64723, 0.54191, 1)
-shader_parameter/topColor = Color(0.454902, 0.768627, 1, 1)
-shader_parameter/lightStart = 0.384
-shader_parameter/lightEnd = 0.686
-shader_parameter/pixelSize = 160.0
+shader_parameter/toneColor = Color(0.4, 1.08, 1.6, 1)
+shader_parameter/topColor = Color(0.455, 1.622, 1.4, 1)
+shader_parameter/brightness = 0.1
+shader_parameter/lightStart = 0.394
+shader_parameter/lightEnd = 0.675
+shader_parameter/pixelSize = 300.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_paikb"]
 texture = ExtResource("2_0wv76")

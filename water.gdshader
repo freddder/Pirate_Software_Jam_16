@@ -10,6 +10,7 @@ uniform float distortionStrength: hint_range(-1, 1) = 0.2;
 group_uniforms Colors;
 uniform vec4 toneColor: source_color;
 uniform vec4 topColor: source_color;
+uniform float brightness;
 
 group_uniforms Lights;
 uniform float lightStart: hint_range(0.0, 1.0) = 0.275;
@@ -33,6 +34,6 @@ void fragment(){
 	vec4 screenColor = texture(SCREEN_TEXTURE, SCREEN_UV
 	+ distortionStrength * vec2(depth));
 	vec4 topLight = smoothstep(lightStart, lightEnd, depth) * topColor;
-	COLOR = screenColor * toneColor + topLight;
+	COLOR = screenColor * toneColor + topLight + brightness;
 	COLOR.a = 1.0;
 }
