@@ -291,7 +291,7 @@ environment = SubResource("Environment_um5t8")
 compositor = SubResource("Compositor_3oq30")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
-visible = false
+y_sort_enabled = true
 navigation_polygon = SubResource("NavigationPolygon_axsfg")
 
 [node name="Under_Island" type="TileMapLayer" parent="NavigationRegion2D"]
