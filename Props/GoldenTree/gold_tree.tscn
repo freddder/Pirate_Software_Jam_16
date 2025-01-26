@@ -130,9 +130,9 @@ script = ExtResource("1_ydy3i")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -13)
 sprite_frames = SubResource("SpriteFrames_8hg4d")
-animation = &"tree_stump"
+animation = &"tree_idle"
 autoplay = "tree_idle"
-frame_progress = 0.206431
+frame_progress = 0.722861
 offset = Vector2(31, -6)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
