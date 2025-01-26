@@ -6,7 +6,7 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nt5t2"]
 radius = 7.0
-height = 28.0
+height = 18.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iq0rc"]
 atlas = ExtResource("2_4bh55")
@@ -44,6 +44,6 @@ position = Vector2(-1, -1)
 shape = SubResource("CapsuleShape2D_nt5t2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CollisionShape2D"]
-position = Vector2(-5, -19)
+position = Vector2(-5, -11)
 sprite_frames = SubResource("SpriteFrames_8hg4d")
 animation = &"tree_idle"
