@@ -2,7 +2,7 @@ extends CharacterBody2D
 class_name GoldenTree
 
 @onready var tree : CharacterBody2D = $"."
-@onready var tree_animation : AnimatedSprite2D = $CollisionShape2D/AnimatedSprite2D
+@onready var goldtree_animation : AnimatedSprite2D = $AnimatedSprite2D
 #var timer : float = 0.0
 
 func _ready():
@@ -10,7 +10,7 @@ func _ready():
 
 func get_hit(source : Vector2) -> bool:
 	print("I got chopped")
-	tree_animation.play("tree_chopped")
+	goldtree_animation.play("tree_hit")
 	return false
 
 func update(delta : float):
