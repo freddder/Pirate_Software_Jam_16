@@ -71,6 +71,7 @@ animations = [{
 }]
 
 [node name="ExplosiveBarrel" type="CharacterBody2D" groups=["grabbable", "hittable"]]
+scale = Vector2(2, 2)
 collision_layer = 3
 script = ExtResource("1_f8d30")
 

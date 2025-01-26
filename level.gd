@@ -1,6 +1,7 @@
 extends Node
 
-var explosion = load("res://Props/Explosion/explosion.tscn")
+@onready var explosion = load("res://Props/Explosion/explosion.tscn")
+@onready var barrel = load("res://Props/ExplosiveBarrel/explosive_barrel.tscn")
 
 var animals : Array[BaseAnimal] = []
 var golden_trees : Array[GoldenTree] = []
@@ -35,6 +36,11 @@ func find_closest_crystal(global_position : Vector2) -> Crystal:
 			smallest_distance = curr_distance
 			closest_crystal = crystal
 	return closest_crystal
+
+func create_barrel(global_position : Vector2):
+	var instance = barrel.instantiate()
+	instance.global_position = global_position
+	add_child(instance)
 
 func create_explosion(global_position : Vector2):
 	var instance = explosion.instantiate()
