@@ -1,48 +1,126 @@
-[gd_scene load_steps=7 format=3 uid="uid://e57bjmfbqtvu"]
+[gd_scene load_steps=19 format=3 uid="uid://e57bjmfbqtvu"]
 
-[ext_resource type="Texture2D" uid="uid://nat6cssg4o55" path="res://Placeholders/Props/Atlas-Props.png" id="1_jqe6q"]
 [ext_resource type="Script" path="res://Props/GoldenTree/gold_tree.gd" id="1_ydy3i"]
+[ext_resource type="Texture2D" uid="uid://du3fsp1o0bf5t" path="res://Props/GoldenTree/golden_tree_chop-Recovered-Sheet.png" id="2_c23v8"]
+[ext_resource type="Texture2D" uid="uid://cieday4s0ghjb" path="res://Props/GoldenTree/golden_tree_falling-Sheet.png" id="2_wuwcd"]
+[ext_resource type="Texture2D" uid="uid://c7fshieyhrycb" path="res://Props/GoldenTree/golden_tree-Recovered-Sheet.png" id="3_o6vsc"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nt5t2"]
-radius = 9.0
-height = 42.0
+[sub_resource type="AtlasTexture" id="AtlasTexture_jyi5g"]
+atlas = ExtResource("2_wuwcd")
+region = Rect2(0, 0, 138, 96)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_iq0rc"]
-atlas = ExtResource("1_jqe6q")
-region = Rect2(118, 0, 118, 175)
+[sub_resource type="AtlasTexture" id="AtlasTexture_qgd7d"]
+atlas = ExtResource("2_wuwcd")
+region = Rect2(138, 0, 138, 96)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ivutg"]
-atlas = ExtResource("1_jqe6q")
-region = Rect2(0, 0, 118, 175)
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ldjw"]
+atlas = ExtResource("2_wuwcd")
+region = Rect2(276, 0, 138, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fog8t"]
+atlas = ExtResource("2_wuwcd")
+region = Rect2(414, 0, 138, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j3qk2"]
+atlas = ExtResource("2_wuwcd")
+region = Rect2(552, 0, 138, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_finsg"]
+atlas = ExtResource("2_wuwcd")
+region = Rect2(690, 0, 138, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kvx3o"]
+atlas = ExtResource("2_c23v8")
+region = Rect2(0, 0, 138, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j17nu"]
+atlas = ExtResource("2_c23v8")
+region = Rect2(138, 0, 138, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6pef8"]
+atlas = ExtResource("2_c23v8")
+region = Rect2(276, 0, 138, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cg8xg"]
+atlas = ExtResource("2_c23v8")
+region = Rect2(414, 0, 138, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c31ld"]
+atlas = ExtResource("2_c23v8")
+region = Rect2(552, 0, 138, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dy88u"]
+atlas = ExtResource("3_o6vsc")
+region = Rect2(4, 0, 120, 96)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8hg4d"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_iq0rc")
+"texture": SubResource("AtlasTexture_jyi5g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qgd7d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ldjw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fog8t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j3qk2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_finsg")
 }],
 "loop": true,
-"name": &"tree_chopped",
+"name": &"tree_falling",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ivutg")
+"texture": SubResource("AtlasTexture_kvx3o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j17nu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6pef8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cg8xg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c31ld")
+}],
+"loop": false,
+"name": &"tree_hit",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dy88u")
 }],
 "loop": true,
 "name": &"tree_idle",
 "speed": 5.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nt5t2"]
+radius = 7.0
+height = 26.0
+
 [node name="Gold_Tree" type="CharacterBody2D" groups=["hittable"]]
 y_sort_enabled = true
 script = ExtResource("1_ydy3i")
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -13)
+sprite_frames = SubResource("SpriteFrames_8hg4d")
+animation = &"tree_falling"
+offset = Vector2(31, -6)
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, -1)
 shape = SubResource("CapsuleShape2D_nt5t2")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CollisionShape2D"]
-position = Vector2(8, -59)
-sprite_frames = SubResource("SpriteFrames_8hg4d")
-animation = &"tree_idle"
