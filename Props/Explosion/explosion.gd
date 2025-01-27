@@ -12,7 +12,7 @@ func _process(delta):
 		for body in get_overlapping_bodies():
 			var distance_to_center = (global_position - body.global_position).length()
 			if distance_to_center < 129 and body.is_in_group("hittable"): # half the area radius
-				body.get_hit(global_position)
+				body.get_rekt()
 			elif body.is_in_group("scared"):
 				body.scare(global_position)
 			scanned = true
