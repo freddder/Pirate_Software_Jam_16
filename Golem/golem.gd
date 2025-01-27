@@ -26,3 +26,7 @@ func slam_attack():
 	for body in slam_hitbox.get_overlapping_bodies():
 		if body.is_in_group("hittable"):
 			body.get_hit(slam_hitbox.global_position)
+
+func _on_animation_player_animation_finished(anim_name):
+	if anim_name.ends_with("fire"):
+		state_machine.on_state_change(state_machine.current_state, "free")

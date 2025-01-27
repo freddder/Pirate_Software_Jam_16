@@ -4,27 +4,22 @@ class_name GolemLaser
 @onready var golem : CharacterBody2D = $"../.."
 @onready var laser_preview : Sprite2D = $"../../Laser/ExplosionPreview"
 @onready var laser_raycast : RayCast2D = $"../../Laser/RayCast2D"
-#@export var laser_explosion_radius : float = 10.0
+@onready var sprite : Sprite2D = $"../../Sprite2D"
+@onready var anim_player : AnimationPlayer = $"../../AnimationPlayer"
 @export var laser_max_range : float = 300.0
 var is_aiming : bool = false
 
 func enter():
+	anim_player.play("g_aiming")
 	is_aiming = true
 	laser_preview.visible = true
 
 func exit():
-	is_aiming = false
-	laser_preview.visible = false
+	pass
 
 func fire_laser():
-	#for body in laser_hitbox.get_overlapping_bodies():
-	#	var distance_to_center = (laser_target.global_position - body.global_position).length()
-	#	if distance_to_center < 129 and body.is_in_group("hittable"): # half the area radius
-	#		body.get_hit(laser_target.global_position)
-	#	elif body.is_in_group("scared"):
-	#		body.scare(laser_target.global_position)
 	Level.create_explosion(laser_preview.global_position)
-	ChangeState.emit(self, "free")
+	#ChangeState.emit(self, "free")
 
 func update(delta : float):
 	if is_aiming:
@@ -33,15 +28,17 @@ func update(delta : float):
 			laser_preview.global_position = golem.global_position + distance.normalized() * laser_max_range
 		else:
 			laser_preview.global_position = golem.get_global_mouse_position()
+		sprite.flip_h = distance.x < 0
 	
 	laser_raycast.target_position = laser_preview.position
 	
 	if laser_raycast.is_colliding():
 		laser_preview.global_position = laser_raycast.get_collision_point()
 	
+	laser_preview.visible = is_aiming
 	laser_preview.rotate(delta * deg_to_rad(30))
 
 func physic_update(delta : float):
 	if is_aiming and !Input.is_action_pressed("laser"):
-		fire_laser()
+		anim_player.play("g_fire")
 	is_aiming = Input.is_action_pressed("laser")
