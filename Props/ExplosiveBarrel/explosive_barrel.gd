@@ -12,6 +12,8 @@ func _process(delta):
 func get_hit(source : Vector2) -> bool:
 	explode()
 	return false
+func get_rekt():
+	get_hit(global_position)
 
 func get_grabbed():
 	collision_shape.disabled = true
