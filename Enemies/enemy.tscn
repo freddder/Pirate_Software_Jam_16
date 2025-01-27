@@ -184,7 +184,7 @@ script = ExtResource("3_vgbrg")
 [node name="Follow" type="Node" parent="StateMachine"]
 script = ExtResource("4_g728i")
 
-[node name="Dead" type="Node" parent="StateMachine"]
+[node name="Death" type="Node" parent="StateMachine"]
 script = ExtResource("5_u6o6r")
 
 [node name="Attack" type="Node" parent="StateMachine"]

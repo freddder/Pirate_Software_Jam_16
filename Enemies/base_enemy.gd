@@ -6,6 +6,8 @@ var target_type : target_types = target_types.ANIMALS
 var has_barrel : bool = true
 var spawn_position : Vector2
 
+@onready var ground : TileMapLayer = get_node("/root/Map/NavigationRegion2D/Ground")
+@onready var body : CharacterBody2D = $"."
 @onready var state_machine : StateMachine = $StateMachine
 @onready var navi_agent : NavigationAgent2D = $NavigationAgent2D
 @onready var anim_player : AnimationPlayer = $AnimationPlayer
@@ -25,9 +27,17 @@ func get_grabbed():
 	state_machine.on_state_change(state_machine.current_state, "Grabbed")
 
 func release():
-	print("I have been freed")
-	state_machine.on_state_change(state_machine.current_state, "Idle")
-
+	var clicked_cell = ground.local_to_map(body.get_global_position())
+	var data = ground.get_cell_tile_data(clicked_cell)
+	if data:
+		state_machine.on_state_change(state_machine.current_state, "Idle")
+		print("tile exists")
+	else:
+		state_machine.on_state_change(state_machine.current_state, "Death")
+		return false
+		print("tile doesnt exists")
+		print(body)
+		
 func attack_target():
 	if target:
 		target.get_hit(global_position)

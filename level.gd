@@ -3,18 +3,19 @@ extends Node
 @onready var explosion = load("res://Props/Explosion/explosion.tscn")
 @onready var barrel = load("res://Props/ExplosiveBarrel/explosive_barrel.tscn")
 @onready var valid_zone : NavigationRegion2D = $NavigationRegion2D
-@onready var ground : TileMapLayer = get_node("/root/Test_Map/NavigationRegion2D/Ground")
+@onready var state_machine : StateMachine = $StateMachine
 
 var animals : Array[BaseAnimal] = []
 var golden_trees : Array[GoldenTree] = []
 var crystals : Array[Crystal] = []
+var enemies : Array[BaseEnemy] = []
 
 func find_closest_animal(global_position : Vector2) -> BaseAnimal:
 	var smallest_distance = 9999999.9
 	var closest_animal : BaseAnimal = null
 	for animal in animals:
 		var curr_distance = global_position.distance_to(animal.global_position)
-		if animal.state_machine.get_current_state_name() != "grabbed" and curr_distance < smallest_distance:
+		if curr_distance < smallest_distance:
 			smallest_distance = curr_distance
 			closest_animal = animal
 	return closest_animal
@@ -55,10 +56,4 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if Input.is_action_pressed("slam"):
-		var clicked_cell = ground.local_to_map(ground.get_local_mouse_position())
-		var data = ground.get_cell_tile_data(clicked_cell)
-		if data:
-			print("tile exists")
-		else:
-			print("tile doesnt exists")
+	pass
