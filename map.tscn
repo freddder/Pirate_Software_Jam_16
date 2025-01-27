@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bd74mkhe1hxkk" path="res://Golem/golem.tscn" id="2_bx855"]
 [ext_resource type="Texture2D" uid="uid://bklgrqi23xfae" path="res://Spirites/icon.svg" id="2_lfko0"]
 [ext_resource type="Texture2D" uid="uid://ds1cfenolpk1n" path="res://Spirites/Tilesets/rocks_and_trees_tiles.png" id="3_362hq"]
-[ext_resource type="Texture2D" uid="uid://m12biays76rp" path="res://Spirites/Tilesets/turns.png" id="4_qdx87"]
+[ext_resource type="Texture2D" uid="uid://dfecpcrh64bpn" path="res://Spirites/Tilesets/turnss.png" id="4_qdx87"]
 [ext_resource type="PackedScene" uid="uid://bj1uthfk37t1e" path="res://Animals/base_animal.tscn" id="7_qldvw"]
 [ext_resource type="PackedScene" uid="uid://5gcq0eh2qcbl" path="res://Props/GoldenTree/tree_a.tscn" id="8_cs113"]
 [ext_resource type="PackedScene" uid="uid://e57bjmfbqtvu" path="res://Props/GoldenTree/gold_tree.tscn" id="9_iup0x"]

@@ -27,7 +27,7 @@ func get_grabbed():
 	state_machine.on_state_change(state_machine.current_state, "Grabbed")
 
 func release():
-	var clicked_cell = ground.local_to_map(ground.get_local_mouse_position())
+	var clicked_cell = ground.local_to_map(body.get_global_position())
 	var data = ground.get_cell_tile_data(clicked_cell)
 	if data:
 		state_machine.on_state_change(state_machine.current_state, "Idle")
