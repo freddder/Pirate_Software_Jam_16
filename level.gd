@@ -2,7 +2,6 @@ extends Node
 
 @onready var explosion = load("res://Props/Explosion/explosion.tscn")
 @onready var barrel = load("res://Props/ExplosiveBarrel/explosive_barrel.tscn")
-@onready var valid_zone : NavigationRegion2D = $NavigationRegion2D
 @onready var state_machine : StateMachine = $StateMachine
 
 var animals : Array[BaseAnimal] = []
