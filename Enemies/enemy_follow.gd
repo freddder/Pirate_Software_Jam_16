@@ -2,8 +2,9 @@ extends State
 class_name EnemyFollow
 
 @onready var enemy : BaseEnemy = $"../.."
+@onready var sprite : Sprite2D = $"../../CollisionShape2D/Sprite"
 @onready var navigation_agent : NavigationAgent2D = $"../../NavigationAgent2D"
-@onready var sprite_animation : AnimatedSprite2D = $"../../CollisionShape2D/AnimatedSprite2D"
+@onready var animation_player : AnimationPlayer = $"../../AnimationPlayer"
 
 @export var move_speed : float = 100.0
 var timer : float = 0.0
@@ -27,7 +28,7 @@ func update_target_location():
 
 func enter():
 	update_target_location()
-	sprite_animation.play("e_walk") 
+	animation_player.play("h_walk")
 	
 func exit():
 	timer = 0.0
@@ -56,6 +57,6 @@ func physic_update(delta : float):
 	var direction = navigation_agent.get_next_path_position() - enemy.global_position
 	direction = direction.normalized()
 	
-	sprite_animation.flip_h = direction.x > 0
+	sprite.flip_h = direction.x < 0
 	
 	enemy.velocity = direction * move_speed

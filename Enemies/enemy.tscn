@@ -1,8 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://bcpop7daniqvu"]
+[gd_scene load_steps=18 format=3 uid="uid://bcpop7daniqvu"]
 
-[ext_resource type="Texture2D" uid="uid://dndp1pcqdnh1a" path="res://Enemies/SwordEnemy.png" id="1_8ncyf"]
 [ext_resource type="Script" path="res://Enemies/base_enemy.gd" id="1_qubom"]
 [ext_resource type="Script" path="res://state_machine.gd" id="2_4lp0a"]
+[ext_resource type="Texture2D" uid="uid://dr0ammmoxxj82" path="res://Enemies/Hunter/Hunter-Sheet.png" id="3_ulaoa"]
 [ext_resource type="Script" path="res://Enemies/enemy_idle.gd" id="3_vgbrg"]
 [ext_resource type="Script" path="res://Enemies/enemy_follow.gd" id="4_g728i"]
 [ext_resource type="Script" path="res://Enemies/enemy_dead.gd" id="5_u6o6r"]
@@ -13,30 +13,144 @@
 radius = 12.0
 height = 24.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_u7wep"]
-atlas = ExtResource("1_8ncyf")
-region = Rect2(15, 13, 50, 55)
+[sub_resource type="Animation" id="Animation_j7tvb"]
+resource_name = "h_get_hit"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollisionShape2D/Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [7, 8]
+}
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_pxy8f"]
-animations = [{
-"frames": [],
-"loop": true,
-"name": &"e_dead",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_u7wep")
-}],
-"loop": true,
-"name": &"e_idle",
-"speed": 5.0
-}, {
-"frames": [],
-"loop": true,
-"name": &"e_walk",
-"speed": 5.0
+[sub_resource type="Animation" id="Animation_l3euu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollisionShape2D/Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_6rani"]
+resource_name = "h_idle"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollisionShape2D/Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="Animation" id="Animation_c4h72"]
+resource_name = "h_walk"
+length = 1.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollisionShape2D/Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [14, 15, 16, 17, 18, 19]
+}
+
+[sub_resource type="Animation" id="Animation_ty6bj"]
+resource_name = "h_attack"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollisionShape2D/Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [21, 22, 23]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"attack_target"
 }]
+}
+
+[sub_resource type="Animation" id="Animation_4ix7y"]
+resource_name = "h_death"
+length = 1.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollisionShape2D/Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [28, 29, 30, 31, 32, 33, 34]
+}
+
+[sub_resource type="Animation" id="Animation_l1cun"]
+resource_name = "h_grabbed"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollisionShape2D/Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [35, 36, 37]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tqlhq"]
+_data = {
+"RESET": SubResource("Animation_l3euu"),
+"h_attack": SubResource("Animation_ty6bj"),
+"h_death": SubResource("Animation_4ix7y"),
+"h_get_hit": SubResource("Animation_j7tvb"),
+"h_grabbed": SubResource("Animation_l1cun"),
+"h_idle": SubResource("Animation_6rani"),
+"h_walk": SubResource("Animation_c4h72")
+}
 
 [node name="Enemy" type="CharacterBody2D" groups=["grabbable", "hittable"]]
 y_sort_enabled = true
@@ -46,14 +160,20 @@ script = ExtResource("1_qubom")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_6g4wp")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CollisionShape2D"]
+[node name="Sprite" type="Sprite2D" parent="CollisionShape2D"]
 position = Vector2(0, -11)
-sprite_frames = SubResource("SpriteFrames_pxy8f")
-animation = &"e_idle"
+texture = ExtResource("3_ulaoa")
+hframes = 7
+vframes = 6
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 target_desired_distance = 55.0
 debug_enabled = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_tqlhq")
+}
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("2_4lp0a")
@@ -73,3 +193,5 @@ script = ExtResource("6_t8bkm")
 
 [node name="Grabbed" type="Node" parent="StateMachine"]
 script = ExtResource("7_d7cp8")
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

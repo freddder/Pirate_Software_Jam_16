@@ -2,7 +2,7 @@ extends State
 class_name EnemyIdle
 
 @onready var enemy : CharacterBody2D = $"../.."
-@onready var animated_sprite : AnimatedSprite2D = $"../../CollisionShape2D/AnimatedSprite2D"
+@onready var animation_player : AnimationPlayer = $"../../AnimationPlayer"
 @onready var collision : CollisionShape2D = $"../../CollisionShape2D"
 
 @export var min_idle_time : float = 1.0
@@ -10,11 +10,10 @@ class_name EnemyIdle
 var timer: float
 
 func enter():
-	print("idle")
 	collision.set_deferred("disabled", false)
 	enemy.velocity = Vector2.ZERO
 	timer = randf_range(min_idle_time, max_idle_time)
-	animated_sprite.play("e_idle")
+	animation_player.play("h_idle")
 
 func update(delta : float):
 	timer -= delta
