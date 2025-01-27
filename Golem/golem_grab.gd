@@ -34,8 +34,9 @@ func _process(delta):
 		else:
 			body_global_destination = golem.get_global_mouse_position()
 		
-		var move_direction = (body_global_destination - grabbed_body.global_position).normalized()
-		grabbed_body.global_position += move_direction * grab_follow_speed * delta
+		var move_direction = (body_global_destination - grabbed_body.global_position)
+		if move_direction.length() > 10:
+			grabbed_body.global_position += move_direction.normalized() * grab_follow_speed * delta
 
 func update(delta : float):
 	if is_attempting_grab:
