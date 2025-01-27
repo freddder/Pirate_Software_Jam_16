@@ -3,6 +3,7 @@ extends Node
 @onready var explosion = load("res://Props/Explosion/explosion.tscn")
 @onready var barrel = load("res://Props/ExplosiveBarrel/explosive_barrel.tscn")
 @onready var valid_zone : NavigationRegion2D = $NavigationRegion2D
+@onready var ground : TileMapLayer = get_node("/root/Test_Map/NavigationRegion2D/Ground")
 
 var animals : Array[BaseAnimal] = []
 var golden_trees : Array[GoldenTree] = []
@@ -54,4 +55,10 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	if Input.is_action_pressed("slam"):
+		var clicked_cell = ground.local_to_map(ground.get_local_mouse_position())
+		var data = ground.get_cell_tile_data(clicked_cell)
+		if data:
+			print("tile exists")
+		else:
+			print("tile doesnt exists")
