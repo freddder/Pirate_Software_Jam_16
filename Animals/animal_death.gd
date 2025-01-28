@@ -13,9 +13,7 @@ func enter():
 	animated_sprite.play("f_dead")
 	collision.set_deferred("disabled", true)
 	Level.animals.erase(animal)
-	Level.animal_killed = true
-	Level.reduce_island_integrity()
-	Level.animals.erase(self)
+	Level.reduce_island_integrity(1)
 	#area.set_deferred("monitorable", false)
 	#area.set_deferred("monitoring", false)
 

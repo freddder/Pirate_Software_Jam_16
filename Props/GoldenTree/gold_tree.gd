@@ -22,8 +22,7 @@ func get_hit(source : Vector2) -> bool:
 func get_rekt():
 	print("I got chopped")
 	goldtree_animation.play("tree_falling")
-	Level.tree_chopped = true
-	Level.reduce_island_integrity()
+	Level.reduce_island_integrity(1)
 	Level.golden_trees.erase(self)
 	
 func update(delta : float):

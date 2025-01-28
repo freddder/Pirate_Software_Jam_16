@@ -2,11 +2,7 @@ extends Node
 
 @onready var explosion = load("res://Props/Explosion/explosion.tscn")
 @onready var barrel = load("res://Props/ExplosiveBarrel/explosive_barrel.tscn")
-@onready var state_machine : StateMachine = $StateMachine
-var tree_chopped : bool = false
-var animal_killed : bool = false
-var crystal_destroyed : bool = false
-var island_integrity = 10
+var island_integrity: int = 10
 
 var animals : Array[BaseAnimal] = []
 var golden_trees : Array[GoldenTree] = []
@@ -53,19 +49,9 @@ func create_explosion(global_position : Vector2):
 	instance.global_position = global_position
 	add_child(instance)
 
-func reduce_island_integrity():
-	if animal_killed == true:
-		island_integrity -= 1
-		animal_killed = false
-		print(island_integrity, "-animal")
-	if tree_chopped == true:
-		island_integrity -= 1
-		tree_chopped = false
-		print(island_integrity, "-tree")
-	if crystal_destroyed == true:
-		island_integrity -= 1
-		crystal_destroyed = false
-		print(island_integrity, "-crystal")
+func reduce_island_integrity(amount : int):
+	island_integrity -= amount
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass

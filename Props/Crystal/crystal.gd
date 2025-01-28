@@ -24,6 +24,5 @@ func get_hit(source : Vector2) -> bool:
 func get_rekt():
 	print("My heart has been shattered")
 	crystal_anim.play("c_broken")
-	Level.crystal_destroyed = true
-	Level.reduce_island_integrity()
+	Level.reduce_island_integrity(1)
 	Level.crystals.erase(self)
