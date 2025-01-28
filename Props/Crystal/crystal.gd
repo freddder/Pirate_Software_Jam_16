@@ -1,8 +1,9 @@
-extends CharacterBody2D
+extends StaticBody2D
 class_name Crystal
 
 @onready var crystal_anim : AnimatedSprite2D = $AnimatedSprite2D
-var hit_counter = 3
+@onready var collision: CollisionShape2D = $CollisionShape2D
+var health = 3
 
 func _ready():
 	Level.crystals.push_back(self)
@@ -11,18 +12,16 @@ func _ready():
 func _process(delta):
 	pass
 
-func get_hit(source : Vector2) -> bool:
+func get_hit(source: Vector2, damage: int) -> bool:
 	print("CLANK")
-	crystal_anim.play("c_hit")
-	hit_counter -= 1
-	if hit_counter == 0:
-		get_rekt()
-		return false
-	else:
+	health -= damage
+	if health > 0:
+		crystal_anim.play("c_hit")
 		return true
-
-func get_rekt():
-	print("My heart has been shattered")
-	crystal_anim.play("c_broken")
-	Level.reduce_island_integrity(1)
-	Level.crystals.erase(self)
+	else:
+		print("My heart has been shattered")
+		collision.disabled = true
+		crystal_anim.play("c_broken")
+		Level.reduce_island_integrity(1)
+		Level.crystals.erase(self)
+		return false

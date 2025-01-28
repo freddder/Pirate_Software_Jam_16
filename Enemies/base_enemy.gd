@@ -12,7 +12,7 @@ var spawn_position : Vector2
 @onready var navi_agent : NavigationAgent2D = $NavigationAgent2D
 @onready var anim_player : AnimationPlayer = $AnimationPlayer
 var target : CollisionObject2D = null
-var hit_counter = 3
+var health = 3
 
 func _ready():
 	spawn_position = global_position
@@ -20,34 +20,30 @@ func _ready():
 func _physics_process(delta):
 	move_and_slide()
 
-func get_hit(source : Vector2):
+func get_hit(source: Vector2, damage: int):
 	state_machine.on_state_change(state_machine.current_state, "Idle")
 	anim_player.play("h_get_hit")
-	hit_counter -= 1
-	if hit_counter == 0:
-		get_rekt()
-
-func get_rekt():
-	state_machine.on_state_change(state_machine.current_state, "Death")
+	health -= damage
+	if health <= 0:
+		print("ded")
 
 func get_grabbed():
 	state_machine.on_state_change(state_machine.current_state, "Grabbed")
 
 func release():
-	var clicked_cell = ground.local_to_map(body.get_global_position())
-	var data = ground.get_cell_tile_data(clicked_cell)
-	if data:
+	#var clicked_cell = ground.local_to_map(body.get_global_position())
+	#var data = ground.get_cell_tile_data(clicked_cell)
+	#if data:
 		state_machine.on_state_change(state_machine.current_state, "Idle")
 		#print("tile exists")
-	else:
-		state_machine.on_state_change(state_machine.current_state, "Death")
-		return false
+	#else:
+		#state_machine.on_state_change(state_machine.current_state, "Death")
 		#print("tile doesnt exists")
 		#print(body)
 		
 func attack_target():
 	if target:
-		target.get_hit(global_position)
+		target.get_hit(global_position, 1)
 
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name.ends_with("attack"):

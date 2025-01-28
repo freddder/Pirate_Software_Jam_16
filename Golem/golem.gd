@@ -23,9 +23,10 @@ func _physics_process(delta):
 	get_input()
 
 func slam_attack():
+	print(slam_hitbox.get_overlapping_bodies().size())
 	for body in slam_hitbox.get_overlapping_bodies():
 		if body.is_in_group("hittable"):
-			body.get_hit(slam_hitbox.global_position)
+			body.get_hit(slam_hitbox.global_position, 1)
 
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name.ends_with("fire"):
