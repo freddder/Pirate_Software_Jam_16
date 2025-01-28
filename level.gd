@@ -3,12 +3,20 @@ extends Node
 @onready var explosion = load("res://Props/Explosion/explosion.tscn")
 @onready var barrel = load("res://Props/ExplosiveBarrel/explosive_barrel.tscn")
 var island_integrity: int = 10
+var scene : String
 
 var animals : Array[BaseAnimal] = []
 var golden_trees : Array[GoldenTree] = []
 var crystals : Array[Crystal] = []
 var enemies : Array[BaseEnemy] = []
 
+func play_game():
+	if scene == "map":
+		get_tree().change_scene_to_file("res://map.tscn")
+	else:
+		get_tree().change_scene_to_file("res://Title_screen.tscn")
+		
+	
 func find_closest_animal(global_position : Vector2) -> BaseAnimal:
 	var smallest_distance = 9999999.9
 	var closest_animal : BaseAnimal = null
