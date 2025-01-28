@@ -6,7 +6,7 @@ var target_type : target_types = target_types.ANIMALS
 var has_barrel : bool = true
 var spawn_position : Vector2
 
-@onready var ground : TileMapLayer = get_node("/root/Map/NavigationRegion2D/Ground")
+#@onready var ground : TileMapLayer = get_node("/root/Map/NavigationRegion2D/Ground")
 @onready var body : CharacterBody2D = $"."
 @onready var state_machine : StateMachine = $StateMachine
 @onready var navi_agent : NavigationAgent2D = $NavigationAgent2D
@@ -21,11 +21,12 @@ func _physics_process(delta):
 	move_and_slide()
 
 func get_hit(source: Vector2, damage: int):
-	state_machine.on_state_change(state_machine.current_state, "Idle")
-	anim_player.play("h_get_hit")
 	health -= damage
-	if health <= 0:
-		print("ded")
+	if health > 0:
+		state_machine.on_state_change(state_machine.current_state, "Idle")
+		anim_player.play("h_get_hit")
+	else:
+		state_machine.on_state_change(state_machine.current_state, "Death")
 
 func get_grabbed():
 	state_machine.on_state_change(state_machine.current_state, "Grabbed")

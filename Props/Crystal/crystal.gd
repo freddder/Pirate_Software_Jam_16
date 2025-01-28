@@ -17,13 +17,11 @@ func get_hit(source: Vector2, damage: int) -> bool:
 	if is_broken:
 		return false
 	
-	print("CLANK")
 	health -= damage
 	if health > 0:
 		crystal_anim.play("c_hit")
 		return true
 	else:
-		print("My heart has been shattered")
 		crystal_anim.play("c_broken")
 		Level.reduce_island_integrity(1)
 		Level.crystals.erase(self)
