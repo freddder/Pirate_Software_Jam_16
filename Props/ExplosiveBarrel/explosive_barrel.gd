@@ -9,11 +9,11 @@ func _ready():
 func _process(delta):
 	pass
 
-func get_hit(source : Vector2) -> bool:
+func get_hit(source : Vector2, damage : int) -> bool:
 	explode()
 	return false
 func get_rekt():
-	get_hit(global_position)
+	get_hit(global_position, 5)
 
 func get_grabbed():
 	collision_shape.disabled = true
