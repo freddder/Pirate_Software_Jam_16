@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://dhhv76sckeqeu"]
+[gd_scene load_steps=13 format=4 uid="uid://dhhv76sckeqeu"]
 
 [ext_resource type="Texture2D" uid="uid://cyu0kjt3js1io" path="res://Placeholders/Tilesets/wall-8 - 2 tiles tall.png" id="1_revvw"]
 [ext_resource type="Texture2D" uid="uid://nat6cssg4o55" path="res://Placeholders/Props/Atlas-Props.png" id="2_8haj7"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://e57bjmfbqtvu" path="res://Props/GoldenTree/gold_tree.tscn" id="5_nnwot"]
 [ext_resource type="PackedScene" uid="uid://bj1uthfk37t1e" path="res://Animals/base_animal.tscn" id="6_pob2e"]
 [ext_resource type="PackedScene" uid="uid://bcpop7daniqvu" path="res://Enemies/enemy.tscn" id="7_3j0ay"]
+[ext_resource type="PackedScene" uid="uid://dy3y7x7lah4wj" path="res://Enemies/Ship/ship.tscn" id="8_goabm"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_fx76c"]
 vertices = PackedVector2Array(244, 52, 424.109, 137.461, -491.5, 136.031, -276, 52, 426.883, -361.031, 244, -180, -491.5, -362.461, -276, -20, 76, -108, 172, -108, 172, -20, -12, -20, -12, -244, 76, -180, -84, -244, -84, -20)
@@ -142,3 +143,6 @@ position = Vector2(93, -47)
 
 [node name="Enemy" parent="." instance=ExtResource("7_3j0ay")]
 position = Vector2(-234.5, -144)
+
+[node name="Ship" parent="." instance=ExtResource("8_goabm")]
+position = Vector2(-12.5, 49.5)

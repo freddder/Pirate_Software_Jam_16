@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dpfe0rk2itmdx"
-path="res://.godot/imported/inward_turns.png-9187afd1daac2180850e84d2c0edce39.ctex"
+uid="uid://v2uy4x0k4uwp"
+path="res://.godot/imported/spawn.png-7aeaeb0dc2369b9f89d76006337008f3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Spirites/Tilesets/inward_turns.png"
-dest_files=["res://.godot/imported/inward_turns.png-9187afd1daac2180850e84d2c0edce39.ctex"]
+source_file="res://Spirites/spawn.png"
+dest_files=["res://.godot/imported/spawn.png-7aeaeb0dc2369b9f89d76006337008f3.ctex"]
 
 [params]
 

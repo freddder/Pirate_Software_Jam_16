@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cop3hg8fj2o4s"
-path="res://.godot/imported/melee_icon-Recovered.png-d32eb25ec7c3041d15649dba9ae26130.ctex"
+uid="uid://c1pb36nioxuqd"
+path="res://.godot/imported/island_edges_2.png-68baac730308844abe74382395347f3e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Spirites/melee_icon-Recovered.png"
-dest_files=["res://.godot/imported/melee_icon-Recovered.png-d32eb25ec7c3041d15649dba9ae26130.ctex"]
+source_file="res://Spirites/Tilesets/island_edges_2.png"
+dest_files=["res://.godot/imported/island_edges_2.png-68baac730308844abe74382395347f3e.ctex"]
 
 [params]
 

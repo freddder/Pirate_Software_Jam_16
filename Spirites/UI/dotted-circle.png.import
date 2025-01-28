@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dfecpcrh64bpn"
-path="res://.godot/imported/turnss.png-6142c67f1cd41cdbbe14de2708a41216.ctex"
+uid="uid://dcdpkm5agr4dl"
+path="res://.godot/imported/dotted-circle.png-b3a19f06b5960f6d338dfe874d0ed2b4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Spirites/Tilesets/turnss.png"
-dest_files=["res://.godot/imported/turnss.png-6142c67f1cd41cdbbe14de2708a41216.ctex"]
+source_file="res://Spirites/UI/dotted-circle.png"
+dest_files=["res://.godot/imported/dotted-circle.png-b3a19f06b5960f6d338dfe874d0ed2b4.ctex"]
 
 [params]
 
