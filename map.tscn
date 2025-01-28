@@ -1,7 +1,6 @@
-[gd_scene load_steps=48 format=4 uid="uid://b1b4xwtwlcri8"]
+[gd_scene load_steps=47 format=4 uid="uid://b1b4xwtwlcri8"]
 
 [ext_resource type="Shader" path="res://water.gdshader" id="1_apntg"]
-[ext_resource type="Script" path="res://fallzone.gd" id="1_kopvm"]
 [ext_resource type="Texture2D" uid="uid://cvoq2u0khwe15" path="res://Spirites/Tilesets/grass_tiles.png" id="1_mbqew"]
 [ext_resource type="Texture2D" uid="uid://4i4diseuhlmd" path="res://Spirites/Tilesets/island_edges.png" id="2_0wv76"]
 [ext_resource type="PackedScene" uid="uid://bd74mkhe1hxkk" path="res://Golem/golem.tscn" id="2_bx855"]
@@ -302,11 +301,9 @@ pattern_5 = SubResource("TileMapPattern_e8fjs")
 y_sort_enabled = true
 
 [node name="FallZone" type="Area2D" parent="."]
-visible = false
 disable_mode = 1
 collision_layer = 0
 collision_mask = 2
-script = ExtResource("1_kopvm")
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="FallZone"]
 position = Vector2(-451, 1568)
