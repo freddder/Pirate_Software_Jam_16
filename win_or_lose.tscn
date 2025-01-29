@@ -1,0 +1,150 @@
+[gd_scene load_steps=13 format=3 uid="uid://b1mwbrf7vrai8"]
+
+[ext_resource type="Texture2D" uid="uid://51akafkeg66u" path="res://Placeholders/Clouds/Clouds 3/1.png" id="1_h55mq"]
+[ext_resource type="Texture2D" uid="uid://ck47mahoi4d6g" path="res://Placeholders/Clouds/Clouds 3/2.png" id="2_28gry"]
+[ext_resource type="Texture2D" uid="uid://dm181rxa3q3qt" path="res://Placeholders/Clouds/Clouds 3/3.png" id="3_p30hp"]
+[ext_resource type="Texture2D" uid="uid://cq40g6al2dl7q" path="res://Placeholders/Clouds/Clouds 3/4.png" id="4_ywpin"]
+[ext_resource type="Texture2D" uid="uid://cb8hrpsgsd42i" path="res://Placeholders/Clouds/Clouds 4/1.png" id="5_de0ff"]
+[ext_resource type="Texture2D" uid="uid://ro8yrdjnwqdm" path="res://Placeholders/Clouds/Clouds 4/2.png" id="6_dryko"]
+[ext_resource type="Texture2D" uid="uid://ck48h3e7t0dh2" path="res://Placeholders/Clouds/Clouds 4/3.png" id="7_rwo5a"]
+[ext_resource type="Script" path="res://end_scene.gd" id="7_ykohf"]
+[ext_resource type="Texture2D" uid="uid://mqxr15ejsikt" path="res://Placeholders/Clouds/Clouds 4/4.png" id="8_8u1r6"]
+[ext_resource type="Script" path="res://play_button.gd" id="9_5qads"]
+[ext_resource type="Script" path="res://Golem/exit_game.gd" id="10_ackhd"]
+
+[sub_resource type="SystemFont" id="SystemFont_5tuww"]
+font_names = PackedStringArray("Fantasy")
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+
+[node name="Lose" type="Camera2D" parent="."]
+zoom = Vector2(1.5, 1.5)
+
+[node name="Sprite2D" type="Sprite2D" parent="Lose"]
+scale = Vector2(1.34, 1.34)
+texture = ExtResource("1_h55mq")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Lose"]
+scale = Vector2(1.34, 1.34)
+texture = ExtResource("2_28gry")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Lose"]
+scale = Vector2(1.34, 1.34)
+texture = ExtResource("3_p30hp")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Lose"]
+scale = Vector2(1.34, 1.34)
+texture = ExtResource("4_ywpin")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Lose"]
+offset_left = -50.0
+offset_top = -151.0
+offset_right = 36.0
+offset_bottom = -123.0
+text = "You Lose :("
+
+[node name="Button" type="Button" parent="Lose"]
+offset_left = -379.0
+offset_top = 140.0
+offset_right = -165.0
+offset_bottom = 212.0
+theme_override_colors/font_hover_color = Color(0.0784314, 0.980392, 1, 0.572549)
+theme_override_colors/font_pressed_color = Color(0, 1, 1, 1)
+theme_override_colors/font_color = Color(0.597758, 0.658689, 0.859323, 1)
+theme_override_fonts/font = SubResource("SystemFont_5tuww")
+theme_override_font_sizes/font_size = 54
+text = "Play again?"
+flat = true
+script = ExtResource("9_5qads")
+
+[node name="Button2" type="Button" parent="Lose"]
+offset_left = 111.0
+offset_top = 3.0
+offset_right = 325.0
+offset_bottom = 75.0
+theme_override_colors/font_hover_color = Color(0.0784314, 0.980392, 1, 0.572549)
+theme_override_colors/font_pressed_color = Color(0, 1, 1, 1)
+theme_override_colors/font_color = Color(0.627451, 0.654902, 0.764706, 1)
+theme_override_fonts/font = SubResource("SystemFont_5tuww")
+theme_override_font_sizes/font_size = 54
+text = "Exit?"
+flat = true
+script = ExtResource("10_ackhd")
+
+[node name="Win" type="Camera2D" parent="."]
+zoom = Vector2(1.5, 1.5)
+script = ExtResource("7_ykohf")
+
+[node name="Sprite2D" type="Sprite2D" parent="Win"]
+scale = Vector2(1.34, 1.34)
+texture = ExtResource("5_de0ff")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Win"]
+scale = Vector2(1.34, 1.34)
+texture = ExtResource("6_dryko")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Win"]
+scale = Vector2(1.34, 1.34)
+texture = ExtResource("7_rwo5a")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Win"]
+scale = Vector2(1.34, 1.34)
+texture = ExtResource("8_8u1r6")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Win"]
+offset_left = -50.0
+offset_top = -151.0
+offset_right = 36.0
+offset_bottom = -123.0
+text = "You Win :)"
+
+[node name="Button" type="Button" parent="Win"]
+offset_left = -379.0
+offset_top = 140.0
+offset_right = -165.0
+offset_bottom = 212.0
+theme_override_colors/font_hover_color = Color(0.0784314, 0.980392, 1, 0.572549)
+theme_override_colors/font_pressed_color = Color(0, 1, 1, 1)
+theme_override_colors/font_color = Color(0.643137, 0.486275, 0.670588, 1)
+theme_override_fonts/font = SubResource("SystemFont_5tuww")
+theme_override_font_sizes/font_size = 54
+text = "Play again?"
+flat = true
+script = ExtResource("9_5qads")
+
+[node name="Button2" type="Button" parent="Win"]
+offset_left = 125.0
+offset_top = 1.0
+offset_right = 339.0
+offset_bottom = 73.0
+theme_override_colors/font_hover_color = Color(0.0784314, 0.980392, 1, 0.572549)
+theme_override_colors/font_pressed_color = Color(0, 1, 1, 1)
+theme_override_colors/font_color = Color(0.627451, 0.654902, 0.764706, 1)
+theme_override_fonts/font = SubResource("SystemFont_5tuww")
+theme_override_font_sizes/font_size = 54
+text = "Exit?"
+flat = true
+script = ExtResource("10_ackhd")
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+offset_left = -262.0
+offset_top = -90.0
+offset_right = 289.0
+offset_bottom = 9.0
+text = "Thank you for playing our game, it was a lot of work and most improtantly a lot of fun (When things worked lol). We all learned a lot.
+
+I hope you enjoyed"
+
+[connection signal="pressed" from="Lose/Button" to="Lose/Button" method="_on_pressed"]
+[connection signal="pressed" from="Lose/Button2" to="Lose/Button2" method="_on_pressed"]
+[connection signal="pressed" from="Win/Button" to="Win/Button" method="_on_pressed"]
+[connection signal="pressed" from="Win/Button2" to="Win/Button2" method="_on_pressed"]
