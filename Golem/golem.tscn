@@ -241,9 +241,11 @@ target_position = Vector2(50, 0)
 collision_mask = 3
 
 [node name="ExplosionPreview" type="Sprite2D" parent="Laser"]
+visible = false
 texture = ExtResource("3_j5pyv")
 
 [node name="Slam" type="Node2D" parent="."]
+visible = false
 position = Vector2(0, 1)
 
 [node name="PunchZone" type="Area2D" parent="Slam"]
