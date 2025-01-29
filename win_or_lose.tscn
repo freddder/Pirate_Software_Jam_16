@@ -136,6 +136,7 @@ flat = true
 script = ExtResource("10_ackhd")
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="."]
+layout_mode = 0
 offset_left = -262.0
 offset_top = -90.0
 offset_right = 289.0

@@ -1,11 +1,14 @@
 extends State
 class_name GolemFree
 
+@onready var thumpin : AudioStreamPlayer2D = $"../../thumpin"
 @onready var golem : CharacterBody2D = $"../.."
 @onready var anim_player : AnimationPlayer = $"../../AnimationPlayer"
 @onready var sprite : Sprite2D = $"../../Sprite2D"
 @export var walk_speed = 150
 var is_last_move_left : bool = false
+var thump_time : int = 35
+var thump_timer : int
 
 func enter():
 	anim_player.play("g_idle")
@@ -17,9 +20,16 @@ func get_input():
 	var input_direction := Input.get_vector("move_left", "move_right", "move_up", "move_down").normalized()
 	
 	if input_direction == Vector2.ZERO: # not moving
+		thumpin.stop()
 		anim_player.play("g_idle")
 	else:
 		anim_player.play("g_walk")
+		thump_timer -= 1
+		if thump_timer <= 0:
+			thumpin.volume_db = randi_range(10, 14)
+			thumpin.panning_strength = randi_range(1, 4)
+			thumpin.play()
+			thump_timer = thump_time
 		if input_direction.x < 0: # left
 			is_last_move_left = true
 		elif input_direction.x > 0: # right

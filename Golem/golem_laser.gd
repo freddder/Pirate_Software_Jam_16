@@ -1,6 +1,8 @@
 extends State
 class_name GolemLaser
 
+@onready var laser_charge : AudioStreamPlayer2D = $"../../Laser/LaserCharge"
+@onready var laser_blast : AudioStreamPlayer2D = $"../../Laser/LaserShoot"
 @onready var golem : CharacterBody2D = $"../.."
 @onready var laser_preview : Sprite2D = $"../../Laser/ExplosionPreview"
 @onready var laser_raycast : RayCast2D = $"../../Laser/RayCast2D"
@@ -11,6 +13,7 @@ var is_aiming : bool = false
 
 func enter():
 	anim_player.play("g_aiming")
+	laser_charge.play()
 	is_aiming = true
 	laser_preview.visible = true
 
@@ -18,6 +21,7 @@ func exit():
 	pass
 
 func fire_laser():
+	laser_blast.stop()
 	Level.create_explosion(laser_preview.global_position)
 	#ChangeState.emit(self, "free")
 
@@ -40,5 +44,8 @@ func update(delta : float):
 
 func physic_update(delta : float):
 	if is_aiming and !Input.is_action_pressed("laser"):
+		laser_charge.stop()
+		laser_blast.volume_db = 25
+		laser_blast.play()
 		anim_player.play("g_fire")
 	is_aiming = Input.is_action_pressed("laser")
