@@ -145,4 +145,5 @@ position = Vector2(93, -47)
 position = Vector2(-234.5, -144)
 
 [node name="Ship" parent="." instance=ExtResource("8_goabm")]
-position = Vector2(-12.5, 49.5)
+position = Vector2(8, 74)
+timers = Array[Vector3i]([Vector3i(2, 3, 3)])
