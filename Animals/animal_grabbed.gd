@@ -7,5 +7,5 @@ class_name grabbed
 
 func enter():
 	animal.velocity = Vector2.ZERO
-	animated_sprite.play(animal.anim_name_prefixes[animal.type] + "_idle")
+	animated_sprite.play(animal.anim_name_prefixes[animal.type] + "_float")
 	collision.set_deferred("disabled", true)
