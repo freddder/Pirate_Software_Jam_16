@@ -2,6 +2,7 @@ extends Node
 
 @onready var explosion = load("res://Props/Explosion/explosion.tscn")
 @onready var barrel = load("res://Props/ExplosiveBarrel/explosive_barrel.tscn")
+@onready var ground : TileMapLayer = get_node("/root/Map/NavigationRegion2D/Ground")
 var island_integrity: int = 10
 var scene : String
 var win_or_lose : bool = false
@@ -69,10 +70,17 @@ func create_explosion(global_position : Vector2):
 
 func reduce_island_integrity(amount : int):
 	island_integrity -= amount
-	
+
 func set_volume():
 	volume_setter = base_volume * 0.1
 	#print(volume_setter)
+
+func does_tile_exist_at_position(position: Vector2) -> bool:
+	var clicked_cell = ground.local_to_map(position)
+	if ground.get_cell_tile_data(clicked_cell):
+		return true
+	else:
+		return false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

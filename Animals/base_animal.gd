@@ -38,7 +38,6 @@ func get_hit(source: Vector2, damage: int) -> bool: # Return if it is still aliv
 
 func scare(source: Vector2):
 	scared_state.last_scare_source = source
-	#state_machine.on_state_change(state_machine.current_state, "Scared")
 	state_machine.on_state_change(state_machine.current_state, "Idle")
 	animated_sprite.play(anim_name_prefixes[type] + "_hit")
 
@@ -46,17 +45,11 @@ func get_grabbed():
 	state_machine.on_state_change(state_machine.current_state, "Grabbed")
 
 func release():
-	#var clicked_cell = ground.local_to_map(body.get_global_position())
-	#var data = ground.get_cell_tile_data(clicked_cell)
-	#if data:
+	var is_on_valid_tile = Level.does_tile_exist_at_position(body.global_position)
+	if is_on_valid_tile:
 		state_machine.on_state_change(state_machine.current_state, "Idle")
-		#print("tile exists")
-	#else:
-		#state_machine.on_state_change(state_machine.current_state, "Death")
-		#return false
-		#print("tile doesnt exists")
-		#print(body)
-
+	else:
+		state_machine.on_state_change(state_machine.current_state, "Death")
 
 func _on_animated_sprite_2d_animation_finished():
 	if animated_sprite.animation.ends_with("hit"):

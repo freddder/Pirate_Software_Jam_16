@@ -37,15 +37,11 @@ func get_grabbed():
 	state_machine.on_state_change(state_machine.current_state, "Grabbed")
 
 func release():
-	#var clicked_cell = ground.local_to_map(body.get_global_position())
-	#var data = ground.get_cell_tile_data(clicked_cell)
-	#if data:
+	var is_on_valid_tile = Level.does_tile_exist_at_position(body.global_position)
+	if is_on_valid_tile:
 		state_machine.on_state_change(state_machine.current_state, "Idle")
-		#print("tile exists")
-	#else:
-		#state_machine.on_state_change(state_machine.current_state, "Death")
-		#print("tile doesnt exists")
-		#print(body)
+	else:
+		state_machine.on_state_change(state_machine.current_state, "Death")
 		
 func attack_target():
 	if target:

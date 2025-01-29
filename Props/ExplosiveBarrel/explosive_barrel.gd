@@ -41,8 +41,12 @@ func get_grabbed():
 
 func release():
 	is_grabbed = false
-	collision_shape.set_deferred("disabled", false)
-	anim_player.play()
+	var is_on_valid_tile = Level.does_tile_exist_at_position(global_position)
+	if is_on_valid_tile:
+		collision_shape.set_deferred("disabled", false)
+		anim_player.play()
+	else:
+		queue_free()
 
 func explode():
 	collision_shape.set_deferred("disabled", true)
