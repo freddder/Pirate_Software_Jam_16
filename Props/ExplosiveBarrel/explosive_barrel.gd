@@ -7,7 +7,8 @@ var is_active : bool = false
 var timer : float = 6.0
 
 func _ready():
-	pass # Replace with function body.
+	if is_active:
+		anim_player.play("count_down")
 
 func _process(delta):
 	if !is_active:
