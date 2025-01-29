@@ -23,7 +23,7 @@ func exit_game():
 		enemies.clear()
 		get_tree().change_scene_to_file("res://Title_screen.tscn")
 
-func find_closest_animal(global_position : Vector2) -> BaseAnimal:
+func find_closest_animal(global_position: Vector2) -> BaseAnimal:
 	var smallest_distance = 9999999.9
 	var closest_animal : BaseAnimal = null
 	for animal in animals:
@@ -33,7 +33,7 @@ func find_closest_animal(global_position : Vector2) -> BaseAnimal:
 			closest_animal = animal
 	return closest_animal
 
-func find_closest_tree(global_position : Vector2) -> GoldenTree:
+func find_closest_tree(global_position: Vector2) -> GoldenTree:
 	var smallest_distance = 9999999.9
 	var closest_tree : GoldenTree = null
 	for tree in golden_trees:
@@ -43,7 +43,7 @@ func find_closest_tree(global_position : Vector2) -> GoldenTree:
 			closest_tree = tree
 	return closest_tree
 
-func find_closest_crystal(global_position : Vector2) -> Crystal:
+func find_closest_crystal(global_position: Vector2) -> Crystal:
 	var smallest_distance = 9999999.9
 	var closest_crystal : Crystal = null
 	for crystal in crystals:
@@ -53,8 +53,9 @@ func find_closest_crystal(global_position : Vector2) -> Crystal:
 			closest_crystal = crystal
 	return closest_crystal
 
-func create_barrel(global_position : Vector2):
+func create_barrel(global_position: Vector2, is_active: bool):
 	var instance = barrel.instantiate()
+	instance.is_active = is_active
 	instance.global_position = global_position
 	add_child(instance)
 

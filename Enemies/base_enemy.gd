@@ -22,6 +22,11 @@ func _physics_process(delta):
 
 func get_hit(source: Vector2, damage: int):
 	health -= damage
+	
+	if target_type == target_types.CRYSTAL and has_barrel:
+		Level.create_barrel(global_position, false)
+		has_barrel = false
+	
 	if health > 0:
 		state_machine.on_state_change(state_machine.current_state, "Idle")
 		anim_player.play("h_get_hit")

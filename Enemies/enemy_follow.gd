@@ -48,7 +48,7 @@ func physic_update(delta : float):
 			enemy.queue_free()
 		else:
 			if enemy.target_type == enemy.target_types.CRYSTAL:
-				Level.create_barrel(enemy.global_position)
+				Level.create_barrel(enemy.global_position, true)
 				enemy.has_barrel = false
 				ChangeState.emit(self, "idle")
 			else:
