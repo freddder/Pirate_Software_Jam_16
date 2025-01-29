@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://djnudtebdii22"
-path="res://.godot/imported/animal_1_run-Sheet.png-d7713c2dfb67aca0adad2304e0fe1dad.ctex"
+uid="uid://o2mimsa221ac"
+path="res://.godot/imported/fox_dead.png-c62a773c6f751df8e396a5ff9641b87c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Animals/Sprites/animal_1_run-Sheet.png"
-dest_files=["res://.godot/imported/animal_1_run-Sheet.png-d7713c2dfb67aca0adad2304e0fe1dad.ctex"]
+source_file="res://Animals/Sprites/fox_dead.png"
+dest_files=["res://.godot/imported/fox_dead.png-c62a773c6f751df8e396a5ff9641b87c.ctex"]
 
 [params]
 

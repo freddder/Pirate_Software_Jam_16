@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dfeuxg5mm81gj"
-path="res://.godot/imported/animal_1_walking_forward-Sheet.png-ff453187ad4b028fa5fbc8f534327411.ctex"
+uid="uid://c77b4w0hrqd3r"
+path="res://.godot/imported/fox_float.png-a89165c10bd66963bc7571fcdea3378d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Animals/Sprites/animal_1_walking_forward-Sheet.png"
-dest_files=["res://.godot/imported/animal_1_walking_forward-Sheet.png-ff453187ad4b028fa5fbc8f534327411.ctex"]
+source_file="res://Animals/Sprites/fox_float.png"
+dest_files=["res://.godot/imported/fox_float.png-a89165c10bd66963bc7571fcdea3378d.ctex"]
 
 [params]
 

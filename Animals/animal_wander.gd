@@ -1,7 +1,7 @@
 extends State
 class_name AnimalWander
 
-@onready var animal : CharacterBody2D = $"../.."
+@onready var animal : BaseAnimal = $"../.."
 @onready var navigation_agent : NavigationAgent2D = $"../../NavigationAgent2D"
 @onready var sprite_animation : AnimatedSprite2D = $"../../AnimatedSprite2D"
 
@@ -10,7 +10,7 @@ var timer : float = 0
 
 func enter():
 	navigation_agent.target_position = Vector2(randf_range(-100, 100), randf_range(-100, 100)) + animal.global_position
-	sprite_animation.play("f_walk_side")
+	sprite_animation.play(animal.anim_name_prefixes[animal.type] + "_walk")
 
 func exit():
 	timer = 0.0

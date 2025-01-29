@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://db2nw2q4dpa8x"
-path="res://.godot/imported/animal_1_walking_3.4-Sheet.png-0499d41d6664b9a73b8b1e4580449a67.ctex"
+uid="uid://dgp433lj4g16"
+path="res://.godot/imported/owl_hit.png-e113c6db52a56fd49ed25d3f0fd6cd21.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Animals/Sprites/animal_1_walking_3.4-Sheet.png"
-dest_files=["res://.godot/imported/animal_1_walking_3.4-Sheet.png-0499d41d6664b9a73b8b1e4580449a67.ctex"]
+source_file="res://Animals/Sprites/owl_hit.png"
+dest_files=["res://.godot/imported/owl_hit.png-e113c6db52a56fd49ed25d3f0fd6cd21.ctex"]
 
 [params]
 

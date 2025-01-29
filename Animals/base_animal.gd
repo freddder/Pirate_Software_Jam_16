@@ -1,6 +1,10 @@
 extends CharacterBody2D
 class_name BaseAnimal
 
+enum types {FOX, OWL}
+var anim_name_prefixes : Array[String] = ["f", "o"]
+var type : types
+
 @onready var animation : AnimatedSprite2D = $AnimatedSprite2D
 @onready var state_machine : StateMachine = $StateMachine
 @onready var scared_state : AnimalScared = $StateMachine/Scared
@@ -9,23 +13,25 @@ class_name BaseAnimal
 var health = 2
 
 func _ready():
+	type = randi() % types.size()
 	Level.animals.push_back(self)
 
 func _physics_process(delta):
 	move_and_slide()
 
+func get_full_anim_name(name: String) -> String:
+	return anim_name_prefixes[type] + name
+
 func get_hit(source: Vector2, damage: int) -> bool: # Return if it is still alive
 	if state_machine.get_current_state_name() == "grabbed":
 		return true
 	
-	print("AHHHHH, IT HURTS, PLEASE STOOOOOP!!!!!")
 	health -= damage
 	if health > 0:
 		scare(source)
 		return true
 	else:
 		state_machine.on_state_change(state_machine.current_state, "Death")
-		print("blergh")
 		return false
 
 func scare(source: Vector2):

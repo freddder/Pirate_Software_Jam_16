@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bc0wc4kti7h1o"
-path="res://.godot/imported/owl_idle-Sheet.png-e7d2058b702fb57becc72612ad976109.ctex"
+uid="uid://u3vx8j7vvl10"
+path="res://.godot/imported/owl_walk.png-2939e3d6d6a2b45cb5e0c20b1f6c6dab.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Animals/Sprites/owl_idle-Sheet.png"
-dest_files=["res://.godot/imported/owl_idle-Sheet.png-e7d2058b702fb57becc72612ad976109.ctex"]
+source_file="res://Animals/Sprites/owl_walk.png"
+dest_files=["res://.godot/imported/owl_walk.png-2939e3d6d6a2b45cb5e0c20b1f6c6dab.ctex"]
 
 [params]
 

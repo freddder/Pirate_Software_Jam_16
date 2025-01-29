@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://o2mimsa221ac"
-path="res://.godot/imported/animal_1_dead_newcolorSheet.png-c66b3b7e606acc7da75a14b955c77337.ctex"
+uid="uid://bc0wc4kti7h1o"
+path="res://.godot/imported/owl_idle.png-07ef88aef7e09375739d1ad00e95ce98.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Animals/Sprites/animal_1_dead_newcolorSheet.png"
-dest_files=["res://.godot/imported/animal_1_dead_newcolorSheet.png-c66b3b7e606acc7da75a14b955c77337.ctex"]
+source_file="res://Animals/Sprites/owl_idle.png"
+dest_files=["res://.godot/imported/owl_idle.png-07ef88aef7e09375739d1ad00e95ce98.ctex"]
 
 [params]
 
