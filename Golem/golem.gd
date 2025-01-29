@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+@onready var pow : AudioStreamPlayer2D = $Slam/pow
 @onready var slam_hitbox : Area2D = $Slam/PunchZone
 @onready var state_machine : StateMachine = $StateMachine
 @onready var free_state : GolemFree = $StateMachine/Free
@@ -23,6 +24,10 @@ func _physics_process(delta):
 	get_input()
 
 func slam_attack():
+	pow.volume_db = 1
+	pow.panning_strength = 1
+	pow.pitch_scale = -5
+	pow.play()
 	print(slam_hitbox.get_overlapping_bodies().size())
 	for body in slam_hitbox.get_overlapping_bodies():
 		if body.is_in_group("hittable"):
