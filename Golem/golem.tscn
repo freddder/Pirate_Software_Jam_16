@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://bd74mkhe1hxkk"]
+[gd_scene load_steps=28 format=3 uid="uid://bd74mkhe1hxkk"]
 
 [ext_resource type="Script" path="res://Golem/golem.gd" id="1_o5vha"]
 [ext_resource type="Texture2D" uid="uid://50dbavytp63q" path="res://Golem/GOL-M-Sheet.png" id="2_r1gqv"]
@@ -13,6 +13,7 @@
 [ext_resource type="AudioStream" uid="uid://bgieivis40a1j" path="res://Sounds/laser_charge_loop.wav" id="7_psbb1"]
 [ext_resource type="Script" path="res://Golem/golem_grab.gd" id="7_re0w5"]
 [ext_resource type="AudioStream" uid="uid://ov3uvwhoniou" path="res://Sounds/laser_beam.wav" id="8_b3b1w"]
+[ext_resource type="AudioStream" uid="uid://cx51sp80g4iop" path="res://Sounds/ground_slam.wav" id="11_bay0d"]
 [ext_resource type="AudioStream" uid="uid://bs05lr4mhxcjw" path="res://Sounds/menu_screen_loop.wav" id="11_svjj3"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0octc"]
@@ -128,6 +129,25 @@ tracks/0/keys = {
 "update": 1,
 "values": [8, 9, 10, 11, 12, 13]
 }
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("thumpin")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("2_s2g1c")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("2_s2g1c")
+}],
+"times": PackedFloat32Array(0.4, 1)
+}
+tracks/1/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ms82a"]
 _data = {
@@ -149,7 +169,6 @@ y_sort_enabled = true
 script = ExtResource("1_o5vha")
 
 [node name="thumpin" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("2_s2g1c")
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_svjj3")
@@ -271,6 +290,9 @@ monitorable = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Slam/PunchZone"]
 rotation = 1.5708
 shape = SubResource("CircleShape2D_6qy3o")
+
+[node name="pow" type="AudioStreamPlayer2D" parent="Slam"]
+stream = ExtResource("11_bay0d")
 
 [node name="Grab" type="Node2D" parent="."]
 

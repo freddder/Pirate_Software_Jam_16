@@ -1,6 +1,8 @@
 extends CharacterBody2D
 class_name Crystal
 
+@onready var crystal_hit : AudioStreamPlayer2D = $chipped
+@onready var shatter : AudioStreamPlayer2D = $shatter
 @onready var crystal_anim : AnimatedSprite2D = $AnimatedSprite2D
 @onready var collision: CollisionShape2D = $CollisionShape2D
 var health = 3
@@ -19,9 +21,15 @@ func get_hit(source: Vector2, damage: int) -> bool:
 	
 	health -= damage
 	if health > 0:
+		crystal_hit.volume_db = randi_range(1, 3)
+		crystal_hit.pitch_scale = randi_range(1, 3)
+		crystal_hit.play()
 		crystal_anim.play("c_hit")
+		
 		return true
 	else:
+		shatter.pitch_scale = randi_range(1, 3)
+		shatter.play()
 		crystal_anim.play("c_broken")
 		Level.reduce_island_integrity(1)
 		Level.crystals.erase(self)

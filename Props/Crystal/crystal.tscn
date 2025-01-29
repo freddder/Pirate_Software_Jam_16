@@ -1,9 +1,11 @@
-[gd_scene load_steps=24 format=3 uid="uid://b33b2asfwk761"]
+[gd_scene load_steps=26 format=3 uid="uid://b33b2asfwk761"]
 
 [ext_resource type="Script" path="res://Props/Crystal/crystal.gd" id="1_b4wt1"]
 [ext_resource type="Texture2D" uid="uid://bqkce625w6nwo" path="res://Props/Crystal/crystal_destroy-Sheet.png" id="2_x36vo"]
 [ext_resource type="Texture2D" uid="uid://paqx2m2bpapq" path="res://Props/Crystal/crystal_hit-Sheet.png" id="3_x5f88"]
 [ext_resource type="Texture2D" uid="uid://c7fujdtpdeuo4" path="res://Props/Crystal/crystal_idle-Sheet.png" id="4_vv8wd"]
+[ext_resource type="AudioStream" uid="uid://qnwdlojj4ut1" path="res://Sounds/crsytal_smashed.wav" id="5_g5ky1"]
+[ext_resource type="AudioStream" uid="uid://450y4oygn81t" path="res://Sounds/crystal_breaking_small.wav" id="6_qxhws"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4kdjr"]
 atlas = ExtResource("2_x36vo")
@@ -160,5 +162,11 @@ autoplay = "c_idle"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_87w82")
+
+[node name="shatter" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_g5ky1")
+
+[node name="chipped" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_qxhws")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
