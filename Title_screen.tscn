@@ -1,12 +1,15 @@
-[gd_scene load_steps=12 format=3 uid="uid://dd7dq1qbi7vw4"]
+[gd_scene load_steps=17 format=3 uid="uid://dd7dq1qbi7vw4"]
 
 [ext_resource type="Texture2D" uid="uid://cwy3ojiq8q8c5" path="res://Placeholders/Clouds/Clouds 5/1.png" id="1_vxojq"]
+[ext_resource type="Script" path="res://title_screen.gd" id="1_wnt41"]
 [ext_resource type="Texture2D" uid="uid://dtm64sgpchwt8" path="res://Placeholders/Clouds/Clouds 5/2.png" id="2_524ky"]
 [ext_resource type="Texture2D" uid="uid://dafdbt0ogr0ii" path="res://Placeholders/Clouds/Clouds 5/3.png" id="3_3risv"]
 [ext_resource type="Texture2D" uid="uid://tk4pi7tga1in" path="res://Placeholders/Clouds/Clouds 5/4.png" id="4_13x38"]
 [ext_resource type="Texture2D" uid="uid://bnl8ioeweusgm" path="res://Placeholders/Clouds/Clouds 5/5.png" id="5_675de"]
 [ext_resource type="Script" path="res://play_button.gd" id="6_a8m0n"]
 [ext_resource type="AudioStream" uid="uid://bs05lr4mhxcjw" path="res://Sounds/menu_screen_loop.wav" id="7_wqiyp"]
+[ext_resource type="Script" path="res://Golem/volume.gd" id="8_6bqh4"]
+[ext_resource type="Script" path="res://Golem/menu_button.gd" id="9_wv38e"]
 
 [sub_resource type="SystemFont" id="SystemFont_5yafm"]
 font_names = PackedStringArray("Fantasy", "Forte", "Lucida Calligraphy")
@@ -23,9 +26,20 @@ font_names = PackedStringArray("Fantasy")
 [sub_resource type="SystemFont" id="SystemFont_2ei1y"]
 font_names = PackedStringArray("Fantasy")
 
+[sub_resource type="SystemFont" id="SystemFont_xkps4"]
+font_names = PackedStringArray("Fantasy")
+
+[sub_resource type="Theme" id="Theme_mxbex"]
+default_font = SubResource("SystemFont_xkps4")
+Button/colors/font_color = Color(0.875, 0.875, 0.875, 1)
+Button/colors/font_hover_color = Color(0.172549, 0.94902, 0.94902, 0.705882)
+Button/colors/font_pressed_color = Color(0, 1, 1, 1)
+Button/fonts/font = SubResource("SystemFont_xkps4")
+
 [node name="title_screen" type="Control"]
 layout_mode = 3
 anchors_preset = 0
+script = ExtResource("1_wnt41")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(1.5, 1.5)
@@ -115,5 +129,56 @@ script = ExtResource("6_a8m0n")
 stream = ExtResource("7_wqiyp")
 autoplay = true
 
+[node name="MenuButton" type="Button" parent="."]
+offset_left = 234.0
+offset_top = -162.0
+offset_right = 308.0
+offset_bottom = -131.0
+text = "Menu"
+script = ExtResource("9_wv38e")
+
+[node name="MenuBar" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 222.0
+offset_top = -122.0
+offset_right = 323.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_mxbex")
+
+[node name="TextEdit" type="TextEdit" parent="MenuBar"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 25.0
+offset_right = 81.0
+offset_bottom = 59.0
+theme_override_colors/font_readonly_color = Color(1, 1, 1, 0.819608)
+theme_override_font_sizes/font_size = 21
+text = "Volume"
+editable = false
+scroll_fit_content_height = true
+
+[node name="Volume" type="HSlider" parent="MenuBar"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.079
+offset_left = 14.0
+offset_top = 74.0
+offset_right = 79.021
+offset_bottom = 90.0
+min_value = 1.0
+max_value = 20.0
+value = 10.0
+scrollable = false
+script = ExtResource("8_6bqh4")
+
 [connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
-[connection signal="finished" from="Menu Theme" to="." method="_on_menu_theme_finished"]
+[connection signal="pressed" from="MenuButton" to="MenuButton" method="_on_pressed"]
+[connection signal="value_changed" from="MenuBar/Volume" to="MenuBar/Volume" method="_on_value_changed"]

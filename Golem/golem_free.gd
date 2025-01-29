@@ -20,7 +20,9 @@ func get_input():
 	if input_direction == Vector2.ZERO: # not moving
 		anim_player.play("g_idle")
 	else:
-		thumpin.volume_db = randi_range(10, 14)
+		thumpin.volume_db = randi_range(10, 14) * Level.volume_setter
+		if thumpin.volume_db > 17:
+			thumpin.volume_db = 17
 		thumpin.panning_strength = randi_range(1, 4)
 		anim_player.play("g_walk")
 		if input_direction.x < 0: # left

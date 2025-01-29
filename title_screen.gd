@@ -3,13 +3,10 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
-
+	Level.set_volume()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
-
-
-func _on_menu_theme_finished() -> void:
-	muuzik.play
+	muuzik.volume_db = Level.master_volume * Level.volume_setter
+	if muuzik.volume_db > 10:
+		muuzik.volume_db = 10

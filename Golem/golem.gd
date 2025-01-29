@@ -24,10 +24,10 @@ func _physics_process(delta):
 	get_input()
 
 func slam_attack():
-	pow.volume_db = 1
-	pow.panning_strength = 1
-	pow.pitch_scale = -5
+	pow.volume_db = 3 * Level.volume_setter
+	print(pow.pitch_scale)
 	pow.play()
+	print(slam_hitbox.get_overlapping_bodies().size())
 	for body in slam_hitbox.get_overlapping_bodies():
 		if body.is_in_group("hittable"):
 			body.get_hit(slam_hitbox.global_position, 1)

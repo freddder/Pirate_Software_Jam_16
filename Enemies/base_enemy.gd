@@ -53,6 +53,7 @@ func attack_target():
 
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name.ends_with("attack"):
+		print("done attacking")
 		state_machine.on_state_change(state_machine.current_state, "idle")
 	elif anim_name.ends_with("death"):
 		queue_free()

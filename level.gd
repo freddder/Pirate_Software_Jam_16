@@ -5,6 +5,9 @@ extends Node
 var island_integrity: int = 10
 var scene : String
 var win_or_lose : bool = false
+var master_volume : float = 10
+var volume_setter : float
+var base_volume : float = 10
 
 var animals : Array[BaseAnimal] = []
 var golden_trees : Array[GoldenTree] = []
@@ -14,7 +17,7 @@ var enemies : Array[BaseEnemy] = []
 func play_game():
 	if scene == "map":
 		get_tree().change_scene_to_file("res://map.tscn")
-
+		
 func exit_game():
 	if scene == "title":
 		animals.clear()
@@ -66,11 +69,15 @@ func create_explosion(global_position : Vector2):
 
 func reduce_island_integrity(amount : int):
 	island_integrity -= amount
+	
+func set_volume():
+	volume_setter = base_volume * 0.1
+	#print(volume_setter)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
-
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass

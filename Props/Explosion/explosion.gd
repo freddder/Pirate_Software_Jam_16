@@ -1,10 +1,11 @@
 extends Area2D
 
+@onready var boom : AudioStreamPlayer2D = $boom
 var scanned : bool = false
 var timer : float = 0.0
 
 func _ready():
-	pass
+	boom.volume_db = 3 * Level.volume_setter
 
 func _process(delta):
 	timer += delta

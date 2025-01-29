@@ -1,16 +1,19 @@
 extends HSlider
-@onready var music : AudioStreamPlayer = $"../../../../Music"
-
+@onready var volume_slider : HSlider = $"."
 
 func _ready() -> void:
-	music.volume_db = 8
+	volume_slider.value = Level.master_volume
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
-
+	if Level.volume_setter <= 0:
+		Level.master_volume = 1
+	if Level.volume_setter > 20:
+		Level.master_volume = 20
 
 func _on_value_changed(value: float) -> void:
-	music.volume_db = value
-	print(music.volume_db)
+	Level.master_volume = value
+	Level.volume_setter = Level.master_volume * 0.1
+	#print(Level.master_volume)
+	#print(Level.volume_setter)

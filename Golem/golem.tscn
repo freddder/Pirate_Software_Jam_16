@@ -20,16 +20,15 @@
 radius = 20.0
 height = 40.0
 
-[sub_resource type="SystemFont" id="SystemFont_xkps4"]
+[sub_resource type="SystemFont" id="SystemFont_bxv1x"]
 font_names = PackedStringArray("Fantasy")
-subpixel_positioning = 0
 
 [sub_resource type="Theme" id="Theme_hi050"]
-default_font = SubResource("SystemFont_xkps4")
+default_font = SubResource("SystemFont_bxv1x")
 Button/colors/font_color = Color(0.875, 0.875, 0.875, 1)
 Button/colors/font_hover_color = Color(0.172549, 0.94902, 0.94902, 0.705882)
 Button/colors/font_pressed_color = Color(0, 1, 1, 1)
-Button/fonts/font = SubResource("SystemFont_xkps4")
+Button/fonts/font = SubResource("SystemFont_bxv1x")
 
 [sub_resource type="SystemFont" id="SystemFont_3ir50"]
 font_names = PackedStringArray("Fantasy")
@@ -253,8 +252,10 @@ offset_left = 14.0
 offset_top = 74.0
 offset_right = 79.021
 offset_bottom = 90.0
-max_value = 15.0
-value = 8.0
+min_value = 1.0
+max_value = 20.0
+value = 10.0
+scrollable = false
 script = ExtResource("5_14scq")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
