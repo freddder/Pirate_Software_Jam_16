@@ -4,6 +4,7 @@ class_name ExplosiveBarrel
 @onready var collision_shape : CollisionShape2D = $CollisionShape2D
 @onready var anim_player : AnimationPlayer = $AnimationPlayer
 var is_active : bool = false
+var is_grabbed : bool = false
 var timer : float = 6.0
 
 func _ready():
@@ -11,7 +12,7 @@ func _ready():
 		anim_player.play("count_down")
 
 func _process(delta):
-	if !is_active:
+	if !is_active or is_grabbed:
 		return
 	
 	timer -= delta
@@ -23,6 +24,9 @@ func _process(delta):
 		anim_player.speed_scale = 2
 
 func get_hit(source : Vector2, damage : int) -> bool:
+	if is_grabbed:
+		return true
+	
 	if is_active or damage >= 3:
 		explode()
 	else:
@@ -31,14 +35,16 @@ func get_hit(source : Vector2, damage : int) -> bool:
 	return false
 
 func get_grabbed():
-	collision_shape.disabled = true
+	is_grabbed = true
+	collision_shape.set_deferred("disabled", true)
 	anim_player.pause()
 
 func release():
-	collision_shape.disabled = false
+	is_grabbed = false
+	collision_shape.set_deferred("disabled", false)
 	anim_player.play()
 
 func explode():
-	collision_shape.disabled = true
+	collision_shape.set_deferred("disabled", true)
 	Level.create_explosion(global_position)
 	queue_free()
