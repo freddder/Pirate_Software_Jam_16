@@ -28,7 +28,6 @@ func slam_attack():
 	pow.panning_strength = 1
 	pow.pitch_scale = -5
 	pow.play()
-	print(slam_hitbox.get_overlapping_bodies().size())
 	for body in slam_hitbox.get_overlapping_bodies():
 		if body.is_in_group("hittable"):
 			body.get_hit(slam_hitbox.global_position, 1)
