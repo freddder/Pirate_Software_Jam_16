@@ -13,9 +13,14 @@ var enemies : Array[BaseEnemy] = []
 func play_game():
 	if scene == "map":
 		get_tree().change_scene_to_file("res://map.tscn")
-	else:
+
+func exit_game():
+	if scene == "title":
+		animals.clear()
+		golden_trees.clear()
+		crystals.clear()
+		enemies.clear()
 		get_tree().change_scene_to_file("res://Title_screen.tscn")
-		
 	
 func find_closest_animal(global_position : Vector2) -> BaseAnimal:
 	var smallest_distance = 9999999.9
