@@ -1,16 +1,34 @@
-[gd_scene load_steps=17 format=3 uid="uid://bd74mkhe1hxkk"]
+[gd_scene load_steps=24 format=3 uid="uid://bd74mkhe1hxkk"]
 
 [ext_resource type="Script" path="res://Golem/golem.gd" id="1_o5vha"]
 [ext_resource type="Texture2D" uid="uid://50dbavytp63q" path="res://Golem/GOL-M-Sheet.png" id="2_r1gqv"]
 [ext_resource type="Texture2D" uid="uid://dcdpkm5agr4dl" path="res://Spirites/UI/dotted-circle.png" id="3_j5pyv"]
+[ext_resource type="Script" path="res://Golem/menu_button.gd" id="3_sjoua"]
+[ext_resource type="Script" path="res://Golem/exit_game.gd" id="4_2mujv"]
 [ext_resource type="Script" path="res://state_machine.gd" id="4_vxs2q"]
+[ext_resource type="Script" path="res://Golem/volume.gd" id="5_14scq"]
 [ext_resource type="Script" path="res://Golem/golem_free.gd" id="5_ws5lf"]
 [ext_resource type="Script" path="res://Golem/golem_laser.gd" id="6_nlxgo"]
 [ext_resource type="Script" path="res://Golem/golem_grab.gd" id="7_re0w5"]
+[ext_resource type="AudioStream" uid="uid://bs05lr4mhxcjw" path="res://Sounds/menu_screen_loop.wav" id="11_svjj3"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0octc"]
 radius = 20.0
 height = 40.0
+
+[sub_resource type="SystemFont" id="SystemFont_xkps4"]
+font_names = PackedStringArray("Fantasy")
+
+[sub_resource type="Theme" id="Theme_hi050"]
+default_font = SubResource("SystemFont_xkps4")
+Button/colors/font_color = Color(0.875, 0.875, 0.875, 1)
+Button/colors/font_hover_color = Color(0.172549, 0.94902, 0.94902, 0.705882)
+Button/colors/font_pressed_color = Color(0, 1, 1, 1)
+Button/fonts/font = SubResource("SystemFont_xkps4")
+
+[sub_resource type="SystemFont" id="SystemFont_3ir50"]
+font_names = PackedStringArray("Fantasy")
+subpixel_positioning = 0
 
 [sub_resource type="Animation" id="Animation_057fo"]
 length = 0.001
@@ -137,6 +155,78 @@ position = Vector2(0, 9)
 shape = SubResource("CapsuleShape2D_0octc")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1.5, 1.5)
+
+[node name="Container" type="Control" parent="Camera2D"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -374.0
+offset_top = -208.0
+offset_right = 373.0
+offset_bottom = 207.0
+
+[node name="MenuButton" type="Button" parent="Camera2D/Container"]
+layout_mode = 1
+offset_right = 74.0
+offset_bottom = 31.0
+text = "Menu"
+script = ExtResource("3_sjoua")
+
+[node name="MenuBar" type="Panel" parent="Camera2D/Container"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.5
+offset_top = -143.5
+offset_right = 50.5
+offset_bottom = -41.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_hi050")
+
+[node name="Exit Game" type="Button" parent="Camera2D/Container/MenuBar"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -39.5
+offset_top = 8.0
+offset_right = 39.5
+offset_bottom = 37.0
+grow_horizontal = 2
+theme_override_fonts/font = SubResource("SystemFont_3ir50")
+theme_override_font_sizes/font_size = 20
+text = "Exit Game?"
+script = ExtResource("4_2mujv")
+
+[node name="TextEdit" type="TextEdit" parent="Camera2D/Container/MenuBar"]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 49.0
+offset_right = 82.0
+offset_bottom = 83.0
+theme_override_colors/font_readonly_color = Color(1, 1, 1, 0.819608)
+theme_override_font_sizes/font_size = 21
+text = "Volume"
+editable = false
+scroll_fit_content_height = true
+
+[node name="Volume" type="HSlider" parent="Camera2D/Container/MenuBar"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.079
+offset_left = 14.0
+offset_top = 74.0
+offset_right = 79.021
+offset_bottom = 90.0
+max_value = 15.0
+value = 8.0
+script = ExtResource("5_14scq")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -157,6 +247,7 @@ texture = ExtResource("3_j5pyv")
 position = Vector2(0, 1)
 
 [node name="PunchZone" type="Area2D" parent="Slam"]
+visible = false
 collision_layer = 0
 collision_mask = 2
 monitorable = false
@@ -189,5 +280,12 @@ script = ExtResource("6_nlxgo")
 [node name="Grab" type="Node" parent="StateMachine"]
 script = ExtResource("7_re0w5")
 
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_svjj3")
+autoplay = true
+
+[connection signal="pressed" from="Camera2D/Container/MenuButton" to="Camera2D/Container/MenuButton" method="_on_pressed"]
+[connection signal="pressed" from="Camera2D/Container/MenuBar/Exit Game" to="Camera2D/Container/MenuBar/Exit Game" method="_on_pressed"]
+[connection signal="value_changed" from="Camera2D/Container/MenuBar/Volume" to="Camera2D/Container/MenuBar/Volume" method="_on_value_changed"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="body_entered" from="Grab/Hitbox" to="StateMachine/Grab" method="_on_grab_hitbox_body_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dd7dq1qbi7vw4"]
+[gd_scene load_steps=12 format=3 uid="uid://dd7dq1qbi7vw4"]
 
 [ext_resource type="Texture2D" uid="uid://b00dv2bm0yuol" path="res://Placeholders/Clouds 5/1.png" id="1_vxojq"]
 [ext_resource type="Texture2D" uid="uid://c7gx31uxl0db3" path="res://Placeholders/Clouds 5/2.png" id="2_524ky"]
@@ -6,12 +6,19 @@
 [ext_resource type="Texture2D" uid="uid://dfat0m3fgalll" path="res://Placeholders/Clouds 5/4.png" id="4_13x38"]
 [ext_resource type="Texture2D" uid="uid://d0wigeojb8nq6" path="res://Placeholders/Clouds 5/5.png" id="5_675de"]
 [ext_resource type="Script" path="res://play_button.gd" id="6_a8m0n"]
+[ext_resource type="AudioStream" uid="uid://bs05lr4mhxcjw" path="res://Sounds/menu_screen_loop.wav" id="7_wqiyp"]
 
 [sub_resource type="SystemFont" id="SystemFont_5yafm"]
 font_names = PackedStringArray("Fantasy", "Forte", "Lucida Calligraphy")
 font_italic = true
 generate_mipmaps = true
 multichannel_signed_distance_field = true
+
+[sub_resource type="SystemFont" id="SystemFont_q1uyl"]
+font_names = PackedStringArray("Fantasy")
+
+[sub_resource type="SystemFont" id="SystemFont_2kb3y"]
+font_names = PackedStringArray("Fantasy")
 
 [sub_resource type="SystemFont" id="SystemFont_2ei1y"]
 font_names = PackedStringArray("Fantasy")
@@ -58,11 +65,36 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/background_color = Color(0.615686, 0.760784, 0.964706, 1)
 theme_override_colors/font_outline_color = Color(0, 1, 1, 0.505882)
-theme_override_colors/font_color = Color(0, 0.211765, 0.8, 0.529412)
+theme_override_colors/font_readonly_color = Color(0, 0.211765, 0.8, 0.513726)
 theme_override_fonts/font = SubResource("SystemFont_5yafm")
 theme_override_font_sizes/font_size = 34
 text = "Guardian of the Spirit Isles"
+editable = false
 scroll_fit_content_height = true
+
+[node name="TextEdit2" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = -363.0
+offset_top = -103.0
+offset_right = -70.0
+offset_bottom = 157.0
+theme_override_colors/default_color = Color(0.381829, 0.60647, 0.919625, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = SubResource("SystemFont_q1uyl")
+theme_override_fonts/bold_font = SubResource("SystemFont_2kb3y")
+theme_override_font_sizes/normal_font_size = 22
+theme_override_font_sizes/bold_font_size = 20
+text = "							Credits
+						Programming
+				Aiden Sterling (Mr Hooga)
+						Lucas (Fredder)
+
+					Art & Animation
+					Maria (mmm(?))
+				  Juliho (Julsketches)
+
+					  Music & SFX
+					  Lukas (Harpy)"
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
@@ -78,3 +110,10 @@ theme_override_font_sizes/font_size = 54
 text = "Enter?"
 flat = true
 script = ExtResource("6_a8m0n")
+
+[node name="Menu Theme" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_wqiyp")
+autoplay = true
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
+[connection signal="finished" from="Menu Theme" to="." method="_on_menu_theme_finished"]
