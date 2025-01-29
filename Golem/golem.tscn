@@ -22,6 +22,7 @@ height = 40.0
 
 [sub_resource type="SystemFont" id="SystemFont_xkps4"]
 font_names = PackedStringArray("Fantasy")
+subpixel_positioning = 0
 
 [sub_resource type="Theme" id="Theme_hi050"]
 default_font = SubResource("SystemFont_xkps4")
