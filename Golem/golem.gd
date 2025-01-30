@@ -24,7 +24,7 @@ func _physics_process(delta):
 	get_input()
 
 func slam_attack():
-	pow.volume_db = 3 * Level.volume_setter
+	pow.volume_db = 3 * Level.volume_setter - 2
 	print(pow.pitch_scale)
 	pow.play()
 	print(slam_hitbox.get_overlapping_bodies().size())
