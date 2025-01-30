@@ -250,6 +250,7 @@ offset_right = 373.0
 offset_bottom = 207.0
 
 [node name="MenuButton" type="Button" parent="Camera2D/Container"]
+visible = false
 layout_mode = 1
 offset_right = 74.0
 offset_bottom = 31.0

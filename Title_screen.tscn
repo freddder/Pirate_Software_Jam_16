@@ -130,6 +130,7 @@ stream = ExtResource("7_wqiyp")
 autoplay = true
 
 [node name="MenuButton" type="Button" parent="."]
+layout_mode = 0
 offset_left = 234.0
 offset_top = -162.0
 offset_right = 308.0
