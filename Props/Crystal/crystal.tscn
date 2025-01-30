@@ -168,14 +168,13 @@ position = Vector2(0, 3)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_87w82")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CollisionShape2D"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 y_sort_enabled = true
-position = Vector2(-25, -2.99991)
-rotation = -1.5708
+position = Vector2(2, -22)
 sprite_frames = SubResource("SpriteFrames_cdr7x")
 animation = &"c_idle"
 autoplay = "c_idle"
-offset = Vector2(-0.99993, 3)
+offset = Vector2(7.04527e-05, 3.00001)
 
 [node name="shatter" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_g5ky1")
@@ -195,4 +194,4 @@ shadow_filter_smooth = 27.5
 shadow_item_cull_mask = 7
 texture = SubResource("GradientTexture2D_pypmx")
 
-[connection signal="animation_finished" from="CollisionShape2D/AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
