@@ -42,9 +42,9 @@ func release():
 		state_machine.on_state_change(state_machine.current_state, "Idle")
 	else:
 		state_machine.on_state_change(state_machine.current_state, "Death")
-		
+
 func attack_target():
-	if target:
+	if is_instance_valid(target):
 		if !target.get_hit(global_position, 1):
 			target = null
 

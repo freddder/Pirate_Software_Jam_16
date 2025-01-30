@@ -1,9 +1,9 @@
 extends State
 class_name GolemLaser
 
+@onready var golem : Golem = $"../.."
 @onready var laser_charge : AudioStreamPlayer2D = $"../../Laser/LaserCharge"
 @onready var laser_blast : AudioStreamPlayer2D = $"../../Laser/LaserShoot"
-@onready var golem : CharacterBody2D = $"../.."
 @onready var laser_preview : Sprite2D = $"../../Laser/ExplosionPreview"
 @onready var laser_raycast : RayCast2D = $"../../Laser/RayCast2D"
 @onready var sprite : Sprite2D = $"../../Sprite2D"
@@ -28,7 +28,6 @@ func exit():
 func fire_laser():
 	laser_blast.stop()
 	Level.create_explosion(laser_preview.global_position)
-	#ChangeState.emit(self, "free")
 
 func update(delta : float):
 	if is_aiming:

@@ -10,6 +10,7 @@ var master_volume : float = 10
 var volume_setter : float
 var base_volume : float = 10
 
+var golem : Golem
 var animals : Array[BaseAnimal] = []
 var golden_trees : Array[GoldenTree] = []
 var crystals : Array[Crystal] = []
