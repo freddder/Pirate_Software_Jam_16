@@ -3,7 +3,7 @@ class_name AnimalScared
 
 @onready var animal : BaseAnimal = $"../.."
 @onready var navigation_agent : NavigationAgent2D = $"../../NavigationAgent2D"
-@onready var sprite_animation : AnimatedSprite2D = $"../../AnimatedSprite2D"
+@onready var sprite_animation : AnimatedSprite2D = $"../../CollisionShape2D/AnimatedSprite2D"
 
 @export var run_speed : float = 200.0
 @export var run_distance : float = 200.0

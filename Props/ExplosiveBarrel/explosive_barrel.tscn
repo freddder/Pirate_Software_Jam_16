@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cxve7f42cqa3s" path="res://Props/ExplosiveBarrel/barrel-Sheet.png" id="2_5sivw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_f7war"]
-radius = 15.0
+radius = 11.5
 
 [sub_resource type="Animation" id="Animation_ct5q7"]
 loop_mode = 1
@@ -33,7 +33,7 @@ _data = {
 
 [node name="ExplosiveBarrel" type="CharacterBody2D" groups=["grabbable", "hittable"]]
 scale = Vector2(2, 2)
-collision_layer = 3
+collision_layer = 2
 script = ExtResource("1_f8d30")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

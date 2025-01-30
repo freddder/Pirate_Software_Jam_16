@@ -6,7 +6,6 @@ var target_type : target_types = target_types.ANIMALS
 var has_barrel : bool = true
 var spawn_position : Vector2
 
-@onready var body : CharacterBody2D = $"."
 @onready var state_machine : StateMachine = $StateMachine
 @onready var navi_agent : NavigationAgent2D = $NavigationAgent2D
 @onready var anim_player : AnimationPlayer = $AnimationPlayer
@@ -14,6 +13,10 @@ var target : CollisionObject2D = null
 var health = 3
 
 func _ready():
+	if target_type == target_types.ANIMALS or target_type == target_types.TREES:
+		navi_agent.target_desired_distance = 30
+	else:
+		navi_agent.target_desired_distance = 80
 	spawn_position = global_position
 	Level.enemies.push_back(self)
 
@@ -37,7 +40,7 @@ func get_grabbed():
 	state_machine.on_state_change(state_machine.current_state, "Grabbed")
 
 func release():
-	var is_on_valid_tile = Level.does_tile_exist_at_position(body.global_position)
+	var is_on_valid_tile = Level.does_tile_exist_at_position(global_position)
 	if is_on_valid_tile:
 		state_machine.on_state_change(state_machine.current_state, "Idle")
 	else:

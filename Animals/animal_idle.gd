@@ -2,7 +2,7 @@ extends State
 class_name AnimalIdle
 
 @onready var animal : BaseAnimal = $"../.."
-@onready var animated_sprite : AnimatedSprite2D = $"../../AnimatedSprite2D"
+@onready var animated_sprite : AnimatedSprite2D = $"../../CollisionShape2D/AnimatedSprite2D"
 @onready var collision : CollisionShape2D = $"../../CollisionShape2D"
 
 @export var min_idle_time : float = 1.0

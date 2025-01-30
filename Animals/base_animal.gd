@@ -4,7 +4,7 @@ class_name BaseAnimal
 @onready var fox_death_sfx : AudioStreamPlayer2D = $FoxDeathSFX
 @onready var owl_death_sfx : AudioStreamPlayer2D = $OwlDeathSFX
 @onready var hit_sfx : AudioStreamPlayer2D = $HitSFX
-@onready var animated_sprite : AnimatedSprite2D = $AnimatedSprite2D
+@onready var animated_sprite : AnimatedSprite2D = $CollisionShape2D/AnimatedSprite2D
 @onready var state_machine : StateMachine = $StateMachine
 @onready var scared_state : AnimalScared = $StateMachine/Scared
 var health = 2
@@ -26,6 +26,9 @@ func get_full_anim_name(name: String) -> String:
 func get_hit(source: Vector2, damage: int) -> bool: # Return if it is still alive
 	if state_machine.get_current_state_name() == "grabbed":
 		return true
+	
+	if health <= 0:
+		return false
 	
 	health -= damage
 	if health > 0:

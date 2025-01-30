@@ -4,7 +4,7 @@ class_name Crystal
 @onready var crystal_glow : PointLight2D = $PointLight2D2
 @onready var crystal_hit : AudioStreamPlayer2D = $chipped
 @onready var shatter : AudioStreamPlayer2D = $shatter
-@onready var crystal_anim : AnimatedSprite2D = $AnimatedSprite2D
+@onready var crystal_anim : AnimatedSprite2D = $CollisionShape2D/AnimatedSprite2D
 @onready var collision: CollisionShape2D = $CollisionShape2D
 var health = 3
 var is_broken : bool = false

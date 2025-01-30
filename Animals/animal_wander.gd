@@ -3,7 +3,7 @@ class_name AnimalWander
 
 @onready var animal : BaseAnimal = $"../.."
 @onready var navigation_agent : NavigationAgent2D = $"../../NavigationAgent2D"
-@onready var sprite_animation : AnimatedSprite2D = $"../../AnimatedSprite2D"
+@onready var sprite_animation : AnimatedSprite2D = $"../../CollisionShape2D/AnimatedSprite2D"
 
 @export var wander_speed : float = 100.0
 var timer : float = 0

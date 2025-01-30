@@ -2,7 +2,7 @@ extends State
 class_name AnimalDeath
 
 @onready var animal : BaseAnimal = $"../.."
-@onready var animated_sprite : AnimatedSprite2D = $"../../AnimatedSprite2D"
+@onready var animated_sprite : AnimatedSprite2D = $"../../CollisionShape2D/AnimatedSprite2D"
 @onready var collision : CollisionShape2D = $"../../CollisionShape2D"
 #@onready var area : Area2D = $"../../Area2D"
 

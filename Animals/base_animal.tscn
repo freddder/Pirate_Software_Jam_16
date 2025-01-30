@@ -21,6 +21,9 @@
 [ext_resource type="AudioStream" uid="uid://nng0doqmvcrl" path="res://Sounds/fox_death.wav" id="13_7q0lg"]
 [ext_resource type="AudioStream" uid="uid://bpu5vjstit2cr" path="res://Sounds/hit_sfx.wav" id="14_f05ac"]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oiejx"]
+radius = 9.0
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_rqpvj"]
 atlas = ExtResource("2_0df87")
 region = Rect2(0, 0, 33, 32)
@@ -403,15 +406,15 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oiejx"]
-radius = 9.0
-
 [node name="BaseAnimal" type="CharacterBody2D" groups=["grabbable", "hittable", "scared"]]
 y_sort_enabled = true
 collision_layer = 2
 script = ExtResource("1_x85lv")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_oiejx")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CollisionShape2D"]
 y_sort_enabled = true
 position = Vector2(5.96046e-08, -3)
 scale = Vector2(1.0625, 1.1875)
@@ -419,9 +422,6 @@ sprite_frames = SubResource("SpriteFrames_rw2rf")
 animation = &"f_hit"
 frame = 1
 frame_progress = 1.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_oiejx")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 debug_enabled = true
@@ -454,4 +454,4 @@ script = ExtResource("9_kenfg")
 [node name="Scared" type="Node" parent="StateMachine"]
 script = ExtResource("10_likky")
 
-[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="animation_finished" from="CollisionShape2D/AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

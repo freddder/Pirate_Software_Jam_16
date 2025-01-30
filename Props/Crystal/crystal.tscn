@@ -7,6 +7,10 @@
 [ext_resource type="AudioStream" uid="uid://qnwdlojj4ut1" path="res://Sounds/crsytal_smashed.wav" id="5_g5ky1"]
 [ext_resource type="AudioStream" uid="uid://450y4oygn81t" path="res://Sounds/crystal_breaking_small.wav" id="6_qxhws"]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_87w82"]
+radius = 7.0
+height = 46.0
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_4kdjr"]
 atlas = ExtResource("2_x36vo")
 region = Rect2(0, 0, 69, 86)
@@ -144,9 +148,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_87w82"]
-height = 34.0
-
 [sub_resource type="Gradient" id="Gradient_qniu7"]
 offsets = PackedFloat32Array(0, 0.661972)
 colors = PackedColorArray(0, 1, 1, 1, 0, 0, 0, 0)
@@ -162,17 +163,19 @@ collision_layer = 3
 collision_mask = 0
 script = ExtResource("1_b4wt1")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_87w82")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CollisionShape2D"]
 y_sort_enabled = true
-position = Vector2(3, -22)
+position = Vector2(-25, -2.99991)
+rotation = -1.5708
 sprite_frames = SubResource("SpriteFrames_cdr7x")
 animation = &"c_idle"
 autoplay = "c_idle"
 offset = Vector2(-0.99993, 3)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-rotation = 1.5708
-shape = SubResource("CapsuleShape2D_87w82")
 
 [node name="shatter" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_g5ky1")
@@ -192,4 +195,4 @@ shadow_filter_smooth = 27.5
 shadow_item_cull_mask = 7
 texture = SubResource("GradientTexture2D_pypmx")
 
-[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="animation_finished" from="CollisionShape2D/AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
