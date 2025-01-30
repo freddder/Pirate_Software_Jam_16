@@ -26,20 +26,18 @@ func get_hit(source: Vector2, damage: int) -> bool: # Return if it is still aliv
 	if state_machine.get_current_state_name() == "grabbed":
 		return true
 	
-	print("AHHHHH, IT HURTS, PLEASE STOOOOOP!!!!!")
 	health -= damage
 	if health > 0:
-		scare(source)
+		scared_state.last_scare_source = source
+		if damage == 0:
+			state_machine.on_state_change(state_machine.current_state, "Scared")
+		else:
+			state_machine.on_state_change(state_machine.current_state, "Idle")
+			animated_sprite.play(anim_name_prefixes[type] + "_hit")
 		return true
 	else:
 		state_machine.on_state_change(state_machine.current_state, "Death")
-		print("blergh")
 		return false
-
-func scare(source: Vector2):
-	scared_state.last_scare_source = source
-	state_machine.on_state_change(state_machine.current_state, "Idle")
-	animated_sprite.play(anim_name_prefixes[type] + "_hit")
 
 func get_grabbed():
 	state_machine.on_state_change(state_machine.current_state, "Grabbed")
