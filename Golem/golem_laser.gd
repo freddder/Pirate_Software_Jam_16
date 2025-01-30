@@ -10,17 +10,20 @@ class_name GolemLaser
 @onready var anim_player : AnimationPlayer = $"../../AnimationPlayer"
 @export var laser_max_range : float = 300.0
 var is_aiming : bool = false
+var is_firing : bool = false
 
 func enter():
 	anim_player.play("g_aiming")
 	laser_charge.volume_db = 5 * Level.volume_setter
 	laser_charge.play()
 	is_aiming = true
+	is_firing = false
 	laser_preview.visible = true
 	print(laser_charge.volume_db)
 
 func exit():
-	pass
+	is_aiming = false
+	is_firing = false
 
 func fire_laser():
 	laser_blast.stop()
@@ -45,13 +48,11 @@ func update(delta : float):
 	laser_preview.rotate(delta * deg_to_rad(30))
 
 func physic_update(delta : float):
-	if is_aiming and !Input.is_action_pressed("laser"):
+	if is_aiming and !Input.is_action_pressed("laser") and !is_firing:
 		laser_charge.stop()
 		laser_blast.volume_db = 25 * Level.volume_setter
-		if laser_blast.volume_db < 20:
-			laser_blast.volume_db = 20
-		if laser_blast.volume_db > 27:
-			laser_blast.volume_db = 27
+		clamp(laser_blast.volume_db, 20, 27)
 		laser_blast.play()
+		is_firing = true
 		anim_player.play("g_fire")
-	is_aiming = Input.is_action_pressed("laser")
+	is_aiming = Input.is_action_pressed("laser") and !is_firing
