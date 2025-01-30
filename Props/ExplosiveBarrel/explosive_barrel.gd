@@ -17,7 +17,6 @@ func _process(delta):
 	
 	timer -= delta
 	if timer < 0:
-		anim_player.play("blowed_uped")
 		explode()
 	elif timer < 2.0:
 		anim_player.speed_scale = 3
