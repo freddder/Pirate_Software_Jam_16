@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=4 uid="uid://b1b4xwtwlcri8"]
+[gd_scene load_steps=54 format=4 uid="uid://b1b4xwtwlcri8"]
 
 [ext_resource type="Shader" path="res://water.gdshader" id="1_apntg"]
 [ext_resource type="Texture2D" uid="uid://b0212t58f6bi2" path="res://Placeholders/Clouds/Clouds 2/1.png" id="1_brt1e"]
@@ -719,6 +719,24 @@ pattern_3 = SubResource("TileMapPattern_lbxjq")
 pattern_4 = SubResource("TileMapPattern_df74i")
 pattern_5 = SubResource("TileMapPattern_e8fjs")
 
+[sub_resource type="Gradient" id="Gradient_xpx1y"]
+offsets = PackedFloat32Array(0.0633803, 0.21831, 0.352113, 0.443662, 0.577465, 1)
+colors = PackedColorArray(0, 1, 1, 0.498039, 0, 0.818434, 0.818434, 0.407612, 0, 0.687896, 0.687896, 0.342599, 0, 0.515545, 0.515545, 0.256762, 0, 0.263648, 0.263648, 0.131307, 0, 0.0760869, 0.0760869, 0.0378943)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5h1np"]
+gradient = SubResource("Gradient_xpx1y")
+fill = 1
+fill_from = Vector2(0.480583, 0.509709)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="Gradient" id="Gradient_6w2s3"]
+colors = PackedColorArray(0, 1, 1, 0.498039, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_er0qw"]
+gradient = SubResource("Gradient_6w2s3")
+fill = 1
+fill_from = Vector2(0.533981, 0.509709)
+
 [node name="Map" type="Node2D"]
 y_sort_enabled = true
 
@@ -828,14 +846,14 @@ tile_map_data = PackedByteArray("AAAcAOT/AAACAAIAAAAgAPT/AAADAAIAAAAkAAgAAAADAAM
 tile_set = SubResource("TileSet_cyva8")
 
 [node name="Golem" parent="." instance=ExtResource("2_bx855")]
-position = Vector2(1023, 663)
+position = Vector2(-1202, -1385)
 
 [node name="Ship" parent="." instance=ExtResource("14_vg2lh")]
 position = Vector2(-1808, -1099)
 timers = Array[Vector3i]([Vector3i(2, 3, 120), Vector3i(1, 2, 100), Vector3i(2, 2, 110)])
 
 [node name="Ship2" parent="." instance=ExtResource("14_vg2lh")]
-position = Vector2(1485, -1197)
+position = Vector2(1496, -1189)
 timers = Array[Vector3i]([Vector3i(0, 3, 30)])
 
 [node name="Ship3" parent="." instance=ExtResource("14_vg2lh")]
@@ -916,3 +934,27 @@ position = Vector2(1275, -892)
 
 [node name="BaseAnimal15" parent="." instance=ExtResource("7_qldvw")]
 position = Vector2(1336, -307)
+
+[node name="PointLight2D2" type="PointLight2D" parent="."]
+position = Vector2(717, -909)
+rotation = -0.404916
+scale = Vector2(15.4851, 25.6186)
+color = Color(0, 0.890196, 0.890196, 0.0588235)
+energy = 12.31
+shadow_color = Color(0, 0, 0, 1)
+shadow_filter = 1
+shadow_filter_smooth = 27.5
+shadow_item_cull_mask = 7
+texture = SubResource("GradientTexture2D_5h1np")
+
+[node name="PointLight2D3" type="PointLight2D" parent="."]
+position = Vector2(994, -212)
+rotation = -0.404916
+scale = Vector2(9.73013, 14.4967)
+color = Color(0, 0.890196, 0.890196, 0.0588235)
+energy = 12.31
+shadow_color = Color(0, 0, 0, 1)
+shadow_filter = 1
+shadow_filter_smooth = 27.5
+shadow_item_cull_mask = 7
+texture = SubResource("GradientTexture2D_er0qw")

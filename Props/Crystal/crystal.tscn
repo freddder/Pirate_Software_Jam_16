@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://b33b2asfwk761"]
+[gd_scene load_steps=28 format=3 uid="uid://b33b2asfwk761"]
 
 [ext_resource type="Script" path="res://Props/Crystal/crystal.gd" id="1_b4wt1"]
 [ext_resource type="Texture2D" uid="uid://bqkce625w6nwo" path="res://Props/Crystal/crystal_destroy-Sheet.png" id="2_x36vo"]
@@ -147,6 +147,15 @@ animations = [{
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_87w82"]
 height = 34.0
 
+[sub_resource type="Gradient" id="Gradient_qniu7"]
+offsets = PackedFloat32Array(0, 0.661972)
+colors = PackedColorArray(0, 1, 1, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_pypmx"]
+gradient = SubResource("Gradient_qniu7")
+fill = 1
+fill_from = Vector2(0.504854, 0.519417)
+
 [node name="Crystal" type="CharacterBody2D" groups=["hittable"]]
 collision_layer = 3
 collision_mask = 0
@@ -168,5 +177,17 @@ stream = ExtResource("5_g5ky1")
 
 [node name="chipped" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_qxhws")
+
+[node name="PointLight2D2" type="PointLight2D" parent="."]
+position = Vector2(6, -27)
+rotation = 0.349066
+scale = Vector2(1.04678, 1.7079)
+color = Color(0, 0.890196, 0.890196, 0.0588235)
+energy = 12.31
+shadow_color = Color(0, 0, 0, 1)
+shadow_filter = 1
+shadow_filter_smooth = 27.5
+shadow_item_cull_mask = 7
+texture = SubResource("GradientTexture2D_pypmx")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
