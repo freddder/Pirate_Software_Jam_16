@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c22a7fqx7k2d3"
-path="res://.godot/imported/big_tree_chop-Sheet.png-cd99606f51b2d12e06fac3659dfb568d.ctex"
+uid="uid://dfxrgwyu6cnd8"
+path="res://.godot/imported/wide_tree.png-bb13b4383ec5aada2b93ab798dcf2b3c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Spirites/big_tree_chop-Sheet.png"
-dest_files=["res://.godot/imported/big_tree_chop-Sheet.png-cd99606f51b2d12e06fac3659dfb568d.ctex"]
+source_file="res://Props/GoldenTree/wide_tree.png"
+dest_files=["res://.godot/imported/wide_tree.png-bb13b4383ec5aada2b93ab798dcf2b3c.ctex"]
 
 [params]
 
