@@ -1,11 +1,12 @@
 extends CharacterBody2D
 class_name BaseAnimal
 
+@onready var fox_death_sfx : AudioStreamPlayer2D = $FoxDeathSFX
+@onready var owl_death_sfx : AudioStreamPlayer2D = $OwlDeathSFX
+@onready var hit_sfx : AudioStreamPlayer2D = $HitSFX
 @onready var animated_sprite : AnimatedSprite2D = $AnimatedSprite2D
 @onready var state_machine : StateMachine = $StateMachine
 @onready var scared_state : AnimalScared = $StateMachine/Scared
-#@onready var ground : TileMapLayer = get_node("/root/Map/NavigationRegion2D/Ground")
-@onready var body : CharacterBody2D = $"."
 var health = 2
 
 enum types {FOX, OWL}
@@ -32,10 +33,16 @@ func get_hit(source: Vector2, damage: int) -> bool: # Return if it is still aliv
 		if damage == 0:
 			state_machine.on_state_change(state_machine.current_state, "Scared")
 		else:
+			hit_sfx.play()
 			state_machine.on_state_change(state_machine.current_state, "Idle")
 			animated_sprite.play(anim_name_prefixes[type] + "_hit")
 		return true
 	else:
+		hit_sfx.play()
+		if type == types.FOX:
+			fox_death_sfx.play()
+		else:
+			owl_death_sfx.play()
 		state_machine.on_state_change(state_machine.current_state, "Death")
 		return false
 
@@ -43,7 +50,7 @@ func get_grabbed():
 	state_machine.on_state_change(state_machine.current_state, "Grabbed")
 
 func release():
-	var is_on_valid_tile = Level.does_tile_exist_at_position(body.global_position)
+	var is_on_valid_tile = Level.does_tile_exist_at_position(global_position)
 	if is_on_valid_tile:
 		state_machine.on_state_change(state_machine.current_state, "Idle")
 	else:

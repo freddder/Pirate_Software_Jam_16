@@ -17,7 +17,7 @@ func exit():
 
 func update(delta : float):
 	timer += delta
-	if timer > 5.0:
+	if timer > 3.0:
 		ChangeState.emit(self, "Idle")
 
 func physic_update(delta : float):

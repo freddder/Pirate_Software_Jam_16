@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://b7qaiepg7we1t"
-path="res://.godot/imported/deer_death.wav-339e0d7c7c211b055e7c694657fbd41d.sample"
+path="res://.godot/imported/owl_death.wav-efddf63490dcb1d85244ea0a23f7e7a6.sample"
 
 [deps]
 
-source_file="res://Sounds/deer_death.wav"
-dest_files=["res://.godot/imported/deer_death.wav-339e0d7c7c211b055e7c694657fbd41d.sample"]
+source_file="res://Sounds/owl_death.wav"
+dest_files=["res://.godot/imported/owl_death.wav-efddf63490dcb1d85244ea0a23f7e7a6.sample"]
 
 [params]
 

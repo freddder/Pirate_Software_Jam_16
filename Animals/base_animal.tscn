@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=3 uid="uid://bj1uthfk37t1e"]
+[gd_scene load_steps=70 format=3 uid="uid://bj1uthfk37t1e"]
 
 [ext_resource type="Script" path="res://Animals/base_animal.gd" id="1_x85lv"]
 [ext_resource type="Texture2D" uid="uid://o2mimsa221ac" path="res://Animals/Sprites/fox_dead.png" id="2_0df87"]
@@ -17,6 +17,9 @@
 [ext_resource type="Texture2D" uid="uid://dgp433lj4g16" path="res://Animals/Sprites/owl_hit.png" id="8_yx4rq"]
 [ext_resource type="Script" path="res://Animals/animal_grabbed.gd" id="9_kenfg"]
 [ext_resource type="Script" path="res://Animals/animal_scared.gd" id="10_likky"]
+[ext_resource type="AudioStream" uid="uid://b7qaiepg7we1t" path="res://Sounds/owl_death.wav" id="12_lcduh"]
+[ext_resource type="AudioStream" uid="uid://nng0doqmvcrl" path="res://Sounds/fox_death.wav" id="13_7q0lg"]
+[ext_resource type="AudioStream" uid="uid://bpu5vjstit2cr" path="res://Sounds/hit_sfx.wav" id="14_f05ac"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rqpvj"]
 atlas = ExtResource("2_0df87")
@@ -422,6 +425,15 @@ shape = SubResource("CapsuleShape2D_oiejx")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 debug_enabled = true
+
+[node name="OwlDeathSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_lcduh")
+
+[node name="FoxDeathSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_7q0lg")
+
+[node name="HitSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_f05ac")
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("2_617yx")

@@ -2,7 +2,7 @@ extends Node
 
 @onready var explosion = load("res://Props/Explosion/explosion.tscn")
 @onready var barrel = load("res://Props/ExplosiveBarrel/explosive_barrel.tscn")
-@onready var ground : TileMapLayer = get_node("/root/Map/NavigationRegion2D/Ground")
+
 var island_integrity: int = 10
 var scene : String
 var win_or_lose : bool = false
@@ -20,7 +20,7 @@ var ships : Array[Ship] = []
 func play_game():
 	if scene == "map":
 		get_tree().change_scene_to_file("res://map.tscn")
-		
+
 func exit_game():
 	if scene == "title":
 		animals.clear()
@@ -96,6 +96,7 @@ func set_volume():
 	#print(volume_setter)
 
 func does_tile_exist_at_position(position: Vector2) -> bool:
+	var ground = get_node("/root/Map/NavigationRegion2D/Ground")
 	var clicked_cell = ground.local_to_map(position)
 	if ground.get_cell_tile_data(clicked_cell):
 		return true
