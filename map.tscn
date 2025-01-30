@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=4 uid="uid://b1b4xwtwlcri8"]
+[gd_scene load_steps=50 format=4 uid="uid://b1b4xwtwlcri8"]
 
 [ext_resource type="Shader" path="res://water.gdshader" id="1_apntg"]
 [ext_resource type="Texture2D" uid="uid://b0212t58f6bi2" path="res://Placeholders/Clouds/Clouds 2/1.png" id="1_brt1e"]
@@ -870,14 +870,14 @@ tile_map_data = PackedByteArray("AAAcAOT/AAACAAIAAAAgAPT/AAADAAIAAAAkAAgAAAADAAM
 tile_set = SubResource("TileSet_cyva8")
 
 [node name="Golem" parent="." instance=ExtResource("2_bx855")]
-position = Vector2(927, 693)
+position = Vector2(1023, 663)
 
 [node name="Ship" parent="." instance=ExtResource("14_vg2lh")]
 position = Vector2(-1808, -1099)
 timers = Array[Vector3i]([Vector3i(2, 3, 120), Vector3i(1, 2, 100), Vector3i(2, 2, 110)])
 
 [node name="Ship2" parent="." instance=ExtResource("14_vg2lh")]
-position = Vector2(1496, -1189)
+position = Vector2(1485, -1197)
 timers = Array[Vector3i]([Vector3i(0, 3, 30)])
 
 [node name="Ship3" parent="." instance=ExtResource("14_vg2lh")]

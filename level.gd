@@ -28,6 +28,12 @@ func exit_game():
 		enemies.clear()
 		get_tree().change_scene_to_file("res://Title_screen.tscn")
 
+func find_random_animal() -> BaseAnimal:
+	if !animals.is_empty():
+		return animals.pick_random()
+	else:
+		return null
+
 func find_closest_animal(global_position: Vector2) -> BaseAnimal:
 	var smallest_distance = 9999999.9
 	var closest_animal : BaseAnimal = null
@@ -38,6 +44,12 @@ func find_closest_animal(global_position: Vector2) -> BaseAnimal:
 			closest_animal = animal
 	return closest_animal
 
+func find_random_golden_tree() -> GoldenTree:
+	if !golden_trees.is_empty():
+		return golden_trees.pick_random()
+	else:
+		return null
+
 func find_closest_tree(global_position: Vector2) -> GoldenTree:
 	var smallest_distance = 9999999.9
 	var closest_tree : GoldenTree = null
@@ -47,6 +59,12 @@ func find_closest_tree(global_position: Vector2) -> GoldenTree:
 			smallest_distance = curr_distance
 			closest_tree = tree
 	return closest_tree
+
+func find_random_crystal() -> Crystal:
+	if !crystals.is_empty():
+		return crystals.pick_random()
+	else:
+		return null
 
 func find_closest_crystal(global_position: Vector2) -> Crystal:
 	var smallest_distance = 9999999.9

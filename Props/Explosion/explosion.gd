@@ -15,7 +15,7 @@ func _process(delta):
 			if distance_to_center < 129 and body.is_in_group("hittable"): # half the area radius
 				body.get_hit(global_position, 5)
 			elif body.is_in_group("scared"):
-				body.scare(global_position)
+				body.get_hit(global_position, 0)
 			scanned = true
 	
 	if timer > 1.0:

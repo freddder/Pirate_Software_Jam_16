@@ -46,7 +46,8 @@ func release():
 		
 func attack_target():
 	if target:
-		target.get_hit(global_position, 1)
+		if !target.get_hit(global_position, 1):
+			target = null
 
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name.ends_with("attack"):
