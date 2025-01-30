@@ -20,7 +20,7 @@ func get_input():
 		state_machine.on_state_change(free_state, "grab")
 	
 	if Input.is_action_just_pressed("slam") and state_machine.get_current_state_name() == "free":
-		slam_attack()
+		state_machine.on_state_change(free_state, "slam")
 
 func _ready():
 	Level.golem = self
@@ -39,14 +39,13 @@ func shake_camera():
 	shake_strengh = shake_randomness
 
 func slam_attack():
+	shake_camera()
 	pow.volume_db = 3 * Level.volume_setter - 2
-	print(pow.pitch_scale)
 	pow.play()
-	print(slam_hitbox.get_overlapping_bodies().size())
 	for body in slam_hitbox.get_overlapping_bodies():
 		if body.is_in_group("hittable"):
 			body.get_hit(slam_hitbox.global_position, 1)
 
 func _on_animation_player_animation_finished(anim_name):
-	if anim_name.ends_with("fire"):
+	if anim_name.ends_with("fire") or anim_name.ends_with("slam"):
 		state_machine.on_state_change(state_machine.current_state, "free")
