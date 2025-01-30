@@ -33,6 +33,7 @@ func get_hit(source: Vector2, damage: int) -> bool:
 		crystal_anim.play("c_broken")
 		Level.reduce_island_integrity(1)
 		Level.crystals.erase(self)
+		Level.check_if_game_over()
 		is_broken = true
 		return false
 

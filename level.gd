@@ -14,6 +14,7 @@ var animals : Array[BaseAnimal] = []
 var golden_trees : Array[GoldenTree] = []
 var crystals : Array[Crystal] = []
 var enemies : Array[BaseEnemy] = []
+var ships : Array[Ship] = []
 
 func play_game():
 	if scene == "map":
@@ -81,6 +82,20 @@ func does_tile_exist_at_position(position: Vector2) -> bool:
 		return true
 	else:
 		return false
+
+func check_if_game_over():
+	if island_integrity < 10:
+		# Lose game here
+		return
+	
+	if !enemies.is_empty():
+		return # not over yet
+	
+	for ship in ships:
+		if ship.has_enemies_left():
+			return # not over yet
+	
+	# Win game here
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

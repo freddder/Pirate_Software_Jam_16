@@ -20,4 +20,5 @@ func enter():
 func update(delta : float):
 	timer += delta
 	if timer > 5.0:
+		Level.check_if_game_over()
 		animal.queue_free()

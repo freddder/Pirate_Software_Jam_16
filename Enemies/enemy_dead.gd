@@ -9,3 +9,4 @@ func enter():
 	enemy.velocity = Vector2.ZERO
 	animation_player.play("h_death")
 	collision.set_deferred("disabled", true)
+	Level.enemies.erase(self)

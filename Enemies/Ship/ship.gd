@@ -18,8 +18,7 @@ var spawn_cooldown : float = 1.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
+	Level.ships.push_back(self)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -46,3 +45,6 @@ func _process(delta):
 		add_child(new_enemy)
 		spawn_cooldown = 1.0
 		pending_spawn.remove_at(0)
+
+func has_enemies_left() -> bool:
+	return timers.is_empty() and pending_spawn.is_empty()

@@ -16,6 +16,7 @@ var health = 3
 
 func _ready():
 	spawn_position = global_position
+	Level.enemies.push_back(self)
 
 func _physics_process(delta):
 	move_and_slide()
@@ -49,9 +50,9 @@ func attack_target():
 
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name.ends_with("attack"):
-		print("done attacking")
 		state_machine.on_state_change(state_machine.current_state, "idle")
 	elif anim_name.ends_with("death"):
+		Level.check_if_game_over()
 		queue_free()
 	elif anim_name.ends_with("get_hit"):
 		anim_player.play("h_idle")
