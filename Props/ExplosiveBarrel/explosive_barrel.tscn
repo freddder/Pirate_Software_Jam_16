@@ -86,7 +86,6 @@ script = ExtResource("1_f8d30")
 shape = SubResource("CircleShape2D_f7war")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CollisionShape2D"]
-modulate = Color(1, 0.313726, 0.313726, 1)
 position = Vector2(1, 0.5)
 sprite_frames = SubResource("SpriteFrames_qno77")
 animation = &"blowed_uped"
