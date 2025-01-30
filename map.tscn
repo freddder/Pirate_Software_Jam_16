@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=4 uid="uid://b1b4xwtwlcri8"]
+[gd_scene load_steps=54 format=4 uid="uid://b1b4xwtwlcri8"]
 
 [ext_resource type="Shader" path="res://water.gdshader" id="1_apntg"]
 [ext_resource type="Texture2D" uid="uid://b0212t58f6bi2" path="res://Placeholders/Clouds/Clouds 2/1.png" id="1_brt1e"]
