@@ -6,7 +6,6 @@ var target_type : target_types = target_types.ANIMALS
 var has_barrel : bool = true
 var spawn_position : Vector2
 
-#@onready var ground : TileMapLayer = get_node("/root/Map/NavigationRegion2D/Ground")
 @onready var body : CharacterBody2D = $"."
 @onready var state_machine : StateMachine = $StateMachine
 @onready var navi_agent : NavigationAgent2D = $NavigationAgent2D

@@ -13,7 +13,9 @@ func _ready():
 	Level.golden_trees.push_back(self)
 
 func get_hit(source: Vector2, damage: int) -> bool:
-	print("I got hit")
+	if health <= 0:
+		return false
+	
 	health -= damage
 	if health > 0:
 		tree_sound.pitch_scale = randi_range(2, 4)
@@ -22,7 +24,6 @@ func get_hit(source: Vector2, damage: int) -> bool:
 		goldtree_animation.play("tree_hit")
 		return true
 	else:
-		print("I got chopped")
 		collision.disabled = true
 		tree_sound.pitch_scale = 1
 		tree_sound.volume_db = base_volume * Level.volume_setter
