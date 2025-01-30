@@ -10,7 +10,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	print(timer.time_left)
+	#print(timer.time_left)
 	if timer.time_left <= 230 and was_text_shown == 0:
 		popup_text.visible = !popup_text.visible
 		popup_text.add_text("Wave 1: N-E")

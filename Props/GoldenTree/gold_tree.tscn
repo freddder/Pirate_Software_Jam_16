@@ -131,7 +131,8 @@ collision_mask = 0
 script = ExtResource("1_ydy3i")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -13)
+position = Vector2(1.90735e-06, -29)
+scale = Vector2(1.33333, 1.44792)
 sprite_frames = SubResource("SpriteFrames_8hg4d")
 animation = &"tree_idle"
 autoplay = "tree_idle"

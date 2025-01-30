@@ -50,7 +50,8 @@ func physic_update(delta : float):
 	if is_aiming and !Input.is_action_pressed("laser") and !is_firing:
 		laser_charge.stop()
 		laser_blast.volume_db = 25 * Level.volume_setter
-		clamp(laser_blast.volume_db, 20, 27)
+		laser_blast.volume_db = clamp(laser_blast.volume_db, 20, 27)
+		print(laser_blast.volume_db)
 		laser_blast.play()
 		is_firing = true
 		anim_player.play("g_fire")
