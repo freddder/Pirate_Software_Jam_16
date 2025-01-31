@@ -410,7 +410,6 @@ _data = {
 }
 
 [node name="Enemy" type="CharacterBody2D" groups=["grabbable", "hittable"]]
-y_sort_enabled = true
 collision_layer = 2
 script = ExtResource("1_qubom")
 
