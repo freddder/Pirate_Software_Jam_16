@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://Golem/exit_game.gd" id="4_2mujv"]
 [ext_resource type="Script" path="res://state_machine.gd" id="4_vxs2q"]
 [ext_resource type="Script" path="res://Golem/volume.gd" id="5_14scq"]
+[ext_resource type="FontFile" uid="uid://cswfnuyq3fx1k" path="res://Spirites/UI/mini_pixel-7 copy.ttf" id="5_pg1wm"]
 [ext_resource type="Script" path="res://Golem/golem_free.gd" id="5_ws5lf"]
 [ext_resource type="Script" path="res://Golem/golem_laser.gd" id="6_nlxgo"]
 [ext_resource type="Script" path="res://Golem/wave_location.gd" id="7_4xpsy"]
@@ -34,10 +35,6 @@ Button/colors/font_color = Color(0.875, 0.875, 0.875, 1)
 Button/colors/font_hover_color = Color(0.172549, 0.94902, 0.94902, 0.705882)
 Button/colors/font_pressed_color = Color(0, 1, 1, 1)
 Button/fonts/font = SubResource("SystemFont_bxv1x")
-
-[sub_resource type="SystemFont" id="SystemFont_3ir50"]
-font_names = PackedStringArray("Fantasy")
-subpixel_positioning = 0
 
 [sub_resource type="Animation" id="Animation_057fo"]
 length = 0.001
@@ -349,7 +346,6 @@ text = "Menu"
 script = ExtResource("3_sjoua")
 
 [node name="MenuBar" type="Panel" parent="Camera2D/Container"]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -375,18 +371,19 @@ offset_top = 8.0
 offset_right = 39.5
 offset_bottom = 37.0
 grow_horizontal = 2
-theme_override_fonts/font = SubResource("SystemFont_3ir50")
+theme_override_fonts/font = ExtResource("5_pg1wm")
 theme_override_font_sizes/font_size = 20
 text = "Exit Game?"
 script = ExtResource("4_2mujv")
 
 [node name="TextEdit" type="TextEdit" parent="Camera2D/Container/MenuBar"]
 layout_mode = 0
-offset_left = 21.0
+offset_left = 27.0
 offset_top = 49.0
-offset_right = 82.0
+offset_right = 77.0
 offset_bottom = 83.0
 theme_override_colors/font_readonly_color = Color(1, 1, 1, 0.819608)
+theme_override_fonts/font = ExtResource("5_pg1wm")
 theme_override_font_sizes/font_size = 21
 text = "Volume"
 editable = false

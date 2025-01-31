@@ -1,17 +1,15 @@
-[gd_scene load_steps=19 format=3 uid="uid://dd7dq1qbi7vw4"]
+[gd_scene load_steps=17 format=3 uid="uid://dd7dq1qbi7vw4"]
 
-[ext_resource type="Texture2D" uid="uid://cwy3ojiq8q8c5" path="res://Placeholders/Clouds/Clouds 5/1.png" id="1_vxojq"]
 [ext_resource type="Script" path="res://title_screen.gd" id="1_wnt41"]
-[ext_resource type="Texture2D" uid="uid://dtm64sgpchwt8" path="res://Placeholders/Clouds/Clouds 5/2.png" id="2_524ky"]
-[ext_resource type="Texture2D" uid="uid://dafdbt0ogr0ii" path="res://Placeholders/Clouds/Clouds 5/3.png" id="3_3risv"]
-[ext_resource type="Texture2D" uid="uid://tk4pi7tga1in" path="res://Placeholders/Clouds/Clouds 5/4.png" id="4_13x38"]
-[ext_resource type="Texture2D" uid="uid://bnl8ioeweusgm" path="res://Placeholders/Clouds/Clouds 5/5.png" id="5_675de"]
+[ext_resource type="Texture2D" uid="uid://cl341bsurhdde" path="res://Spirites/UI/title_screen.png" id="2_cat7b"]
+[ext_resource type="Texture2D" uid="uid://50dbavytp63q" path="res://Golem/GOL-M-Sheet.png" id="3_u82ej"]
+[ext_resource type="Texture2D" uid="uid://bc0wc4kti7h1o" path="res://Animals/Sprites/owl_idle.png" id="4_gusgr"]
+[ext_resource type="Texture2D" uid="uid://dfeuxg5mm81gj" path="res://Animals/Sprites/fox_walk.png" id="5_8hyde"]
 [ext_resource type="Script" path="res://play_button.gd" id="6_a8m0n"]
 [ext_resource type="FontFile" uid="uid://cswfnuyq3fx1k" path="res://Spirites/UI/mini_pixel-7 copy.ttf" id="7_15ua7"]
 [ext_resource type="AudioStream" uid="uid://bs05lr4mhxcjw" path="res://Sounds/menu_screen_loop.wav" id="7_wqiyp"]
 [ext_resource type="Script" path="res://Golem/volume.gd" id="8_6bqh4"]
 [ext_resource type="Script" path="res://Golem/menu_button.gd" id="9_wv38e"]
-[ext_resource type="Texture2D" uid="uid://ep2bqw1qxci5" path="res://Spirites/UI/Wardens_oath.png" id="11_15m2c"]
 [ext_resource type="Script" path="res://how_to_play.gd" id="11_w8yiv"]
 [ext_resource type="Texture2D" uid="uid://badbo7n737c8x" path="res://Spirites/UI/grab_icon.png" id="12_sl00u"]
 [ext_resource type="Texture2D" uid="uid://6s8ihvpkmrgc" path="res://Spirites/UI/laser_icon-Recovered.png" id="13_nxlqa"]
@@ -35,32 +33,32 @@ script = ExtResource("1_wnt41")
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(1.5, 1.5)
 
-[node name="Sprite2D" type="Sprite2D" parent="Camera2D"]
+[node name="Sprite2D6" type="Sprite2D" parent="Camera2D"]
 scale = Vector2(1.34, 1.34)
-texture = ExtResource("1_vxojq")
+texture = ExtResource("2_cat7b")
 
-[node name="Sprite2D2" type="Sprite2D" parent="Camera2D"]
-scale = Vector2(1.34, 1.34)
-texture = ExtResource("2_524ky")
+[node name="Sprite2D5" type="Sprite2D" parent="Camera2D/Sprite2D6"]
+position = Vector2(-78.3582, 112.687)
+texture = ExtResource("3_u82ej")
+hframes = 9
+vframes = 6
 
-[node name="Sprite2D3" type="Sprite2D" parent="Camera2D"]
-scale = Vector2(1.34, 1.34)
-texture = ExtResource("3_3risv")
+[node name="Sprite2D6" type="Sprite2D" parent="Camera2D/Sprite2D6"]
+position = Vector2(-76.1194, 69.403)
+texture = ExtResource("4_gusgr")
+hframes = 6
 
-[node name="Sprite2D4" type="Sprite2D" parent="Camera2D"]
-scale = Vector2(1.34, 1.34)
-texture = ExtResource("4_13x38")
-
-[node name="Sprite2D5" type="Sprite2D" parent="Camera2D"]
-scale = Vector2(1.34, 1.34)
-texture = ExtResource("5_675de")
+[node name="Sprite2D7" type="Sprite2D" parent="Camera2D/Sprite2D6"]
+position = Vector2(-156.716, 143.284)
+texture = ExtResource("5_8hyde")
+hframes = 5
 
 [node name="TextEdit2" type="RichTextLabel" parent="."]
 layout_mode = 0
-offset_left = -367.0
-offset_top = -101.0
-offset_right = -111.0
-offset_bottom = 159.0
+offset_left = -363.0
+offset_top = -146.0
+offset_right = -107.0
+offset_bottom = 114.0
 theme_override_colors/default_color = Color(0.488665, 0.679496, 0.947047, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("7_15ua7")
@@ -80,10 +78,10 @@ text = "				Credits
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
-offset_left = -111.0
-offset_top = 12.0
-offset_right = 103.0
-offset_bottom = 84.0
+offset_left = -83.0
+offset_top = 10.0
+offset_right = 131.0
+offset_bottom = 82.0
 theme_override_colors/font_hover_color = Color(0.0784314, 0.980392, 1, 0.572549)
 theme_override_colors/font_pressed_color = Color(0, 1, 1, 1)
 theme_override_colors/font_color = Color(0.615686, 0.760784, 0.964706, 1)
@@ -226,11 +224,6 @@ texture = ExtResource("13_nxlqa")
 [node name="MeleeIcon-recovered" type="Sprite2D" parent="MenuBar2"]
 position = Vector2(24, 110)
 texture = ExtResource("14_wanav")
-
-[node name="WardensOath" type="Sprite2D" parent="."]
-position = Vector2(-1, -128)
-scale = Vector2(1.22266, 1.23047)
-texture = ExtResource("11_15m2c")
 
 [connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
 [connection signal="pressed" from="MenuButton" to="MenuButton" method="_on_pressed"]
