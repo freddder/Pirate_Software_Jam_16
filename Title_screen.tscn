@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://dd7dq1qbi7vw4"]
+[gd_scene load_steps=27 format=3 uid="uid://dd7dq1qbi7vw4"]
 
 [ext_resource type="Script" path="res://title_screen.gd" id="1_wnt41"]
 [ext_resource type="Texture2D" uid="uid://cl341bsurhdde" path="res://Spirites/UI/title_screen.png" id="2_cat7b"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://Golem/volume.gd" id="8_6bqh4"]
 [ext_resource type="Script" path="res://Golem/menu_button.gd" id="9_wv38e"]
 [ext_resource type="Texture2D" uid="uid://b5ggqdbur0u1d" path="res://Spirites/UI/UI_elements.png" id="10_h3iu7"]
+[ext_resource type="LabelSettings" uid="uid://btygs82xsvihm" path="res://Ui_Themes/LabelSettings.tres" id="11_ill5o"]
 [ext_resource type="Script" path="res://how_to_play.gd" id="11_w8yiv"]
 [ext_resource type="Texture2D" uid="uid://badbo7n737c8x" path="res://Spirites/UI/grab_icon.png" id="12_sl00u"]
 [ext_resource type="Texture2D" uid="uid://6s8ihvpkmrgc" path="res://Spirites/UI/laser_icon-Recovered.png" id="13_nxlqa"]
@@ -18,6 +19,7 @@
 
 [sub_resource type="SystemFont" id="SystemFont_xkps4"]
 font_names = PackedStringArray("Fantasy")
+subpixel_positioning = 0
 
 [sub_resource type="Theme" id="Theme_mxbex"]
 default_font = SubResource("SystemFont_xkps4")
@@ -139,15 +141,20 @@ offset_left = 229.0
 offset_top = -202.0
 offset_right = 303.0
 offset_bottom = -171.0
-theme_override_colors/font_hover_color = Color(0, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("7_15ua7")
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 32
 text = "Menu"
 flat = true
 script = ExtResource("9_wv38e")
 
 [node name="MenuBar" type="Panel" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -164,14 +171,22 @@ theme = SubResource("Theme_mxbex")
 theme_override_styles/panel = SubResource("StyleBoxTexture_gs2k2")
 
 [node name="Label" type="Label" parent="MenuBar"]
-layout_mode = 0
-offset_left = 26.0
-offset_top = 26.0
-offset_right = 79.0
-offset_bottom = 62.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.5
+offset_top = -21.0
+offset_right = 22.5
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_fonts/font = ExtResource("7_15ua7")
 theme_override_font_sizes/font_size = 23
 text = "Volume"
+label_settings = ExtResource("11_ill5o")
 
 [node name="Volume" type="HSlider" parent="MenuBar"]
 layout_mode = 1
