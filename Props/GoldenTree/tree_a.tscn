@@ -1,7 +1,7 @@
-[gd_scene load_steps=17 format=3 uid="uid://5gcq0eh2qcbl"]
+[gd_scene load_steps=18 format=3 uid="uid://5gcq0eh2qcbl"]
 
 [ext_resource type="Texture2D" uid="uid://dfxrgwyu6cnd8" path="res://Props/GoldenTree/wide_tree.png" id="1_4vvta"]
-[ext_resource type="Script" path="res://Props/GoldenTree/tree_a.gd" id="1_u6lch"]
+[ext_resource type="Script" path="res://Props/GoldenTree/tree.gd" id="1_82nn2"]
 [ext_resource type="AudioStream" uid="uid://dkqu3ku8ksfdq" path="res://Sounds/tree_fall.wav" id="3_4slgh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yubrg"]
@@ -23,6 +23,10 @@ region = Rect2(216, 125, 216, 125)
 [sub_resource type="AtlasTexture" id="AtlasTexture_puen2"]
 atlas = ExtResource("1_4vvta")
 region = Rect2(0, 125, 216, 125)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yfogp"]
+atlas = ExtResource("1_4vvta")
+region = Rect2(648, 250, 216, 125)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2ygtj"]
 atlas = ExtResource("1_4vvta")
@@ -65,9 +69,12 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_puen2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yfogp")
 }],
-"loop": true,
-"name": &"tree_chopped",
+"loop": false,
+"name": &"tree_fall",
 "speed": 5.0
 }, {
 "frames": [{
@@ -105,13 +112,14 @@ height = 20.0
 
 [node name="Tree_A" type="CharacterBody2D" groups=["hittable"]]
 y_sort_enabled = true
-script = ExtResource("1_u6lch")
+collision_layer = 3
+collision_mask = 0
+script = ExtResource("1_82nn2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -10)
 sprite_frames = SubResource("SpriteFrames_8hg4d")
-animation = &"tree_hit"
-frame_progress = 0.0389713
+animation = &"tree_fall"
 offset = Vector2(33, -23)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

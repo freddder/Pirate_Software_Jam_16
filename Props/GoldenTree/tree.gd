@@ -19,8 +19,6 @@ func get_hit(source: Vector2, damage: int) -> bool:
 		return false
 	
 	health -= damage
-	print(health)
-	
 	if health > 0:
 		tree_sound.pitch_scale = randi_range(2, 4)
 		tree_sound.volume_db = base_volume * Level.volume_setter
@@ -32,9 +30,9 @@ func get_hit(source: Vector2, damage: int) -> bool:
 		tree_sound.pitch_scale = 1
 		tree_sound.volume_db = base_volume * Level.volume_setter
 		tree_sound.play()
-		tree_animation.play("tree_falling")
+		tree_animation.play("tree_fall")
 		return false
-		
+
 func update(delta : float):
 	pass
 	#timer += delta
