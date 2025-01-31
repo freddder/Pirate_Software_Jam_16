@@ -48,4 +48,4 @@ func _process(delta):
 		Level.notify_enemy_spawn(global_position)
 
 func has_enemies_left() -> bool:
-	return timers.is_empty() and pending_spawn.is_empty()
+	return !timers.is_empty() or !pending_spawn.is_empty()
