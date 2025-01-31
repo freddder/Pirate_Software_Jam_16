@@ -14,6 +14,7 @@ var anim_name_prefixes : Array[String] = ["f", "o"]
 var type : types
 
 func _ready():
+	hit_sfx.volume_db = 5
 	type = randi() % types.size()
 	Level.animals.push_back(self)
 
@@ -36,15 +37,20 @@ func get_hit(source: Vector2, damage: int) -> bool: # Return if it is still aliv
 		if damage == 0:
 			state_machine.on_state_change(state_machine.current_state, "Scared")
 		else:
+			hit_sfx.volume_db = 5 * Level.volume_setter
 			hit_sfx.play()
+			print(hit_sfx)
 			state_machine.on_state_change(state_machine.current_state, "Idle")
 			animated_sprite.play(anim_name_prefixes[type] + "_hit")
 		return true
 	else:
 		hit_sfx.play()
 		if type == types.FOX:
+			fox_death_sfx.volume_db = 5 * Level.volume_setter
 			fox_death_sfx.play()
+			print("ow")
 		else:
+			owl_death_sfx.volume_db = 5 * Level.volume_setter
 			owl_death_sfx.play()
 		state_machine.on_state_change(state_machine.current_state, "Death")
 		return false
