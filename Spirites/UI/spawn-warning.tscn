@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://da8as2lm0b7sf"]
+
+[ext_resource type="Texture2D" uid="uid://wot4wmcyeq18" path="res://Spirites/UI/Warning-sign.png" id="1_8lfsn"]
+[ext_resource type="Script" path="res://Spirites/UI/spawn_warning.gd" id="2_pl0br"]
+
+[node name="Spawn-warning" type="TextureRect"]
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("1_8lfsn")
+script = ExtResource("2_pl0br")

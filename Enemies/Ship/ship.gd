@@ -45,6 +45,7 @@ func _process(delta):
 		add_child(new_enemy)
 		spawn_cooldown = 1.0
 		pending_spawn.remove_at(0)
+		Level.notify_enemy_spawn(global_position)
 
 func has_enemies_left() -> bool:
 	return timers.is_empty() and pending_spawn.is_empty()

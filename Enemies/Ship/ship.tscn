@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dy3y7x7lah4wj"]
 
 [ext_resource type="Script" path="res://Enemies/Ship/ship.gd" id="1_ptjo7"]
-[ext_resource type="Texture2D" uid="uid://53n1f474g1r5" path="res://Spirites/ship.png" id="2_n1hle"]
+[ext_resource type="Texture2D" uid="uid://53n1f474g1r5" path="res://Enemies/Ship/ship.png" id="2_n1hle"]
 
 [node name="Ship" type="Node2D"]
 script = ExtResource("1_ptjo7")

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dcdpkm5agr4dl"
-path="res://.godot/imported/dotted-circle.png-b3a19f06b5960f6d338dfe874d0ed2b4.ctex"
+uid="uid://wot4wmcyeq18"
+path="res://.godot/imported/Warning-sign.png-26d83420c09a07f99ff81522c6beaf42.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Spirites/UI/dotted-circle.png"
-dest_files=["res://.godot/imported/dotted-circle.png-b3a19f06b5960f6d338dfe874d0ed2b4.ctex"]
+source_file="res://Spirites/UI/Warning-sign.png"
+dest_files=["res://.godot/imported/Warning-sign.png-26d83420c09a07f99ff81522c6beaf42.ctex"]
 
 [params]
 

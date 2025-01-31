@@ -95,8 +95,14 @@ func create_explosion(global_position : Vector2):
 func reduce_island_integrity(amount : int):
 	island_integrity -= amount
 	var level_ui = get_node("/root/Map/CanvasLayer")
-	var percent = float(island_integrity) / float(max_island_integrity)
-	level_ui.update_integrity_bar(percent)
+	if level_ui:
+		var percent = float(island_integrity) / float(max_island_integrity)
+		level_ui.update_integrity_bar(percent)
+
+func notify_enemy_spawn(spawn_position: Vector2):
+	var level_ui : LevelUI = get_node("/root/Map/CanvasLayer")
+	if level_ui:
+		level_ui.add_spawn_warning(spawn_position)
 
 func set_volume():
 	volume_setter = base_volume * 0.1
@@ -104,11 +110,14 @@ func set_volume():
 
 func does_tile_exist_at_position(position: Vector2) -> bool:
 	var ground = get_node("/root/Map/NavigationRegion2D/Ground")
-	var clicked_cell = ground.local_to_map(position)
-	if ground.get_cell_tile_data(clicked_cell):
-		return true
+	if ground:
+		var clicked_cell = ground.local_to_map(position)
+		if ground.get_cell_tile_data(clicked_cell):
+			return true
+		else:
+			return false
 	else:
-		return false
+		return true
 
 func check_if_game_over():
 	if island_integrity < 1:

@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://50dbavytp63q" path="res://Golem/GOL-M-Sheet.png" id="2_r1gqv"]
 [ext_resource type="AudioStream" uid="uid://cesc41icvy1ae" path="res://Sounds/golem_footstep.wav" id="2_s2g1c"]
 [ext_resource type="AudioStream" uid="uid://dkbwcjht6bf4y" path="res://Sounds/overworld_theme.mp3" id="2_tbno0"]
-[ext_resource type="Texture2D" uid="uid://dcdpkm5agr4dl" path="res://Spirites/UI/dotted-circle.png" id="3_j5pyv"]
+[ext_resource type="Texture2D" uid="uid://dcdpkm5agr4dl" path="res://Golem/dotted-circle.png" id="3_j5pyv"]
 [ext_resource type="Script" path="res://Golem/menu_button.gd" id="3_sjoua"]
 [ext_resource type="Script" path="res://Golem/exit_game.gd" id="4_2mujv"]
 [ext_resource type="Script" path="res://state_machine.gd" id="4_vxs2q"]

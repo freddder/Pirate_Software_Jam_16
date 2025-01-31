@@ -2,6 +2,7 @@ extends CanvasLayer
 class_name LevelUI
 
 @onready var integrity_bar : TextureProgressBar = $IntegrityBar
+@onready var warning_sign = load("res://Spirites/UI/spawn-warning.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -13,4 +14,8 @@ func _process(delta):
 
 func update_integrity_bar(percentage: float):
 	integrity_bar.value = integrity_bar.max_value * percentage
-	print("updated with " + str(integrity_bar.value))
+
+func add_spawn_warning(spawn_pos: Vector2):
+	var new_sign = warning_sign.instantiate()
+	new_sign.spawn_position = spawn_pos
+	add_child(new_sign)

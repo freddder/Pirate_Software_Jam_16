@@ -40,8 +40,7 @@ func _physics_process(delta):
 	music.volume_db = base_volume * Level.volume_setter - 4
 
 func shake_camera():
-	if Level.scene == "map":
-		shake_strengh = shake_randomness
+	shake_strengh = shake_randomness
 
 func slam_attack():
 	shake_camera()

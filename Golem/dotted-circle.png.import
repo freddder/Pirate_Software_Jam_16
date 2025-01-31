@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://53n1f474g1r5"
-path="res://.godot/imported/ship.png-0bf47095abf55fba588cd75b7f8eb692.ctex"
+uid="uid://dcdpkm5agr4dl"
+path="res://.godot/imported/dotted-circle.png-ff15d993841019d7b143e769f71ac043.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Spirites/ship.png"
-dest_files=["res://.godot/imported/ship.png-0bf47095abf55fba588cd75b7f8eb692.ctex"]
+source_file="res://Golem/dotted-circle.png"
+dest_files=["res://.godot/imported/dotted-circle.png-ff15d993841019d7b143e769f71ac043.ctex"]
 
 [params]
 
