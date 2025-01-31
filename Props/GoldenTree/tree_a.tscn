@@ -1,6 +1,5 @@
-[gd_scene load_steps=8 format=3 uid="uid://5gcq0eh2qcbl"]
+[gd_scene load_steps=7 format=3 uid="uid://5gcq0eh2qcbl"]
 
-[ext_resource type="Script" path="res://Props/GoldenTree/tree.gd" id="1_82nn2"]
 [ext_resource type="Texture2D" uid="uid://nat6cssg4o55" path="res://Placeholders/Props/Atlas-Props.png" id="2_bmakl"]
 [ext_resource type="Texture2D" uid="uid://ds1cfenolpk1n" path="res://Spirites/Tilesets/rocks_and_trees_tiles.png" id="3_whby8"]
 
@@ -37,7 +36,6 @@ height = 20.0
 
 [node name="Tree_A" type="CharacterBody2D" groups=["hittable"]]
 y_sort_enabled = true
-script = ExtResource("1_82nn2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(12, -6)
