@@ -81,6 +81,7 @@ flat = true
 script = ExtResource("10_ackhd")
 
 [node name="Win" type="Camera2D" parent="."]
+visible = false
 zoom = Vector2(1.5, 1.5)
 script = ExtResource("7_ykohf")
 
