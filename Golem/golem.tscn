@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://bd74mkhe1hxkk"]
+[gd_scene load_steps=41 format=3 uid="uid://bd74mkhe1hxkk"]
 
 [ext_resource type="Script" path="res://Golem/golem.gd" id="1_o5vha"]
 [ext_resource type="Texture2D" uid="uid://50dbavytp63q" path="res://Golem/GOL-M-Sheet.png" id="2_r1gqv"]
@@ -16,6 +16,7 @@
 [ext_resource type="Script" path="res://Golem/golem_grab.gd" id="7_re0w5"]
 [ext_resource type="AudioStream" uid="uid://ov3uvwhoniou" path="res://Sounds/laser_beam.wav" id="8_b3b1w"]
 [ext_resource type="AudioStream" uid="uid://cx51sp80g4iop" path="res://Sounds/ground_slam.wav" id="11_bay0d"]
+[ext_resource type="Texture2D" uid="uid://d3olwygkosws1" path="res://Golem/Bubble-Sheet.png" id="13_vd14v"]
 [ext_resource type="Script" path="res://Golem/golem_slam.gd" id="17_rbmex"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0octc"]
@@ -249,6 +250,56 @@ fill_to = Vector2(0, 0)
 [sub_resource type="CircleShape2D" id="CircleShape2D_6qy3o"]
 radius = 58.2151
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_dvbpg"]
+atlas = ExtResource("13_vd14v")
+region = Rect2(0, 0, 112, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7q6gi"]
+atlas = ExtResource("13_vd14v")
+region = Rect2(112, 0, 112, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cn37l"]
+atlas = ExtResource("13_vd14v")
+region = Rect2(224, 0, 112, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_twn18"]
+atlas = ExtResource("13_vd14v")
+region = Rect2(336, 0, 112, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vcogk"]
+atlas = ExtResource("13_vd14v")
+region = Rect2(448, 0, 112, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pderd"]
+atlas = ExtResource("13_vd14v")
+region = Rect2(560, 0, 112, 112)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gwvbr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dvbpg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7q6gi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cn37l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_twn18")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vcogk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pderd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_eu336"]
 radius = 24.0208
 
@@ -431,6 +482,12 @@ shape = SubResource("CircleShape2D_6qy3o")
 stream = ExtResource("11_bay0d")
 
 [node name="Grab" type="Node2D" parent="."]
+
+[node name="Bubble" type="AnimatedSprite2D" parent="Grab"]
+visible = false
+sprite_frames = SubResource("SpriteFrames_gwvbr")
+autoplay = "default"
+frame_progress = 0.412469
 
 [node name="Hitbox" type="Area2D" parent="Grab"]
 collision_layer = 0
