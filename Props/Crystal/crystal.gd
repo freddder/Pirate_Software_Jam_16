@@ -26,7 +26,6 @@ func get_hit(source: Vector2, damage: int) -> bool:
 		crystal_hit.pitch_scale = randi_range(1, 3)
 		crystal_hit.play()
 		crystal_anim.play("c_hit")
-		
 		return true
 	else:
 		shatter.pitch_scale = randi_range(1, 3)

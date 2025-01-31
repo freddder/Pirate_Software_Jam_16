@@ -3,6 +3,7 @@ extends Node
 @onready var explosion = load("res://Props/Explosion/explosion.tscn")
 @onready var barrel = load("res://Props/ExplosiveBarrel/explosive_barrel.tscn")
 
+var max_island_integrity: int = 10
 var island_integrity: int = 10
 var scene : String
 var win_or_lose : bool = false
@@ -93,6 +94,9 @@ func create_explosion(global_position : Vector2):
 
 func reduce_island_integrity(amount : int):
 	island_integrity -= amount
+	var level_ui = get_node("/root/Map/CanvasLayer")
+	var percent = float(island_integrity) / float(max_island_integrity)
+	level_ui.update_integrity_bar(percent)
 
 func set_volume():
 	volume_setter = base_volume * 0.1
@@ -107,7 +111,7 @@ func does_tile_exist_at_position(position: Vector2) -> bool:
 		return false
 
 func check_if_game_over():
-	if island_integrity < 10:
+	if island_integrity < 1:
 		# Lose game here
 		win_or_lose = false
 		scene = "lose"

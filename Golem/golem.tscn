@@ -501,7 +501,7 @@ stream = ExtResource("11_bay0d")
 visible = false
 sprite_frames = SubResource("SpriteFrames_gwvbr")
 autoplay = "default"
-frame_progress = 0.0872189
+frame_progress = 0.0954367
 
 [node name="Hitbox" type="Area2D" parent="Grab"]
 collision_layer = 0
