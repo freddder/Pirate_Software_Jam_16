@@ -28,7 +28,11 @@ func update_target_location():
 
 func enter():
 	update_target_location()
-	animation_player.play("h_walk")
+	var full_anim_name = enemy.anim_name_prefixes[enemy.target_type]
+	if enemy.target_type == enemy.target_types.CRYSTAL and enemy.has_barrel:
+		full_anim_name += "b"
+	full_anim_name += "_walk"
+	animation_player.play(full_anim_name)
 
 func exit():
 	timer = 0.0

@@ -7,6 +7,7 @@ class_name EnemyDeath
 
 func enter():
 	enemy.velocity = Vector2.ZERO
-	animation_player.play("h_death")
+	var full_anim_name = enemy.anim_name_prefixes[enemy.target_type] + "_death"
+	animation_player.play(full_anim_name)
 	collision.set_deferred("disabled", true)
 	Level.enemies.erase(enemy)

@@ -2,7 +2,8 @@ extends CharacterBody2D
 class_name BaseEnemy
 
 enum target_types {ANIMALS, TREES, CRYSTAL}
-var target_type : target_types = target_types.ANIMALS
+var target_type : target_types = target_types.TREES
+var anim_name_prefixes : Array[String] = ["h", "l", "m"]
 var has_barrel : bool = true
 var spawn_position : Vector2
 
@@ -13,8 +14,10 @@ var target : CollisionObject2D = null
 var health = 3
 
 func _ready():
-	if target_type == target_types.ANIMALS or target_type == target_types.TREES:
+	if target_type == target_types.ANIMALS:
 		navi_agent.target_desired_distance = 30
+	elif target_type == target_types.TREES:
+		navi_agent.target_desired_distance = 50
 	else:
 		navi_agent.target_desired_distance = 80
 	spawn_position = global_position
@@ -32,7 +35,8 @@ func get_hit(source: Vector2, damage: int):
 	
 	if health > 0:
 		state_machine.on_state_change(state_machine.current_state, "Idle")
-		anim_player.play("h_get_hit")
+		var full_anim_name = anim_name_prefixes[target_type] + "_get_hit"
+		anim_player.play(full_anim_name)
 	else:
 		state_machine.on_state_change(state_machine.current_state, "Death")
 
@@ -58,4 +62,5 @@ func _on_animation_player_animation_finished(anim_name):
 		Level.check_if_game_over()
 		queue_free()
 	elif anim_name.ends_with("get_hit"):
-		anim_player.play("h_idle")
+		var full_anim_name = anim_name_prefixes[target_type] + "_idle"
+		anim_player.play(full_anim_name)

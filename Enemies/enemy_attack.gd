@@ -5,7 +5,8 @@ class_name EnemyAttack
 @onready var animation_player : AnimationPlayer = $"../../AnimationPlayer"
 
 func enter():
-	animation_player.play("h_attack")
+	var full_anim_name = enemy.anim_name_prefixes[enemy.target_type] + "_attack"
+	animation_player.play(full_anim_name)
 
 func exit():
 	pass
