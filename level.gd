@@ -141,6 +141,7 @@ func check_if_game_over():
 	
 	if enemies.is_empty():
 		# Win game here
+		win_or_lose = true
 		scene = "win"
 		clear_arrays()
 		get_tree().change_scene_to_file("res://win_or_lose.tscn")
