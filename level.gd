@@ -20,6 +20,7 @@ var ships : Array[Ship] = []
 
 func play_game():
 	if scene == "map":
+		island_integrity = max_island_integrity
 		get_tree().change_scene_to_file("res://map.tscn")
 
 func exit_game():
@@ -80,6 +81,7 @@ func clear_arrays():
 	golden_trees.clear()
 	crystals.clear()
 	enemies.clear()
+	ships.clear()
 
 func create_barrel(global_position: Vector2, is_active: bool):
 	var instance = barrel.instantiate()
