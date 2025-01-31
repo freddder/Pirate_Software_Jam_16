@@ -102,6 +102,8 @@ func reduce_island_integrity(amount : int):
 		level_ui.update_integrity_bar(percent)
 
 func notify_enemy_spawn(spawn_position: Vector2):
+	return # not working...
+	
 	var level_ui : LevelUI = get_node("/root/Map/CanvasLayer")
 	if level_ui:
 		level_ui.add_spawn_warning(spawn_position)
@@ -146,7 +148,7 @@ func check_if_game_over():
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
-	
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
