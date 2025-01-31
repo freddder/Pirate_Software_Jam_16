@@ -108,11 +108,11 @@ y_sort_enabled = true
 script = ExtResource("1_eyweg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(1, 1)
+position = Vector2(1, -9)
 sprite_frames = SubResource("SpriteFrames_8hg4d")
 animation = &"tree_idle"
 autoplay = "tree_idle"
-offset = Vector2(33, -35)
+offset = Vector2(33, -25)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, 5)

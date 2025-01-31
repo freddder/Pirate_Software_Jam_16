@@ -1,21 +1,70 @@
-[gd_scene load_steps=7 format=3 uid="uid://5gcq0eh2qcbl"]
+[gd_scene load_steps=17 format=3 uid="uid://5gcq0eh2qcbl"]
 
-[ext_resource type="Texture2D" uid="uid://nat6cssg4o55" path="res://Placeholders/Props/Atlas-Props.png" id="2_bmakl"]
-[ext_resource type="Texture2D" uid="uid://ds1cfenolpk1n" path="res://Spirites/Tilesets/rocks_and_trees_tiles.png" id="3_whby8"]
+[ext_resource type="Texture2D" uid="uid://dfxrgwyu6cnd8" path="res://Props/GoldenTree/wide_tree.png" id="1_4vvta"]
+[ext_resource type="Script" path="res://Props/GoldenTree/tree_a.gd" id="1_u6lch"]
+[ext_resource type="AudioStream" uid="uid://dkqu3ku8ksfdq" path="res://Sounds/tree_fall.wav" id="3_4slgh"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_iq0rc"]
-atlas = ExtResource("2_bmakl")
-region = Rect2(118, 0, 118, 175)
+[sub_resource type="AtlasTexture" id="AtlasTexture_yubrg"]
+atlas = ExtResource("1_4vvta")
+region = Rect2(864, 125, 216, 125)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_fwob7"]
-atlas = ExtResource("3_whby8")
-region = Rect2(240, 96, 80, 96)
+[sub_resource type="AtlasTexture" id="AtlasTexture_c7dce"]
+atlas = ExtResource("1_4vvta")
+region = Rect2(648, 125, 216, 125)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ff7di"]
+atlas = ExtResource("1_4vvta")
+region = Rect2(432, 125, 216, 125)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oqskk"]
+atlas = ExtResource("1_4vvta")
+region = Rect2(216, 125, 216, 125)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_puen2"]
+atlas = ExtResource("1_4vvta")
+region = Rect2(0, 125, 216, 125)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ygtj"]
+atlas = ExtResource("1_4vvta")
+region = Rect2(864, 0, 216, 125)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vgly3"]
+atlas = ExtResource("1_4vvta")
+region = Rect2(648, 0, 216, 125)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p3wp3"]
+atlas = ExtResource("1_4vvta")
+region = Rect2(432, 0, 216, 125)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4tpgv"]
+atlas = ExtResource("1_4vvta")
+region = Rect2(216, 0, 216, 125)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_47ju4"]
+atlas = ExtResource("1_4vvta")
+region = Rect2(0, 0, 216, 125)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_11xyv"]
+atlas = ExtResource("1_4vvta")
+region = Rect2(864, 250, 216, 125)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8hg4d"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_iq0rc")
+"texture": SubResource("AtlasTexture_yubrg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c7dce")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ff7di")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oqskk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_puen2")
 }],
 "loop": true,
 "name": &"tree_chopped",
@@ -23,7 +72,27 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_fwob7")
+"texture": SubResource("AtlasTexture_2ygtj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vgly3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p3wp3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4tpgv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_47ju4")
+}],
+"loop": true,
+"name": &"tree_hit",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_11xyv")
 }],
 "loop": true,
 "name": &"tree_idle",
@@ -36,13 +105,18 @@ height = 20.0
 
 [node name="Tree_A" type="CharacterBody2D" groups=["hittable"]]
 y_sort_enabled = true
+script = ExtResource("1_u6lch")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(12, -6)
+position = Vector2(0, -10)
 sprite_frames = SubResource("SpriteFrames_8hg4d")
-animation = &"tree_idle"
-offset = Vector2(6, -5)
+animation = &"tree_hit"
+frame_progress = 0.0389713
+offset = Vector2(33, -23)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, 6)
+position = Vector2(0, 3)
 shape = SubResource("CapsuleShape2D_ut2ee")
+
+[node name="timber" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_4slgh")
