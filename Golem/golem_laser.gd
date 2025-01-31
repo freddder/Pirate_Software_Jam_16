@@ -5,6 +5,7 @@ class_name GolemLaser
 @onready var laser_charge : AudioStreamPlayer2D = $"../../Laser/LaserCharge"
 @onready var laser_blast : AudioStreamPlayer2D = $"../../Laser/LaserShoot"
 @onready var laser_preview : Sprite2D = $"../../Laser/ExplosionPreview"
+@onready var laser_beam : Sprite2D = $"../../Laser/Beam"
 @onready var laser_raycast : RayCast2D = $"../../Laser/RayCast2D"
 @onready var sprite : Sprite2D = $"../../Sprite2D"
 @onready var anim_player : AnimationPlayer = $"../../AnimationPlayer"
@@ -25,6 +26,9 @@ func exit():
 	is_aiming = false
 	is_firing = false
 
+func toggle_beam():
+	laser_beam.visible = !laser_beam.visible
+
 func fire_laser():
 	laser_blast.stop()
 	Level.create_explosion(laser_preview.global_position)
@@ -42,6 +46,9 @@ func update(delta : float):
 	
 	if laser_raycast.is_colliding():
 		laser_preview.global_position = laser_raycast.get_collision_point()
+	
+	laser_beam.rotation = (golem.get_global_mouse_position() - golem.global_position).normalized().angle()
+	laser_beam.scale.x = 4 * golem.global_position.distance_to(laser_preview.global_position) / laser_beam.texture.get_width()
 	
 	laser_preview.visible = is_aiming
 	laser_preview.rotate(delta * deg_to_rad(30))

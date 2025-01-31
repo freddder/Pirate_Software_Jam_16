@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://bd74mkhe1hxkk"]
+[gd_scene load_steps=42 format=3 uid="uid://bd74mkhe1hxkk"]
 
 [ext_resource type="Script" path="res://Golem/golem.gd" id="1_o5vha"]
 [ext_resource type="Texture2D" uid="uid://50dbavytp63q" path="res://Golem/GOL-M-Sheet.png" id="2_r1gqv"]
@@ -15,6 +15,7 @@
 [ext_resource type="AudioStream" uid="uid://bgieivis40a1j" path="res://Sounds/laser_charge_loop.wav" id="7_psbb1"]
 [ext_resource type="Script" path="res://Golem/golem_grab.gd" id="7_re0w5"]
 [ext_resource type="AudioStream" uid="uid://ov3uvwhoniou" path="res://Sounds/laser_beam.wav" id="8_b3b1w"]
+[ext_resource type="Texture2D" uid="uid://cc3wavy1naes6" path="res://Golem/GOL-M-Laser.png" id="9_gacdo"]
 [ext_resource type="AudioStream" uid="uid://cx51sp80g4iop" path="res://Sounds/ground_slam.wav" id="11_bay0d"]
 [ext_resource type="Texture2D" uid="uid://d3olwygkosws1" path="res://Golem/Bubble-Sheet.png" id="13_vd14v"]
 [ext_resource type="Script" path="res://Golem/golem_slam.gd" id="17_rbmex"]
@@ -125,11 +126,17 @@ tracks/1/path = NodePath("StateMachine/Laser")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(1.26667),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(1.2, 1.26667, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
 "values": [{
 "args": [],
+"method": &"toggle_beam"
+}, {
+"args": [],
 "method": &"fire_laser"
+}, {
+"args": [],
+"method": &"toggle_beam"
 }]
 }
 tracks/2/type = "bezier"
@@ -434,6 +441,13 @@ scale = Vector2(0.225, 0.225)
 target_position = Vector2(50, 0)
 collision_mask = 3
 
+[node name="Beam" type="Sprite2D" parent="Laser"]
+visible = false
+position = Vector2(0, -40)
+texture = ExtResource("9_gacdo")
+centered = false
+offset = Vector2(0, -8)
+
 [node name="ExplosionPreview" type="Sprite2D" parent="Laser"]
 visible = false
 texture = ExtResource("3_j5pyv")
@@ -487,7 +501,7 @@ stream = ExtResource("11_bay0d")
 visible = false
 sprite_frames = SubResource("SpriteFrames_gwvbr")
 autoplay = "default"
-frame_progress = 0.412469
+frame_progress = 0.0872189
 
 [node name="Hitbox" type="Area2D" parent="Grab"]
 collision_layer = 0
