@@ -4,6 +4,7 @@ class_name GolemGrab
 @onready var golem : CharacterBody2D = $"../.."
 @onready var grab_hitbox : Area2D = $"../../Grab/Hitbox"
 @onready var bubble : AnimatedSprite2D = $"../../Grab/Bubble"
+@onready var anim_player : AnimationPlayer = $"../../AnimationPlayer"
 @export var grab_hitbox_speed : float = 400.0
 @export var grab_max_range : float = 200.0
 @export var grab_follow_speed : float = 200.0
@@ -20,6 +21,7 @@ func enter():
 		is_attempting_grab = true
 		bubble.visible = true
 		grab_hitbox_direction = (golem.get_global_mouse_position() - golem.global_position).normalized()
+		anim_player.play("g_aiming")
 	else:
 		is_grabbing = false
 		bubble.visible = false
