@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://bd74mkhe1hxkk"]
+[gd_scene load_steps=41 format=3 uid="uid://bd74mkhe1hxkk"]
 
 [ext_resource type="Script" path="res://Golem/golem.gd" id="1_o5vha"]
 [ext_resource type="Texture2D" uid="uid://50dbavytp63q" path="res://Golem/GOL-M-Sheet.png" id="2_r1gqv"]
@@ -12,7 +12,6 @@
 [ext_resource type="FontFile" uid="uid://cswfnuyq3fx1k" path="res://Spirites/UI/mini_pixel-7 copy.ttf" id="5_pg1wm"]
 [ext_resource type="Script" path="res://Golem/golem_free.gd" id="5_ws5lf"]
 [ext_resource type="Script" path="res://Golem/golem_laser.gd" id="6_nlxgo"]
-[ext_resource type="Script" path="res://Golem/wave_location.gd" id="7_4xpsy"]
 [ext_resource type="AudioStream" uid="uid://bgieivis40a1j" path="res://Sounds/laser_charge_loop.wav" id="7_psbb1"]
 [ext_resource type="Script" path="res://Golem/golem_grab.gd" id="7_re0w5"]
 [ext_resource type="AudioStream" uid="uid://ov3uvwhoniou" path="res://Sounds/laser_beam.wav" id="8_b3b1w"]
@@ -403,26 +402,6 @@ max_value = 20.0
 value = 10.0
 scrollable = false
 script = ExtResource("5_14scq")
-
-[node name="spawn_tip" type="RichTextLabel" parent="Camera2D/Container"]
-visible = false
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -145.0
-offset_top = 5.0
-offset_right = -3.0
-offset_bottom = 47.0
-grow_horizontal = 0
-fit_content = true
-scroll_active = false
-script = ExtResource("7_4xpsy")
-
-[node name="Timer" type="Timer" parent="Camera2D/Container/spawn_tip"]
-wait_time = 240.0
-one_shot = true
-autostart = true
 
 [node name="CanvasModulate" type="CanvasModulate" parent="Camera2D"]
 color = Color(0.99476, 0.784989, 0.586764, 1)
