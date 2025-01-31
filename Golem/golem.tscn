@@ -346,6 +346,7 @@ text = "Menu"
 script = ExtResource("3_sjoua")
 
 [node name="MenuBar" type="Panel" parent="Camera2D/Container"]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
