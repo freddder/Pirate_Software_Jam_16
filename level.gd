@@ -85,11 +85,11 @@ func create_barrel(global_position: Vector2, is_active: bool):
 	instance.is_active = is_active
 	instance.global_position = global_position
 	get_tree().current_scene.add_child(instance)
-	
+
 func create_explosion(global_position : Vector2):
 	var instance = explosion.instantiate()
 	instance.global_position = global_position
-	add_child(instance)
+	get_tree().current_scene.add_child(instance)
 
 func reduce_island_integrity(amount : int):
 	island_integrity -= amount
