@@ -376,18 +376,15 @@ theme_override_font_sizes/font_size = 20
 text = "Exit Game?"
 script = ExtResource("4_2mujv")
 
-[node name="TextEdit" type="TextEdit" parent="Camera2D/Container/MenuBar"]
+[node name="TextEdit" type="Label" parent="Camera2D/Container/MenuBar"]
 layout_mode = 0
 offset_left = 27.0
 offset_top = 49.0
 offset_right = 77.0
-offset_bottom = 83.0
-theme_override_colors/font_readonly_color = Color(1, 1, 1, 0.819608)
+offset_bottom = 84.0
 theme_override_fonts/font = ExtResource("5_pg1wm")
 theme_override_font_sizes/font_size = 21
 text = "Volume"
-editable = false
-scroll_fit_content_height = true
 
 [node name="Volume" type="HSlider" parent="Camera2D/Container/MenuBar"]
 layout_mode = 1

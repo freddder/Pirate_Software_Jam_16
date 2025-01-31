@@ -126,18 +126,15 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_mxbex")
 
-[node name="TextEdit" type="TextEdit" parent="MenuBar"]
+[node name="Label" type="Label" parent="MenuBar"]
 layout_mode = 0
 offset_left = 26.0
 offset_top = 26.0
 offset_right = 79.0
 offset_bottom = 62.0
-theme_override_colors/font_readonly_color = Color(1, 1, 1, 0.819608)
 theme_override_fonts/font = ExtResource("7_15ua7")
 theme_override_font_sizes/font_size = 23
 text = "Volume"
-editable = false
-scroll_fit_content_height = true
 
 [node name="Volume" type="HSlider" parent="MenuBar"]
 layout_mode = 1
@@ -183,13 +180,12 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_mxbex")
 
-[node name="TextEdit" type="TextEdit" parent="MenuBar2"]
+[node name="Label" type="Label" parent="MenuBar2"]
 layout_mode = 0
 offset_left = 46.0
 offset_top = 91.0
 offset_right = 406.0
-offset_bottom = 209.0
-theme_override_colors/font_readonly_color = Color(1, 1, 1, 0.819608)
+offset_bottom = 234.0
 theme_override_fonts/font = ExtResource("7_15ua7")
 theme_override_font_sizes/font_size = 17
 text = "-  Slam (Left-click): Basic melee attack
@@ -197,22 +193,17 @@ text = "-  Slam (Left-click): Basic melee attack
 click again to release.
 - Laser: (Hold Space, aim with mouse, release to shoot):
 Shoot a powerful laserbeam that causes an explosion on impact"
-editable = false
-scroll_fit_content_height = true
 
-[node name="TextEdit2" type="TextEdit" parent="MenuBar2"]
+[node name="Label2" type="Label" parent="MenuBar2"]
 layout_mode = 0
 offset_left = 9.0
 offset_top = 21.0
 offset_right = 402.0
-offset_bottom = 75.0
-theme_override_colors/font_readonly_color = Color(1, 1, 1, 0.819608)
+offset_bottom = 83.0
 theme_override_fonts/font = ExtResource("7_15ua7")
 theme_override_font_sizes/font_size = 18
 text = "Objective: Stop the Rehkling waves from destroying the Spirit isles
 make sure not to harm the island yourself..."
-editable = false
-scroll_fit_content_height = true
 
 [node name="GrabIcon" type="Sprite2D" parent="MenuBar2"]
 position = Vector2(25, 144)
