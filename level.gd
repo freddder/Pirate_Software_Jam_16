@@ -23,10 +23,7 @@ func play_game():
 
 func exit_game():
 	if scene == "title":
-		animals.clear()
-		golden_trees.clear()
-		crystals.clear()
-		enemies.clear()
+		clear_arrays()
 		get_tree().change_scene_to_file("res://Title_screen.tscn")
 
 func find_random_animal() -> BaseAnimal:
@@ -77,16 +74,23 @@ func find_closest_crystal(global_position: Vector2) -> Crystal:
 			closest_crystal = crystal
 	return closest_crystal
 
+func clear_arrays():
+	animals.clear()
+	golden_trees.clear()
+	crystals.clear()
+	enemies.clear()
+
 func create_barrel(global_position: Vector2, is_active: bool):
 	var instance = barrel.instantiate()
 	instance.is_active = is_active
 	instance.global_position = global_position
-	add_child(instance)
-
+	get_tree().current_scene.add_child(instance)
+	
 func create_explosion(global_position : Vector2):
-	var instance = explosion.instantiate()
-	instance.global_position = global_position
-	add_child(instance)
+	if scene == "map":
+		var instance = explosion.instantiate()
+		instance.global_position = global_position
+		get_tree().current_scene.add_child(instance)
 
 func reduce_island_integrity(amount : int):
 	island_integrity -= amount
@@ -106,6 +110,10 @@ func does_tile_exist_at_position(position: Vector2) -> bool:
 func check_if_game_over():
 	if island_integrity < 10:
 		# Lose game here
+		win_or_lose = false
+		scene = "lose"
+		clear_arrays()
+		get_tree().change_scene_to_file("res://win_or_lose.tscn")
 		return
 	
 	if !enemies.is_empty():
@@ -114,7 +122,11 @@ func check_if_game_over():
 	for ship in ships:
 		if ship.has_enemies_left():
 			return # not over yet
-	
+		
+		if !ship.has_enemies_left() and enemies.is_empty():
+			scene = "win"
+			clear_arrays()
+			get_tree().change_scene_to_file("res://win_or_lose.tscn")
 	# Win game here
 
 # Called when the node enters the scene tree for the first time.

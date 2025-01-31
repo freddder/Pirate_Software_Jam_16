@@ -6,6 +6,8 @@ class_name Golem
 @onready var slam_hitbox : Area2D = $Slam/PunchZone
 @onready var state_machine : StateMachine = $StateMachine
 @onready var free_state : GolemFree = $StateMachine/Free
+@onready var music : AudioStreamPlayer = $Music
+var base_volume = 5
 var grab_cooldown : float = 0.5
 
 @export var shake_fade : float = 5.0
@@ -24,7 +26,8 @@ func get_input():
 
 func _ready():
 	Level.golem = self
-
+	music.volume_db = base_volume
+	
 func _process(delta):
 	grab_cooldown -= delta
 	
@@ -34,9 +37,11 @@ func _process(delta):
 
 func _physics_process(delta):
 	get_input()
+	music.volume_db = base_volume * Level.volume_setter - 4
 
 func shake_camera():
-	shake_strengh = shake_randomness
+	if Level.scene == "map":
+		shake_strengh = shake_randomness
 
 func slam_attack():
 	shake_camera()

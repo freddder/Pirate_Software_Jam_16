@@ -39,6 +39,8 @@ func _process(delta):
 			grabbed_body.global_position += move_direction.normalized() * grab_follow_speed * delta
 
 func update(delta : float):
+	if Level.scene != "map":
+		grabbed_body.release()
 	if is_attempting_grab:
 		# Move grab hitbox until it finds something grabbable or it reaches max range
 		grab_hitbox.global_position += grab_hitbox_direction * grab_hitbox_speed * delta
