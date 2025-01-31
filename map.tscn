@@ -1111,4 +1111,4 @@ script = ExtResource("22_kay4r")
 offset_right = 40.0
 offset_bottom = 40.0
 texture_under = ExtResource("22_pj0px")
-texture_over = ExtResource("23_u5h1y")
+texture_progress = ExtResource("23_u5h1y")
