@@ -1,7 +1,5 @@
 [gd_scene load_steps=13 format=4 uid="uid://dhhv76sckeqeu"]
 
-[ext_resource type="Texture2D" uid="uid://cyu0kjt3js1io" path="res://Placeholders/Tilesets/wall-8 - 2 tiles tall.png" id="1_revvw"]
-[ext_resource type="Texture2D" uid="uid://nat6cssg4o55" path="res://Placeholders/Props/Atlas-Props.png" id="2_8haj7"]
 [ext_resource type="PackedScene" uid="uid://bd74mkhe1hxkk" path="res://Golem/golem.tscn" id="3_6pqbd"]
 [ext_resource type="PackedScene" uid="uid://b33b2asfwk761" path="res://Props/Crystal/crystal.tscn" id="4_rbjk1"]
 [ext_resource type="PackedScene" uid="uid://e57bjmfbqtvu" path="res://Props/GoldenTree/gold_tree.tscn" id="5_nnwot"]
@@ -15,8 +13,11 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Arr
 outlines = Array[PackedVector2Array]([PackedVector2Array(-511.5, -382.5, -511.5, 156, 444, 157.5, 447, -381)])
 agent_radius = 20.0
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_tmugl"]
+load_path = "res://.godot/imported/wall-8 - 2 tiles tall.png-8015c4c46c0094bb4d8b975d9ca2ebbf.ctex"
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mrswh"]
-texture = ExtResource("1_revvw")
+texture = SubResource("CompressedTexture2D_tmugl")
 texture_region_size = Vector2i(32, 32)
 1:0/0 = 0
 2:0/0 = 0
@@ -93,8 +94,11 @@ texture_region_size = Vector2i(32, 32)
 2:2/1/terrains_peering_bit/top_side = 0
 2:2/1/terrains_peering_bit/top_right_corner = 0
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_15777"]
+load_path = "res://.godot/imported/Atlas-Props.png-27884ae8da5c25b9c1fac17a4ea52eae.ctex"
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r8p0n"]
-texture = ExtResource("2_8haj7")
+texture = SubResource("CompressedTexture2D_15777")
 texture_region_size = Vector2i(32, 32)
 0:0/size_in_atlas = Vector2i(4, 6)
 0:0/0 = 0
