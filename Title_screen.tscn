@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dd7dq1qbi7vw4"]
+[gd_scene load_steps=26 format=3 uid="uid://dd7dq1qbi7vw4"]
 
 [ext_resource type="Script" path="res://title_screen.gd" id="1_wnt41"]
 [ext_resource type="Texture2D" uid="uid://cl341bsurhdde" path="res://Spirites/UI/title_screen.png" id="2_cat7b"]
@@ -10,6 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://bs05lr4mhxcjw" path="res://Sounds/menu_screen_loop.wav" id="7_wqiyp"]
 [ext_resource type="Script" path="res://Golem/volume.gd" id="8_6bqh4"]
 [ext_resource type="Script" path="res://Golem/menu_button.gd" id="9_wv38e"]
+[ext_resource type="Texture2D" uid="uid://b5ggqdbur0u1d" path="res://Spirites/UI/UI_elements.png" id="10_h3iu7"]
 [ext_resource type="Script" path="res://how_to_play.gd" id="11_w8yiv"]
 [ext_resource type="Texture2D" uid="uid://badbo7n737c8x" path="res://Spirites/UI/grab_icon.png" id="12_sl00u"]
 [ext_resource type="Texture2D" uid="uid://6s8ihvpkmrgc" path="res://Spirites/UI/laser_icon-Recovered.png" id="13_nxlqa"]
@@ -24,6 +25,42 @@ Button/colors/font_color = Color(0.875, 0.875, 0.875, 1)
 Button/colors/font_hover_color = Color(0.172549, 0.94902, 0.94902, 0.705882)
 Button/colors/font_pressed_color = Color(0, 1, 1, 1)
 Button/fonts/font = SubResource("SystemFont_xkps4")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xai8w"]
+atlas = ExtResource("10_h3iu7")
+region = Rect2(14, 14, 20, 20)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gs2k2"]
+content_margin_left = 1.0
+texture = SubResource("AtlasTexture_xai8w")
+expand_margin_left = 4.0
+expand_margin_top = 4.0
+expand_margin_right = 4.0
+expand_margin_bottom = 4.0
+region_rect = Rect2(0, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5avs4"]
+atlas = ExtResource("10_h3iu7")
+region = Rect2(33, 49, 14, 14)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5dumc"]
+load_path = "res://.godot/imported/UI_elements.png-05a07624929c6cc3e6df2b874ee499c1.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_drp6v"]
+atlas = SubResource("CompressedTexture2D_5dumc")
+region = Rect2(49, 49, 14, 14)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_yxduf"]
+load_path = "res://.godot/imported/UI_elements.png-05a07624929c6cc3e6df2b874ee499c1.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_52tkd"]
+atlas = SubResource("CompressedTexture2D_yxduf")
+region = Rect2(65, 49, 14, 14)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_xlmmb"]
+color = Color(0.458824, 0.298039, 0.376471, 1)
+grow_begin = 0.0
+thickness = 4
 
 [node name="title_screen" type="Control"]
 layout_mode = 3
@@ -111,7 +148,6 @@ flat = true
 script = ExtResource("9_wv38e")
 
 [node name="MenuBar" type="Panel" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -125,6 +161,7 @@ offset_bottom = -61.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_mxbex")
+theme_override_styles/panel = SubResource("StyleBoxTexture_gs2k2")
 
 [node name="Label" type="Label" parent="MenuBar"]
 layout_mode = 0
@@ -140,10 +177,14 @@ text = "Volume"
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.079
-offset_left = 14.0
-offset_top = 74.0
-offset_right = 79.021
-offset_bottom = 90.0
+offset_left = 15.0
+offset_top = 65.0
+offset_right = 80.021
+offset_bottom = 81.0
+theme_override_icons/grabber = SubResource("AtlasTexture_5avs4")
+theme_override_icons/grabber_highlight = SubResource("AtlasTexture_drp6v")
+theme_override_icons/grabber_disabled = SubResource("AtlasTexture_52tkd")
+theme_override_styles/slider = SubResource("StyleBoxLine_xlmmb")
 min_value = 1.0
 max_value = 20.0
 value = 10.0
