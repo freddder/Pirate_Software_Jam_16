@@ -87,10 +87,9 @@ func create_barrel(global_position: Vector2, is_active: bool):
 	get_tree().current_scene.add_child(instance)
 	
 func create_explosion(global_position : Vector2):
-	if scene == "map":
-		var instance = explosion.instantiate()
-		instance.global_position = global_position
-		get_tree().current_scene.add_child(instance)
+	var instance = explosion.instantiate()
+	instance.global_position = global_position
+	add_child(instance)
 
 func reduce_island_integrity(amount : int):
 	island_integrity -= amount
@@ -124,10 +123,12 @@ func check_if_game_over():
 			return # not over yet
 		
 		if !ship.has_enemies_left() and enemies.is_empty():
-			scene = "win"
-			clear_arrays()
-			get_tree().change_scene_to_file("res://win_or_lose.tscn")
+			return
+	
 	# Win game here
+	scene = "win"
+	clear_arrays()
+	get_tree().change_scene_to_file("res://win_or_lose.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

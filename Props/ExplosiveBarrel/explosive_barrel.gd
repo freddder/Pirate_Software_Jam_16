@@ -13,17 +13,16 @@ func _ready():
 		anim_player.play("count_down")
 
 func _process(delta):
-	if Level.scene == "map":
-		if !is_active or is_grabbed:
-			return
+	if !is_active or is_grabbed:
+		return
 		
-		timer -= delta
-		if timer < 0:
-			explode()
-		elif timer < 2.0:
-			anim_player.speed_scale = 3
-		elif timer < 4.0:
-			anim_player.speed_scale = 2
+	timer -= delta
+	if timer < 0:
+		explode()
+	elif timer < 2.0:
+		anim_player.speed_scale = 3
+	elif timer < 4.0:
+		anim_player.speed_scale = 2
 
 func get_hit(source : Vector2, damage : int) -> bool:
 	if is_grabbed:

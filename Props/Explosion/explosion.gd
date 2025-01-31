@@ -17,8 +17,6 @@ func _process(delta):
 			elif body.is_in_group("scared"):
 				body.get_hit(global_position, 0)
 			scanned = true
-		if Level.scene != "map":
-			queue_free()
 		Level.golem.shake_camera()
 		
 		if timer > 1.0:
