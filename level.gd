@@ -136,14 +136,12 @@ func check_if_game_over():
 	for ship in ships:
 		if ship.has_enemies_left():
 			return # not over yet
-		
-		if !ship.has_enemies_left() and enemies.is_empty():
-			return
 	
-	# Win game here
-	scene = "win"
-	clear_arrays()
-	get_tree().change_scene_to_file("res://win_or_lose.tscn")
+	if enemies.is_empty():
+		# Win game here
+		scene = "win"
+		clear_arrays()
+		get_tree().change_scene_to_file("res://win_or_lose.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

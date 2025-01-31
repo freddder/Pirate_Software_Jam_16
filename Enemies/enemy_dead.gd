@@ -11,3 +11,4 @@ func enter():
 	animation_player.play(full_anim_name)
 	collision.set_deferred("disabled", true)
 	Level.enemies.erase(enemy)
+	Level.check_if_game_over()
