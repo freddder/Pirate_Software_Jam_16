@@ -1016,7 +1016,7 @@ tile_map_data = PackedByteArray("AAAcAOT/AAACAAIAAAAgAPT/AAADAAIAAAAkAAgAAAADAAM
 tile_set = SubResource("TileSet_cyva8")
 
 [node name="Golem" parent="." instance=ExtResource("2_bx855")]
-position = Vector2(-1203, -1356)
+position = Vector2(-834, 147)
 
 [node name="Ship" parent="." instance=ExtResource("14_vg2lh")]
 position = Vector2(-1725, -1238)

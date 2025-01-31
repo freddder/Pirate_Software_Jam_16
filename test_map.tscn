@@ -115,7 +115,6 @@ sources/3 = SubResource("TileSetAtlasSource_r8p0n")
 
 [node name="Test_Map" type="Node2D"]
 y_sort_enabled = true
-scale = Vector2(2, 2)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 position = Vector2(-46, -17)
@@ -127,7 +126,7 @@ tile_map_data = PackedByteArray("AADw//T/AAACAAIAAADw//X/AAACAAIAAADw//b/AAACAAI
 tile_set = SubResource("TileSet_duy8b")
 
 [node name="Golem" parent="." instance=ExtResource("3_6pqbd")]
-position = Vector2(-27, -120)
+position = Vector2(-124.5, -305.5)
 
 [node name="Crystal" parent="." instance=ExtResource("4_rbjk1")]
 position = Vector2(116, -262.5)

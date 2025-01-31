@@ -10,3 +10,9 @@ func _process(delta: float) -> void:
 	muuzik.volume_db = Level.master_volume * Level.volume_setter
 	if muuzik.volume_db > 10:
 		muuzik.volume_db = 10
+
+
+
+
+func _on_menu_button_2_pressed() -> void:
+	pass # Replace with function body.

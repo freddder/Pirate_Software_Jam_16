@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dd7dq1qbi7vw4"]
+[gd_scene load_steps=22 format=3 uid="uid://dd7dq1qbi7vw4"]
 
 [ext_resource type="Texture2D" uid="uid://cwy3ojiq8q8c5" path="res://Placeholders/Clouds/Clouds 5/1.png" id="1_vxojq"]
 [ext_resource type="Script" path="res://title_screen.gd" id="1_wnt41"]
@@ -10,12 +10,11 @@
 [ext_resource type="AudioStream" uid="uid://bs05lr4mhxcjw" path="res://Sounds/menu_screen_loop.wav" id="7_wqiyp"]
 [ext_resource type="Script" path="res://Golem/volume.gd" id="8_6bqh4"]
 [ext_resource type="Script" path="res://Golem/menu_button.gd" id="9_wv38e"]
-
-[sub_resource type="SystemFont" id="SystemFont_5yafm"]
-font_names = PackedStringArray("Fantasy", "Forte", "Lucida Calligraphy")
-font_italic = true
-generate_mipmaps = true
-multichannel_signed_distance_field = true
+[ext_resource type="Texture2D" uid="uid://ep2bqw1qxci5" path="res://Spirites/UI/Wardens_oath.png" id="11_15m2c"]
+[ext_resource type="Script" path="res://how_to_play.gd" id="11_w8yiv"]
+[ext_resource type="Texture2D" uid="uid://badbo7n737c8x" path="res://Spirites/UI/grab_icon.png" id="12_sl00u"]
+[ext_resource type="Texture2D" uid="uid://6s8ihvpkmrgc" path="res://Spirites/UI/laser_icon-Recovered.png" id="13_nxlqa"]
+[ext_resource type="Texture2D" uid="uid://cop3hg8fj2o4s" path="res://Spirites/UI/melee_icon-Recovered.png" id="14_wanav"]
 
 [sub_resource type="SystemFont" id="SystemFont_q1uyl"]
 font_names = PackedStringArray("Fantasy")
@@ -35,6 +34,8 @@ Button/colors/font_color = Color(0.875, 0.875, 0.875, 1)
 Button/colors/font_hover_color = Color(0.172549, 0.94902, 0.94902, 0.705882)
 Button/colors/font_pressed_color = Color(0, 1, 1, 1)
 Button/fonts/font = SubResource("SystemFont_xkps4")
+
+[sub_resource type="SystemFont" id="SystemFont_tggxa"]
 
 [node name="title_screen" type="Control"]
 layout_mode = 3
@@ -63,28 +64,6 @@ texture = ExtResource("4_13x38")
 [node name="Sprite2D5" type="Sprite2D" parent="Camera2D"]
 scale = Vector2(1.34, 1.34)
 texture = ExtResource("5_675de")
-
-[node name="TextEdit" type="TextEdit" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -156.0
-offset_top = -170.5
-offset_right = 137.0
-offset_bottom = -123.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/background_color = Color(0.615686, 0.760784, 0.964706, 1)
-theme_override_colors/font_outline_color = Color(0, 1, 1, 0.505882)
-theme_override_colors/font_readonly_color = Color(0, 0.211765, 0.8, 0.513726)
-theme_override_fonts/font = SubResource("SystemFont_5yafm")
-theme_override_font_sizes/font_size = 34
-text = "Guardian of the Spirit Isles"
-editable = false
-scroll_fit_content_height = true
 
 [node name="TextEdit2" type="RichTextLabel" parent="."]
 layout_mode = 0
@@ -131,10 +110,10 @@ autoplay = true
 
 [node name="MenuButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 234.0
-offset_top = -162.0
-offset_right = 308.0
-offset_bottom = -131.0
+offset_left = 229.0
+offset_top = -202.0
+offset_right = 303.0
+offset_bottom = -171.0
 text = "Menu"
 script = ExtResource("9_wv38e")
 
@@ -146,10 +125,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 222.0
-offset_top = -122.0
-offset_right = 323.0
-offset_bottom = -20.0
+offset_left = 217.0
+offset_top = -163.0
+offset_right = 318.0
+offset_bottom = -61.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_mxbex")
@@ -180,6 +159,79 @@ value = 10.0
 scrollable = false
 script = ExtResource("8_6bqh4")
 
+[node name="MenuButton2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 218.0
+offset_top = -53.0
+offset_right = 318.0
+offset_bottom = -22.0
+text = "How to Play"
+script = ExtResource("11_w8yiv")
+
+[node name="MenuBar2" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -78.0
+offset_top = -11.0
+offset_right = 318.0
+offset_bottom = 206.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_mxbex")
+
+[node name="TextEdit" type="TextEdit" parent="MenuBar2"]
+layout_mode = 0
+offset_left = 46.0
+offset_top = 91.0
+offset_right = 384.0
+offset_bottom = 209.0
+theme_override_colors/font_readonly_color = Color(1, 1, 1, 0.819608)
+theme_override_font_sizes/font_size = 17
+text = "-  Slam (Left-click): Basic melee attack
+-  Grab: (Right-click): traps target in bubble to be freely moved. 
+click again to release.
+- Laser: (Hold Space, aim with mouse, release to shoot):
+Shoot a powerful laserbeam that causes an explosion on impact"
+editable = false
+scroll_fit_content_height = true
+
+[node name="TextEdit2" type="TextEdit" parent="MenuBar2"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 21.0
+offset_right = 376.0
+offset_bottom = 70.0
+theme_override_colors/font_readonly_color = Color(1, 1, 1, 0.819608)
+theme_override_fonts/font = SubResource("SystemFont_tggxa")
+theme_override_font_sizes/font_size = 11
+text = "Objective: Stop the Rehkling waves from destroying the Spirit isles
+make sure not to harm the island yourself..."
+editable = false
+scroll_fit_content_height = true
+
+[node name="GrabIcon" type="Sprite2D" parent="MenuBar2"]
+position = Vector2(25, 144)
+texture = ExtResource("12_sl00u")
+
+[node name="LaserIcon-recovered" type="Sprite2D" parent="MenuBar2"]
+position = Vector2(24, 180)
+texture = ExtResource("13_nxlqa")
+
+[node name="MeleeIcon-recovered" type="Sprite2D" parent="MenuBar2"]
+position = Vector2(24, 110)
+texture = ExtResource("14_wanav")
+
+[node name="WardensOath" type="Sprite2D" parent="."]
+position = Vector2(-1, -128)
+scale = Vector2(1.22266, 1.23047)
+texture = ExtResource("11_15m2c")
+
 [connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
 [connection signal="pressed" from="MenuButton" to="MenuButton" method="_on_pressed"]
 [connection signal="value_changed" from="MenuBar/Volume" to="MenuBar/Volume" method="_on_value_changed"]
+[connection signal="pressed" from="MenuButton2" to="MenuButton2" method="_on_pressed"]
