@@ -49,6 +49,8 @@ func physic_update(delta : float):
 	# Reached destination
 	if enemy.global_position.distance_to(navigation_agent.target_position) < navigation_agent.target_desired_distance:
 		if !enemy.target:
+			Level.enemies.erase(enemy)
+			Level.check_if_game_over()
 			enemy.queue_free()
 		else:
 			if enemy.target_type == enemy.target_types.CRYSTAL:
