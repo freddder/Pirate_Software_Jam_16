@@ -1023,23 +1023,23 @@ position = Vector2(-833, 147)
 
 [node name="Ship" parent="." instance=ExtResource("14_vg2lh")]
 position = Vector2(-1725, -1238)
-timers = Array[Vector3i]([Vector3i(2, 3, 180), Vector3i(1, 2, 180), Vector3i(2, 2, 180)])
+timers = Array[Vector3i]([Vector3i(2, 1, 180), Vector3i(1, 2, 180), Vector3i(2, 2, 180)])
 
 [node name="Ship2" parent="." instance=ExtResource("14_vg2lh")]
 position = Vector2(1449, -1229)
-timers = Array[Vector3i]([Vector3i(0, 3, 60), Vector3i(0, 2, 60)])
+timers = Array[Vector3i]([Vector3i(0, 2, 60), Vector3i(1, 2, 60)])
 
 [node name="Ship4" parent="." instance=ExtResource("14_vg2lh")]
 position = Vector2(-901, -1886)
-timers = Array[Vector3i]([Vector3i(0, 3, 160), Vector3i(1, 3, 160)])
+timers = Array[Vector3i]([Vector3i(0, 1, 160), Vector3i(1, 3, 160)])
 
 [node name="Ship5" parent="." instance=ExtResource("14_vg2lh")]
 position = Vector2(86, -876)
-timers = Array[Vector3i]([Vector3i(0, 3, 120), Vector3i(1, 3, 12)])
+timers = Array[Vector3i]([Vector3i(0, 2, 120), Vector3i(1, 2, 120)])
 
 [node name="Ship6" parent="." instance=ExtResource("14_vg2lh")]
 position = Vector2(-377, -393)
-timers = Array[Vector3i]([Vector3i(0, 3, 10), Vector3i(1, 3, 10), Vector3i(0, 3, 240), Vector3i(1, 3, 240), Vector3i(2, 2, 240)])
+timers = Array[Vector3i]([Vector3i(0, 2, 10), Vector3i(1, 2, 16), Vector3i(0, 1, 240), Vector3i(1, 2, 240), Vector3i(2, 2, 240)])
 
 [node name="BaseAnimal" parent="." instance=ExtResource("7_qldvw")]
 position = Vector2(662, -1460)
