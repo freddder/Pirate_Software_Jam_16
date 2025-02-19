@@ -7,8 +7,7 @@ var timer : float = 2.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
+	set_warning_screen_pos()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -16,10 +15,12 @@ func _process(delta):
 	if timer <= 0:
 		queue_free()
 		return
-	
+	set_warning_screen_pos()
+
+func set_warning_screen_pos():
 	var camera = get_viewport().get_camera_2d()
 	if camera:
 		var screen_pos = spawn_position - camera.global_position + get_viewport_rect().size / 2
-		screen_pos = screen_pos.clamp(Vector2.ZERO, screen_size)
+		screen_pos = screen_pos.clamp(Vector2.ZERO, screen_size - size * scale)
 		visible = true
 		position = screen_pos

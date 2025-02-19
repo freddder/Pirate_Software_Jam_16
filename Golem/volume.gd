@@ -15,5 +15,3 @@ func _process(delta: float) -> void:
 func _on_value_changed(value: float) -> void:
 	Level.master_volume = value
 	Level.volume_setter = Level.master_volume * 0.1
-	#print(Level.master_volume)
-	#print(Level.volume_setter)

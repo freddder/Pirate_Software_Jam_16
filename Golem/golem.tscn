@@ -314,7 +314,6 @@ script = ExtResource("1_o5vha")
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_tbno0")
-autoplay = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_r1gqv")

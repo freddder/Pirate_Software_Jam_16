@@ -102,15 +102,12 @@ func reduce_island_integrity(amount : int):
 		level_ui.update_integrity_bar(percent)
 
 func notify_enemy_spawn(spawn_position: Vector2):
-	return # not working...
-	
 	var level_ui : LevelUI = get_node("/root/Map/CanvasLayer")
 	if level_ui:
 		level_ui.add_spawn_warning(spawn_position)
 
 func set_volume():
 	volume_setter = base_volume * 0.1
-	#print(volume_setter)
 
 func does_tile_exist_at_position(position: Vector2) -> bool:
 	var ground = get_node("/root/Map/NavigationRegion2D/Ground")

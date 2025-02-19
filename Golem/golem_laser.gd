@@ -20,7 +20,6 @@ func enter():
 	is_aiming = true
 	is_firing = false
 	laser_preview.visible = true
-	print(laser_charge.volume_db)
 
 func exit():
 	is_aiming = false
@@ -58,7 +57,6 @@ func physic_update(delta : float):
 		laser_charge.stop()
 		laser_blast.volume_db = 25 * Level.volume_setter
 		laser_blast.volume_db = clamp(laser_blast.volume_db, 20, 27)
-		print(laser_blast.volume_db)
 		laser_blast.play()
 		is_firing = true
 		anim_player.play("g_fire")

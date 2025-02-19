@@ -39,7 +39,6 @@ func get_hit(source: Vector2, damage: int) -> bool: # Return if it is still aliv
 		else:
 			hit_sfx.volume_db = 5 * Level.volume_setter
 			hit_sfx.play()
-			print(hit_sfx)
 			state_machine.on_state_change(state_machine.current_state, "Idle")
 			animated_sprite.play(anim_name_prefixes[type] + "_hit")
 		return true
@@ -48,7 +47,6 @@ func get_hit(source: Vector2, damage: int) -> bool: # Return if it is still aliv
 		if type == types.FOX:
 			fox_death_sfx.volume_db = 5 * Level.volume_setter
 			fox_death_sfx.play()
-			print("ow")
 		else:
 			owl_death_sfx.volume_db = 5 * Level.volume_setter
 			owl_death_sfx.play()

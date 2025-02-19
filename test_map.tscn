@@ -117,7 +117,7 @@ terrain_set_1/terrain_0/color = Color(0.566985, 0.31045, 3.85046e-07, 1)
 sources/0 = SubResource("TileSetAtlasSource_mrswh")
 sources/3 = SubResource("TileSetAtlasSource_r8p0n")
 
-[node name="Test_Map" type="Node2D"]
+[node name="Map" type="Node2D"]
 y_sort_enabled = true
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]

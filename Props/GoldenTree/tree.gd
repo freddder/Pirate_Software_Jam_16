@@ -11,9 +11,6 @@ var timer : float = 0.0
 var base_volume : float = 5
 #var timer : float = 0.0
 
-func _ready():
-	print(health)
-
 func get_hit(source: Vector2, damage: int) -> bool:
 	if health <= 0:
 		return false
