@@ -21,7 +21,7 @@ var ships : Array[Ship] = []
 func play_game():
 	if scene == "map":
 		island_integrity = max_island_integrity
-		get_tree().change_scene_to_file("res://map.tscn")
+		get_tree().change_scene_to_file("res://Levels/map.tscn")
 
 func exit_game():
 	if scene == "title":

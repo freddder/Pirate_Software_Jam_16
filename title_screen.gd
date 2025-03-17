@@ -11,8 +11,5 @@ func _process(delta: float) -> void:
 	if muuzik.volume_db > 10:
 		muuzik.volume_db = 10
 
-
-
-
 func _on_menu_button_2_pressed() -> void:
 	pass # Replace with function body.
