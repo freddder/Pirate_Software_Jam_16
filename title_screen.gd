@@ -47,3 +47,7 @@ func _on_h2p_button_pressed():
 	else:
 		buttons.visible = false
 	h2p.visible = !h2p.visible
+
+func _on_valume_changed(value: float) -> void:
+	Level.master_volume = clamp(value, 1.0, 20.0)
+	Level.volume_setter = Level.master_volume * 0.1

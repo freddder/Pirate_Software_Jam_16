@@ -6,9 +6,10 @@ class_name Golem
 @onready var slam_hitbox : Area2D = $Slam/PunchZone
 @onready var state_machine : StateMachine = $StateMachine
 @onready var free_state : GolemFree = $StateMachine/Free
+var grab_cooldown : float = 0.5
+
 @onready var music : AudioStreamPlayer = $Music
 var base_volume = 5
-var grab_cooldown : float = 0.5
 
 @export var shake_fade : float = 5.0
 @export var shake_randomness : float = 15.0

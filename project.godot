@@ -17,7 +17,7 @@ config/icon="res://Spirites/icon.svg"
 
 [autoload]
 
-Level="*res://level.gd"
+Level="*res://Levels/level.gd"
 Volume="*res://Golem/volume.gd"
 
 [display]

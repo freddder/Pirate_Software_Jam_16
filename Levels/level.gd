@@ -21,7 +21,7 @@ var ships : Array[Ship] = []
 func play_game():
 	if scene == "map":
 		island_integrity = max_island_integrity
-		get_tree().change_scene_to_file("res://Levels/map.tscn")
+		get_tree().change_scene_to_file("res://Levels/map_2.tscn")
 
 func exit_game():
 	if scene == "title":
@@ -96,13 +96,13 @@ func create_explosion(global_position : Vector2):
 
 func reduce_island_integrity(amount : int):
 	island_integrity -= amount
-	var level_ui = get_node("/root/Map/CanvasLayer")
+	var level_ui = get_node("/root/Map/LevelUI")
 	if level_ui:
 		var percent = float(island_integrity) / float(max_island_integrity)
 		level_ui.update_integrity_bar(percent)
 
 func notify_enemy_spawn(spawn_position: Vector2):
-	var level_ui : LevelUI = get_node("/root/Map/CanvasLayer")
+	var level_ui : LevelUI = get_node("/root/Map/LevelUI")
 	if level_ui:
 		level_ui.add_spawn_warning(spawn_position)
 
@@ -142,11 +142,3 @@ func check_if_game_over():
 		scene = "win"
 		clear_arrays()
 		get_tree().change_scene_to_file("res://win_or_lose.tscn")
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
