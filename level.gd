@@ -6,7 +6,7 @@ extends Node
 var max_island_integrity: int = 10
 var island_integrity: int = 10
 var scene : String
-var win_or_lose : bool = false
+var did_player_win : bool = false
 var master_volume : float = 10
 var volume_setter : float
 var base_volume : float = 10
@@ -123,7 +123,7 @@ func does_tile_exist_at_position(position: Vector2) -> bool:
 func check_if_game_over():
 	if island_integrity < 1:
 		# Lose game here
-		win_or_lose = false
+		did_player_win = false
 		scene = "lose"
 		clear_arrays()
 		get_tree().change_scene_to_file("res://win_or_lose.tscn")
@@ -138,7 +138,7 @@ func check_if_game_over():
 	
 	if enemies.is_empty():
 		# Win game here
-		win_or_lose = true
+		did_player_win = true
 		scene = "win"
 		clear_arrays()
 		get_tree().change_scene_to_file("res://win_or_lose.tscn")

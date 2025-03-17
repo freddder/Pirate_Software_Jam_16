@@ -1,45 +1,20 @@
-[gd_scene load_steps=27 format=3 uid="uid://dd7dq1qbi7vw4"]
+[gd_scene load_steps=20 format=3 uid="uid://dd7dq1qbi7vw4"]
 
 [ext_resource type="Script" path="res://title_screen.gd" id="1_wnt41"]
 [ext_resource type="Texture2D" uid="uid://cl341bsurhdde" path="res://Spirites/UI/title_screen.png" id="2_cat7b"]
 [ext_resource type="Texture2D" uid="uid://50dbavytp63q" path="res://Golem/GOL-M-Sheet.png" id="3_u82ej"]
 [ext_resource type="Texture2D" uid="uid://bc0wc4kti7h1o" path="res://Animals/Sprites/owl_idle.png" id="4_gusgr"]
 [ext_resource type="Texture2D" uid="uid://dfeuxg5mm81gj" path="res://Animals/Sprites/fox_walk.png" id="5_8hyde"]
-[ext_resource type="Script" path="res://play_button.gd" id="6_a8m0n"]
 [ext_resource type="FontFile" uid="uid://cswfnuyq3fx1k" path="res://Spirites/UI/mini_pixel-7 copy.ttf" id="7_15ua7"]
 [ext_resource type="AudioStream" uid="uid://bs05lr4mhxcjw" path="res://Sounds/menu_screen_loop.wav" id="7_wqiyp"]
 [ext_resource type="Script" path="res://Golem/volume.gd" id="8_6bqh4"]
-[ext_resource type="Script" path="res://Golem/menu_button.gd" id="9_wv38e"]
 [ext_resource type="Texture2D" uid="uid://b5ggqdbur0u1d" path="res://Spirites/UI/UI_elements.png" id="10_h3iu7"]
-[ext_resource type="LabelSettings" uid="uid://btygs82xsvihm" path="res://Ui_Themes/LabelSettings.tres" id="11_ill5o"]
-[ext_resource type="Script" path="res://how_to_play.gd" id="11_w8yiv"]
 [ext_resource type="Texture2D" uid="uid://badbo7n737c8x" path="res://Spirites/UI/grab_icon.png" id="12_sl00u"]
 [ext_resource type="Texture2D" uid="uid://6s8ihvpkmrgc" path="res://Spirites/UI/laser_icon-Recovered.png" id="13_nxlqa"]
 [ext_resource type="Texture2D" uid="uid://cop3hg8fj2o4s" path="res://Spirites/UI/melee_icon-Recovered.png" id="14_wanav"]
 
-[sub_resource type="SystemFont" id="SystemFont_xkps4"]
-font_names = PackedStringArray("Fantasy")
-subpixel_positioning = 0
-
-[sub_resource type="Theme" id="Theme_mxbex"]
-default_font = SubResource("SystemFont_xkps4")
-Button/colors/font_color = Color(0.875, 0.875, 0.875, 1)
-Button/colors/font_hover_color = Color(0.172549, 0.94902, 0.94902, 0.705882)
-Button/colors/font_pressed_color = Color(0, 1, 1, 1)
-Button/fonts/font = SubResource("SystemFont_xkps4")
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xai8w"]
-atlas = ExtResource("10_h3iu7")
-region = Rect2(14, 14, 20, 20)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gs2k2"]
-content_margin_left = 1.0
-texture = SubResource("AtlasTexture_xai8w")
-expand_margin_left = 4.0
-expand_margin_top = 4.0
-expand_margin_right = 4.0
-expand_margin_bottom = 4.0
-region_rect = Rect2(0, 0, 20, 20)
+[sub_resource type="LabelSettings" id="LabelSettings_si3ra"]
+font_size = 32
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5avs4"]
 atlas = ExtResource("10_h3iu7")
@@ -64,7 +39,7 @@ color = Color(0.458824, 0.298039, 0.376471, 1)
 grow_begin = 0.0
 thickness = 4
 
-[node name="title_screen" type="Control"]
+[node name="TitleScreen" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_wnt41")
@@ -92,77 +67,61 @@ position = Vector2(-156.716, 143.284)
 texture = ExtResource("5_8hyde")
 hframes = 5
 
-[node name="TextEdit2" type="RichTextLabel" parent="."]
-layout_mode = 0
-offset_left = -356.0
-offset_top = -145.0
-offset_right = -100.0
-offset_bottom = 115.0
-theme_override_colors/default_color = Color(0.488665, 0.679496, 0.947047, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("7_15ua7")
-theme_override_font_sizes/normal_font_size = 22
-theme_override_font_sizes/bold_font_size = 20
-text = "				Credits
-			  Programming
-		   Aiden. S (Mr Hooga)
-			 Lucas (Fredder)
-
-			 Art & Animation
-			Maria. G (mmm(?))
-			  Julsketches
-
-			  Music & SFX
-			Lukas J. Harpman"
-
-[node name="Button" type="Button" parent="."]
+[node name="ButtonsContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 7
+anchors_preset = 5
 anchor_left = 0.5
-anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -47.0
-offset_top = 24.0
-offset_right = 47.0
-offset_bottom = 87.0
+offset_left = -63.0
+offset_right = 69.0
+offset_bottom = 188.0
 grow_horizontal = 2
-grow_vertical = 0
+
+[node name="PlayButton" type="Button" parent="ButtonsContainer"]
+layout_mode = 2
 focus_mode = 0
-theme_override_colors/font_hover_color = Color(0.430965, 0.640899, 0.934524, 1)
-theme_override_colors/font_pressed_color = Color(0.761343, 0.851638, 0.978762, 1)
-theme_override_colors/font_color = Color(0.615686, 0.760784, 0.964706, 1)
+theme_override_colors/font_color = Color(0.374933, 0.4, 0.368, 1)
 theme_override_fonts/font = ExtResource("7_15ua7")
-theme_override_font_sizes/font_size = 54
+theme_override_font_sizes/font_size = 30
 text = "Play
 "
 flat = true
-script = ExtResource("6_a8m0n")
 
-[node name="Menu Theme" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("7_wqiyp")
-autoplay = true
+[node name="H2PButton" type="Button" parent="ButtonsContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_hover_pressed_color = Color(1, 0.890196, 0.85098, 1)
+theme_override_colors/font_focus_color = Color(1, 0.890196, 0.85098, 1)
+theme_override_colors/font_color = Color(0.374933, 0.4, 0.368, 1)
+theme_override_fonts/font = ExtResource("7_15ua7")
+theme_override_font_sizes/font_size = 30
+text = "How to Play"
+flat = true
 
-[node name="MenuButton" type="Button" parent="."]
-layout_mode = 0
-offset_left = 229.0
-offset_top = -202.0
-offset_right = 303.0
-offset_bottom = -171.0
+[node name="OptionsButton" type="Button" parent="ButtonsContainer"]
+layout_mode = 2
 focus_mode = 0
 theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
-theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
-theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
-theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0.374933, 0.4, 0.368, 1)
 theme_override_fonts/font = ExtResource("7_15ua7")
-theme_override_font_sizes/font_size = 32
-text = "Menu"
+theme_override_font_sizes/font_size = 30
+text = "Options
+"
 flat = true
-script = ExtResource("9_wv38e")
 
-[node name="MenuBar" type="Panel" parent="."]
+[node name="CreditsButton" type="Button" parent="ButtonsContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(0.374933, 0.4, 0.368, 1)
+theme_override_fonts/font = ExtResource("7_15ua7")
+theme_override_font_sizes/font_size = 30
+text = "Credits
+"
+flat = true
+
+[node name="Credits" type="ColorRect" parent="."]
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -170,41 +129,100 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 217.0
-offset_top = -163.0
-offset_right = 318.0
-offset_bottom = -61.0
+offset_left = -104.0
+offset_top = -210.0
+offset_right = 95.0
+offset_bottom = 213.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = SubResource("Theme_mxbex")
-theme_override_styles/panel = SubResource("StyleBoxTexture_gs2k2")
+color = Color(0.25, 0.25, 0.25, 0.74902)
 
-[node name="Label" type="Label" parent="MenuBar"]
+[node name="Label" type="Label" parent="Credits"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -22.5
-offset_top = -21.0
-offset_right = 22.5
-offset_bottom = 3.0
+offset_left = -99.5
+offset_top = -204.5
+offset_right = 104.5
+offset_bottom = 152.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("7_15ua7")
+theme_override_font_sizes/font_size = 26
+text = "Credits
+
+Programming
+Aiden. S (Mr Hooga)
+Lucas (Fredder)
+
+Art & Animation
+Maria. G (mmm(?))
+Julsketches
+
+Music & SFX
+Lukas J. Harpman"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BackButton" type="Button" parent="Credits"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -21.5
+offset_top = -45.0
+offset_right = 28.5
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("7_15ua7")
+theme_override_font_sizes/font_size = 30
+text = "Back"
+
+[node name="Options" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -51.0
+offset_top = -49.0
+offset_right = 53.0
+offset_bottom = 65.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.25, 0.25, 0.25, 0.74902)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Options"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -31.0
+offset_top = -42.0
+offset_right = 31.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Options/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7_15ua7")
 theme_override_font_sizes/font_size = 23
 text = "Volume"
-label_settings = ExtResource("11_ill5o")
+label_settings = SubResource("LabelSettings_si3ra")
 
-[node name="Volume" type="HSlider" parent="MenuBar"]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 0.079
-offset_left = 15.0
-offset_top = 65.0
-offset_right = 80.021
-offset_bottom = 81.0
+[node name="Volume" type="HSlider" parent="Options/VBoxContainer"]
+layout_mode = 2
 theme_override_icons/grabber = SubResource("AtlasTexture_5avs4")
 theme_override_icons/grabber_highlight = SubResource("AtlasTexture_drp6v")
 theme_override_icons/grabber_disabled = SubResource("AtlasTexture_52tkd")
@@ -215,25 +233,24 @@ value = 10.0
 scrollable = false
 script = ExtResource("8_6bqh4")
 
-[node name="MenuButton2" type="Button" parent="."]
-layout_mode = 0
-offset_left = 218.0
-offset_top = -53.0
-offset_right = 318.0
-offset_bottom = -22.0
-focus_mode = 0
-theme_override_colors/font_hover_pressed_color = Color(1, 0.890196, 0.85098, 1)
-theme_override_colors/font_hover_color = Color(1, 0.890196, 0.85098, 1)
-theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
-theme_override_colors/font_focus_color = Color(1, 0.890196, 0.85098, 1)
-theme_override_colors/font_color = Color(1, 1, 1, 1)
+[node name="BackButton" type="Button" parent="Options"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -18.0
+offset_top = -37.0
+offset_right = 19.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 0
 theme_override_fonts/font = ExtResource("7_15ua7")
-theme_override_font_sizes/font_size = 24
-text = "How to Play"
-flat = true
-script = ExtResource("11_w8yiv")
+theme_override_font_sizes/font_size = 21
+text = "Back"
 
-[node name="MenuBar2" type="Panel" parent="."]
+[node name="H2P" type="ColorRect" parent="."]
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -241,52 +258,94 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -104.0
-offset_top = -11.0
-offset_right = 318.0
-offset_bottom = 206.0
+offset_left = -203.0
+offset_top = -64.0
+offset_right = 204.0
+offset_bottom = 105.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = SubResource("Theme_mxbex")
+color = Color(0.25, 0.25, 0.25, 0.74902)
 
-[node name="Label" type="Label" parent="MenuBar2"]
-layout_mode = 0
-offset_left = 46.0
-offset_top = 91.0
-offset_right = 406.0
-offset_bottom = 234.0
-theme_override_fonts/font = ExtResource("7_15ua7")
-theme_override_font_sizes/font_size = 17
-text = "-  Slam (Left-click): Basic melee attack
--  Grab: (Right-click): traps target in bubble to be freely moved. 
-click again to release.
-- Laser: (Hold Space, aim with mouse, release to shoot):
-Shoot a powerful laserbeam that causes an explosion on impact"
+[node name="VBoxContainer" type="VBoxContainer" parent="H2P"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -31.0
+offset_top = -42.0
+offset_right = 31.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Label2" type="Label" parent="MenuBar2"]
-layout_mode = 0
-offset_left = 9.0
-offset_top = 21.0
-offset_right = 402.0
-offset_bottom = 83.0
-theme_override_fonts/font = ExtResource("7_15ua7")
-theme_override_font_sizes/font_size = 18
-text = "Objective: Stop the Rehkling waves from destroying the Spirit isles
-make sure not to harm the island yourself..."
+[node name="HBoxContainer" type="HBoxContainer" parent="H2P/VBoxContainer"]
+layout_mode = 2
 
-[node name="GrabIcon" type="Sprite2D" parent="MenuBar2"]
-position = Vector2(25, 144)
-texture = ExtResource("12_sl00u")
-
-[node name="LaserIcon-recovered" type="Sprite2D" parent="MenuBar2"]
-position = Vector2(24, 180)
+[node name="LaserIcon" type="TextureRect" parent="H2P/VBoxContainer/HBoxContainer"]
+layout_mode = 2
 texture = ExtResource("13_nxlqa")
 
-[node name="MeleeIcon-recovered" type="Sprite2D" parent="MenuBar2"]
-position = Vector2(24, 110)
+[node name="Label" type="Label" parent="H2P/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7_15ua7")
+theme_override_font_sizes/font_size = 17
+text = "Laser: (Hold Space, aim with mouse, release to shoot):
+Shoot a powerful laserbeam that causes an explosion on impact"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="H2P/VBoxContainer"]
+layout_mode = 2
+
+[node name="MeleeIcon" type="TextureRect" parent="H2P/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
 texture = ExtResource("14_wanav")
 
-[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
-[connection signal="pressed" from="MenuButton" to="MenuButton" method="_on_pressed"]
-[connection signal="value_changed" from="MenuBar/Volume" to="MenuBar/Volume" method="_on_value_changed"]
-[connection signal="pressed" from="MenuButton2" to="MenuButton2" method="_on_pressed"]
+[node name="Label" type="Label" parent="H2P/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7_15ua7")
+theme_override_font_sizes/font_size = 17
+text = "Slam (Left-click): Basic melee attack"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="H2P/VBoxContainer"]
+layout_mode = 2
+
+[node name="GrabIcon" type="TextureRect" parent="H2P/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+texture = ExtResource("12_sl00u")
+
+[node name="Label" type="Label" parent="H2P/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7_15ua7")
+theme_override_font_sizes/font_size = 17
+text = "Grab: (Right-click): traps target in bubble to be freely moved"
+
+[node name="BackButton" type="Button" parent="H2P"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -18.0
+offset_top = -37.0
+offset_right = 19.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("7_15ua7")
+theme_override_font_sizes/font_size = 21
+text = "Back"
+
+[node name="Menu Theme" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_wqiyp")
+autoplay = true
+
+[connection signal="pressed" from="ButtonsContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="ButtonsContainer/H2PButton" to="." method="_on_h2p_button_pressed"]
+[connection signal="pressed" from="ButtonsContainer/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="ButtonsContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="Credits/BackButton" to="." method="_on_credits_button_pressed"]
+[connection signal="value_changed" from="Options/VBoxContainer/Volume" to="Options/VBoxContainer/Volume" method="_on_value_changed"]
+[connection signal="pressed" from="Options/BackButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="H2P/BackButton" to="." method="_on_h2p_button_pressed"]
