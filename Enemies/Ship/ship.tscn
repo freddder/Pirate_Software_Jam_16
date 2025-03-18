@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://53n1f474g1r5" path="res://Enemies/Ship/ship.png" id="2_n1hle"]
 
 [node name="Ship" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_ptjo7")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

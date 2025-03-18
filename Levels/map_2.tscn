@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://b7rd2bp4xfvj3"]
+[gd_scene load_steps=29 format=4 uid="uid://b7rd2bp4xfvj3"]
 
 [ext_resource type="Texture2D" uid="uid://cvoq2u0khwe15" path="res://Spirites/Tilesets/grass_tiles.png" id="1_sjrdl"]
 [ext_resource type="Texture2D" uid="uid://xwdhjskqfyjq" path="res://Spirites/Tilesets/island_edges_3.png" id="2_tdoey"]
@@ -8,8 +8,15 @@
 [ext_resource type="PackedScene" uid="uid://xawkvbshotcm" path="res://Props/GoldenTree/tree_b.tscn" id="6_ogm1c"]
 [ext_resource type="PackedScene" uid="uid://e57bjmfbqtvu" path="res://Props/GoldenTree/gold_tree.tscn" id="7_hl3ln"]
 [ext_resource type="PackedScene" uid="uid://b33b2asfwk761" path="res://Props/Crystal/crystal.tscn" id="8_ge1mv"]
+[ext_resource type="PackedScene" uid="uid://bd74mkhe1hxkk" path="res://Golem/golem.tscn" id="9_fns8s"]
+[ext_resource type="PackedScene" uid="uid://bj1uthfk37t1e" path="res://Animals/base_animal.tscn" id="10_4ttxy"]
+[ext_resource type="PackedScene" uid="uid://b4i1ikswqworl" path="res://Levels/LevelUI.tscn" id="11_m3cea"]
+[ext_resource type="PackedScene" uid="uid://dy3y7x7lah4wj" path="res://Enemies/Ship/ship.tscn" id="11_p5te0"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_k3e2n"]
+vertices = PackedVector2Array(722.039, 530, -690, 530, -690, -494.063, 725.961, -502.93)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-700, -504, -700, 540, 732, 540, 736, -513)])
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_sbk7d"]
 tile_data = PackedInt32Array(262144, 131072, 2, 262145, 196608, 2)
@@ -566,5 +573,32 @@ tile_map_data = PackedByteArray("AADq//D/AAAAAAEAAADq//H/AAAAAAUAAADq//L/AAAAAAI
 tile_set = SubResource("TileSet_yryxd")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="NavigationRegion2D"]
-tile_map_data = PackedByteArray("AAD+/wAAAQAAAAQAAAA=")
+y_sort_enabled = true
+tile_map_data = PackedByteArray("AAD+/wAAAQAAAAQAAAAGABEAAgAAAAAAAgAEAPP/AgAAAAAAAgAHAPT/AgAAAAAAAgAKAPX/AgAAAAAAAgANAPX/AgAAAAAAAQAQAPT/AgAAAAAAAgANAO3/AgAAAAAAAwABAPT/AgAAAAAAAQD9/+P/AgAAAAAAAwAHAOL/AgAAAAAAAwAEAOn/AgAAAAAABAD+//T/AgAAAAAAAgD7//P/AgAAAAAAAgD4//X/AgAAAAAAAQD1//f/AgAAAAAAAgD2//r/AgAAAAAAAQD1//3/AgAAAAAAAQASAPP/AgAAAAAAAQAUAPH/AgAAAAAAAQATAO3/AgAAAAAAAgDz////AgAAAAAAAQDx/wEAAgAAAAAAAgARAAMAAgAAAAAAAQD4/wwAAgAAAAAAAQDv/+f/AgAAAAAAAQABAAoAAAAGAAIAAAAJAAgAAAADAAIAAAAFAAQAAAACAAIAAAD///n/AAAGAAIAAAD7//v/AAACAAIAAAD4/wAAAAAFAAAAAADz/wUAAAAGAAIAAAD3/xIAAAAGAAIAAAAPABEAAAADAAIAAAAPAAkAAAACAAIAAAAUAPf/AAADAAMAAADu//X/AAACAAIAAAD0/+3/AAADAAIAAAD5/+f/AAADAAIAAAACAO3/AAAGAAIAAAALAOb/AAAGAAIAAAAIAAUAAAACAAIAAAAVAAgAAAADAAMAAAD1/+T/AAADAAIAAADr/wUAAAACAAIAAAAPAPn/AgAAAAAABAA=")
 tile_set = SubResource("TileSet_1nd2a")
+
+[node name="Golem" parent="NavigationRegion2D" instance=ExtResource("9_fns8s")]
+position = Vector2(-16, 0)
+
+[node name="BaseAnimal" parent="NavigationRegion2D" instance=ExtResource("10_4ttxy")]
+position = Vector2(157, -129)
+
+[node name="BaseAnimal2" parent="NavigationRegion2D" instance=ExtResource("10_4ttxy")]
+position = Vector2(89, -79)
+
+[node name="BaseAnimal3" parent="NavigationRegion2D" instance=ExtResource("10_4ttxy")]
+position = Vector2(243, -40)
+
+[node name="Ship" parent="NavigationRegion2D" instance=ExtResource("11_p5te0")]
+position = Vector2(-7, 500)
+timers = Array[Vector3i]([Vector3i(0, 2, 3)])
+
+[node name="Ship2" parent="NavigationRegion2D" instance=ExtResource("11_p5te0")]
+position = Vector2(614, -461)
+
+[node name="Ship3" parent="NavigationRegion2D" instance=ExtResource("11_p5te0")]
+position = Vector2(-567, 133)
+timers = Array[Vector3i]([Vector3i(2, 2, 10)])
+
+[node name="LevelUI" parent="." instance=ExtResource("11_m3cea")]
+visible = false

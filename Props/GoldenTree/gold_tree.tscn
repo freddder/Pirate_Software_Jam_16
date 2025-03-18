@@ -131,6 +131,7 @@ collision_mask = 0
 script = ExtResource("1_ydy3i")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
 position = Vector2(0, -21)
 scale = Vector2(1.33333, 1.44792)
 sprite_frames = SubResource("SpriteFrames_8hg4d")

@@ -336,6 +336,7 @@ offset = Vector2(0, -8)
 
 [node name="ExplosionPreview" type="Sprite2D" parent="Laser"]
 visible = false
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("3_j5pyv")
 
 [node name="LaserCharge" type="AudioStreamPlayer2D" parent="Laser"]
@@ -404,9 +405,11 @@ initial_state = NodePath("Free")
 
 [node name="Free" type="Node" parent="StateMachine"]
 script = ExtResource("5_ws5lf")
+walk_speed = 90
 
 [node name="Laser" type="Node" parent="StateMachine"]
 script = ExtResource("6_nlxgo")
+laser_max_range = 200.0
 
 [node name="Grab" type="Node" parent="StateMachine"]
 script = ExtResource("7_re0w5")

@@ -93,7 +93,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_47ju4")
 }],
-"loop": true,
+"loop": false,
 "name": &"tree_hit",
 "speed": 5.0
 }, {
@@ -117,9 +117,10 @@ collision_mask = 0
 script = ExtResource("1_82nn2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
 position = Vector2(0, -10)
 sprite_frames = SubResource("SpriteFrames_8hg4d")
-animation = &"tree_fall"
+animation = &"tree_idle"
 offset = Vector2(33, -23)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

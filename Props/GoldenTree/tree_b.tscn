@@ -117,9 +117,10 @@ collision_mask = 0
 script = ExtResource("1_eyweg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
 position = Vector2(1, -9)
 sprite_frames = SubResource("SpriteFrames_8hg4d")
-animation = &"tree_fall"
+animation = &"tree_hit"
 autoplay = "tree_idle"
 offset = Vector2(33, -25)
 

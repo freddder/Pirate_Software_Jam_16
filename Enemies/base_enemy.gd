@@ -19,7 +19,7 @@ func _ready():
 	elif target_type == target_types.TREES:
 		navi_agent.target_desired_distance = 50
 	else:
-		navi_agent.target_desired_distance = 80
+		navi_agent.target_desired_distance = 50
 	spawn_position = global_position
 	Level.enemies.push_back(self)
 

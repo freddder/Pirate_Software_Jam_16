@@ -7,6 +7,7 @@ class_name LevelUI
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	visible = true
 	integrity_bar.value = integrity_bar.max_value
 	pause_menu.visible = false
 

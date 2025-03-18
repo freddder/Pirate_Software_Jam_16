@@ -76,7 +76,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ph1g5"]
-radius = 258.0
+radius = 200.0
 
 [node name="Explosion" type="Area2D"]
 collision_layer = 0
@@ -85,12 +85,11 @@ script = ExtResource("1_eb03m")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 z_index = 2
-scale = Vector2(3, 3)
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_cxm0r")
 animation = &"explosion"
 autoplay = "explosion"
-frame = 8
-frame_progress = 0.725639
+frame_progress = 0.972068
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_ph1g5")
