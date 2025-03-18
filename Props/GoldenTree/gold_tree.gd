@@ -1,7 +1,6 @@
-extends CharacterBody2D
+extends StaticBody2D
 class_name GoldenTree
 
-@onready var tree : CharacterBody2D = $"."
 @onready var goldtree_animation : AnimatedSprite2D = $AnimatedSprite2D
 @onready var collision : CollisionShape2D = $CollisionShape2D
 @onready var health = 3
@@ -36,6 +35,3 @@ func get_hit(source: Vector2, damage: int) -> bool:
 
 func update(delta : float):
 	pass
-	#timer += delta
-	#if timer > 5.0:
-		#tree.queue_free()

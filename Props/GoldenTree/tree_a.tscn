@@ -110,7 +110,7 @@ animations = [{
 radius = 7.0
 height = 20.0
 
-[node name="Tree_A" type="CharacterBody2D" groups=["hittable"]]
+[node name="Tree_A" type="StaticBody2D" groups=["hittable"]]
 y_sort_enabled = true
 collision_layer = 3
 collision_mask = 0
@@ -120,7 +120,7 @@ script = ExtResource("1_82nn2")
 y_sort_enabled = true
 position = Vector2(0, -10)
 sprite_frames = SubResource("SpriteFrames_8hg4d")
-animation = &"tree_idle"
+animation = &"tree_fall"
 offset = Vector2(33, -23)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

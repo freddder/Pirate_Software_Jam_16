@@ -1,7 +1,7 @@
-extends CharacterBody2D
+extends StaticBody2D
 class_name Trees
 
-@onready var tree : CharacterBody2D = $"."
+@onready var tree : StaticBody2D = $"."
 @onready var tree_animation : AnimatedSprite2D = $AnimatedSprite2D
 @onready var collision : CollisionShape2D = $CollisionShape2D
 var timer : float = 0.0
@@ -32,6 +32,3 @@ func get_hit(source: Vector2, damage: int) -> bool:
 
 func update(delta : float):
 	pass
-	#timer += delta
-	#if timer > 5.0:
-		#tree.queue_free()

@@ -30,6 +30,10 @@ region = Rect2(552, 0, 138, 96)
 atlas = ExtResource("2_wuwcd")
 region = Rect2(690, 0, 138, 96)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_k0m6h"]
+atlas = ExtResource("2_wuwcd")
+region = Rect2(828, 0, 138, 96)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_27ujp"]
 atlas = ExtResource("3_2cnl6")
 region = Rect2(0, 0, 138, 96)
@@ -54,10 +58,6 @@ region = Rect2(552, 0, 138, 96)
 atlas = ExtResource("3_o6vsc")
 region = Rect2(4, 0, 120, 96)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_edke3"]
-atlas = ExtResource("3_o6vsc")
-region = Rect2(135, 0, 135, 96)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_8hg4d"]
 animations = [{
 "frames": [{
@@ -78,6 +78,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_finsg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k0m6h")
 }],
 "loop": false,
 "name": &"tree_falling",
@@ -110,21 +113,13 @@ animations = [{
 "loop": true,
 "name": &"tree_idle",
 "speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_edke3")
-}],
-"loop": true,
-"name": &"tree_stump",
-"speed": 5.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nt5t2"]
 radius = 7.0
 height = 26.0
 
-[node name="Gold_Tree" type="CharacterBody2D" groups=["hittable"]]
+[node name="Gold_Tree" type="StaticBody2D" groups=["hittable"]]
 y_sort_enabled = true
 collision_layer = 3
 collision_mask = 0
@@ -135,8 +130,10 @@ y_sort_enabled = true
 position = Vector2(0, -21)
 scale = Vector2(1.33333, 1.44792)
 sprite_frames = SubResource("SpriteFrames_8hg4d")
-animation = &"tree_idle"
+animation = &"tree_falling"
 autoplay = "tree_idle"
+frame = 6
+frame_progress = 1.0
 offset = Vector2(31, -11.5252)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

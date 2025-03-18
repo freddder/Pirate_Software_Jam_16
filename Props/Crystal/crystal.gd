@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends StaticBody2D
 class_name Crystal
 
 @onready var crystal_glow : PointLight2D = $PointLight2D2
