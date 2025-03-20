@@ -118,7 +118,7 @@ func does_tile_exist_at_position(position: Vector2) -> bool:
 		else:
 			return false
 	else:
-		return true
+		return false
 
 func check_if_game_over():
 	if island_integrity < 1:

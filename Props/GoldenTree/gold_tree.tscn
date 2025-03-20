@@ -132,8 +132,6 @@ scale = Vector2(1.33333, 1.44792)
 sprite_frames = SubResource("SpriteFrames_8hg4d")
 animation = &"tree_falling"
 autoplay = "tree_idle"
-frame = 6
-frame_progress = 1.0
 offset = Vector2(31, -11.5252)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

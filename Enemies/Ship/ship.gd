@@ -6,7 +6,7 @@ class_name Ship
 #	var type : BaseEnemy.target_types = BaseEnemy.target_types.ANIMALS
 #	var time : float = 0.0
 
-# x = enemy type
+# x = enemy type (0 = hunter, 1 = lumberjack, 2 = miner)
 # y = quantity
 # z = time in seconds
 @export var timers : Array[Vector3i] = []
