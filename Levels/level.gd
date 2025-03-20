@@ -3,8 +3,14 @@ extends Node
 @onready var explosion = load("res://Props/Explosion/explosion.tscn")
 @onready var barrel = load("res://Props/ExplosiveBarrel/explosive_barrel.tscn")
 
-var max_island_integrity: int = 10
-var island_integrity: int = 10
+var max_island_integrity: int = 0
+var island_integrity: int = 0
+var golden_tree_integrity_value: int = 3
+var regular_tree_integrity_value: int = 1
+var crystal_integrity_value: int = 5
+var animal_tree_integrity_value: int = 3
+var integrity_lose_percent: float = 0.7
+
 var scene : String
 var did_player_win : bool = false
 var master_volume : float = 10
@@ -20,13 +26,33 @@ var ships : Array[Ship] = []
 
 func play_game():
 	if scene == "map":
-		island_integrity = max_island_integrity
+		max_island_integrity = 0
+		island_integrity = 0
 		get_tree().change_scene_to_file("res://Levels/map_2.tscn")
 
 func exit_game():
 	if scene == "title":
 		clear_arrays()
 		get_tree().change_scene_to_file("res://Title_screen.tscn")
+
+func register_integrity_entity(entity_to_register: Node2D):
+	var points_to_increase = 0
+	if entity_to_register is GoldenTree:
+		golden_trees.push_back(entity_to_register)
+		points_to_increase = golden_tree_integrity_value
+	elif entity_to_register is BaseAnimal:
+		animals.push_back(entity_to_register)
+		points_to_increase = animal_tree_integrity_value
+	elif entity_to_register is Crystal:
+		crystals.push_back(entity_to_register)
+		points_to_increase = crystal_integrity_value
+	elif entity_to_register is RegularTree:
+		points_to_increase = regular_tree_integrity_value
+	else:
+		return
+	
+	max_island_integrity += points_to_increase
+	island_integrity += points_to_increase
 
 func find_random_animal() -> BaseAnimal:
 	if !animals.is_empty():
@@ -98,7 +124,8 @@ func reduce_island_integrity(amount : int):
 	island_integrity -= amount
 	var level_ui = get_node("/root/Map/LevelUI")
 	if level_ui:
-		var percent = float(island_integrity) / float(max_island_integrity)
+		var mod = float(max_island_integrity) * integrity_lose_percent
+		var percent = float(island_integrity - mod) / float(max_island_integrity - mod)
 		level_ui.update_integrity_bar(percent)
 
 func notify_enemy_spawn(spawn_position: Vector2):
@@ -121,7 +148,7 @@ func does_tile_exist_at_position(position: Vector2) -> bool:
 		return false
 
 func check_if_game_over():
-	if island_integrity < 1:
+	if float(island_integrity) / float(max_island_integrity) <= integrity_lose_percent:
 		# Lose game here
 		did_player_win = false
 		scene = "lose"

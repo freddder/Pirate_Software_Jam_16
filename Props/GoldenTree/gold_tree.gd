@@ -8,7 +8,8 @@ class_name GoldenTree
 var base_volume : float = 5
 
 func _ready():
-	Level.golden_trees.push_back(self)
+	#Level.golden_trees.push_back(self)
+	Level.register_integrity_entity(self)
 
 func get_hit(source: Vector2, damage: int) -> bool:
 	if health <= 0:
@@ -27,7 +28,7 @@ func get_hit(source: Vector2, damage: int) -> bool:
 		tree_sound.volume_db = base_volume * Level.volume_setter
 		tree_sound.play()
 		animation.play("tree_falling")
-		Level.reduce_island_integrity(1)
+		Level.reduce_island_integrity(Level.golden_tree_integrity_value)
 		Level.golden_trees.erase(self)
 		Level.check_if_game_over()
 		return false

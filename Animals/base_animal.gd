@@ -16,7 +16,8 @@ var type : types
 func _ready():
 	hit_sfx.volume_db = 5
 	type = randi() % types.size()
-	Level.animals.push_back(self)
+	#Level.animals.push_back(self)
+	Level.register_integrity_entity(self)
 
 func _physics_process(delta):
 	move_and_slide()

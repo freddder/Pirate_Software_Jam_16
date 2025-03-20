@@ -13,9 +13,7 @@ func enter():
 	animated_sprite.play(animal.anim_name_prefixes[animal.type] + "_dead")
 	collision.set_deferred("disabled", true)
 	Level.animals.erase(animal)
-	Level.reduce_island_integrity(1)
-	#area.set_deferred("monitorable", false)
-	#area.set_deferred("monitoring", false)
+	Level.reduce_island_integrity(Level.animal_tree_integrity_value)
 
 func update(delta : float):
 	timer += delta

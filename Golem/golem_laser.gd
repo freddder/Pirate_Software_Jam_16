@@ -46,7 +46,7 @@ func update(delta : float):
 	if laser_raycast.is_colliding():
 		laser_preview.global_position = laser_raycast.get_collision_point()
 	
-	laser_beam.rotation = (golem.get_global_mouse_position() - golem.global_position).normalized().angle()
+	laser_beam.rotation = (laser_preview.global_position - golem.global_position).normalized().angle()
 	laser_beam.scale.x = 4 * golem.global_position.distance_to(laser_preview.global_position) / laser_beam.texture.get_width()
 	
 	laser_preview.visible = is_aiming

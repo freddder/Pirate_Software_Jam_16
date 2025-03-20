@@ -10,7 +10,8 @@ var health = 3
 var is_broken : bool = false
 
 func _ready():
-	Level.crystals.push_back(self)
+	#Level.crystals.push_back(self)
+	Level.register_integrity_entity(self)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -32,7 +33,7 @@ func get_hit(source: Vector2, damage: int) -> bool:
 		shatter.play()
 		crystal_glow.visible = !crystal_glow.visible
 		crystal_anim.play("c_broken")
-		Level.reduce_island_integrity(1)
+		Level.reduce_island_integrity(Level.crystal_integrity_value)
 		Level.crystals.erase(self)
 		Level.check_if_game_over()
 		is_broken = true
